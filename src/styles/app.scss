@@ -1,2 +1,76 @@
 @import 'utils/variables';
 @import 'components/type';
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body, html{
+    overflow: hidden;
+    scroll-behavior: smooth;
+}
+
+a{
+    color: $blue;
+    font-family: $text-font;
+    font-weight: 500;
+
+    &:visited{
+        color: $link-visited-color;
+    }
+
+    &:hover{
+        color: $link-hover-color;
+    }
+
+    &:active{
+        color: $link-active-color;
+    }
+}
+
+.title{
+    font-family: $title-font;
+}
+
+.text{
+    font-family: $text-font;
+    font-weight: 300;
+}
+
+.title, .text{
+    line-height: $line-height;
+}
+
+
+.presentation{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+
+    position: relative;
+
+    &__content{
+        position: absolute;
+        transform: translate(-50%, -50%);
+        top: 50%; left: 50%;
+        text-align: center;
+
+    }
+
+    &__title{
+        color: $blue;
+        font-size: $h1-ultra-size;
+        font-weight: 700;
+        margin-bottom: $space-h3;
+
+        // text-shadow: 0 0 18px #0E4AB7;
+    }
+
+    &__text{
+        color: $light-grey;
+        font-size: $p-size;
+        width: 100%;
+    }
+}
