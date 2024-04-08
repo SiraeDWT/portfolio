@@ -1,5 +1,41 @@
-$c-bg: #efefef;
-$c-alt: #e41612;
-$c-text: #444;
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@100..800&display=swap');
 
-$size-text: 18px;
+$p-mini-size: 13px;
+$p-size: 18px;
+$h3-size: 25px;
+$h2-size: 36px;
+$h1-size: 51px;
+$h1-ultra-size: 72px;
+$h1-giga-size: 102px;
+
+$space-p-mini: 26px;
+$space-p: 36px;
+$space-h3: 50px;
+$space-h2: 72px;
+$space-h1: 102px;
+$space-ultra-h1: 144px;
+$space-giga-h1: 204px;
+
+$line-height: 140%;
+
+$title-font: "futura-pt", sans-serif;
+$text-font: "Sora", sans-serif;
+
+$light-grey: #FAFAFA;
+$darker-grey: #212121;
+
+$blue: #32a2fb;
+$darker-blue: #060D19;
+
+$link-color: $blue;
+$link-visited-color: #2aa1ff;
+$link-hover-color: #84c8ff;
+$link-active-color: #8999B9;
+
+// $dark-blue: #0E4AB7; ! Attention contrast
+
+$breakpoint-mobile: 480px;
+$breakpoint-tablet: 768px;
+$breakpoint-tablet-large: 1024px;
+$breakpoint-desktop: 1440px;
+$breakpoint-desktop-large: 1921px;
