@@ -8,7 +8,7 @@
 }
 
 body, html{
-    overflow: hidden;
+    overflow-x: hidden;
     scroll-behavior: smooth;
 }
 
@@ -60,17 +60,49 @@ a{
     }
 
     &__title{
-        color: $blue;
-        font-size: $h1-ultra-size;
+        color: $light-grey;
+        font-size: $h1-giga-size;
         font-weight: 700;
         margin-bottom: $space-h3;
 
-        // text-shadow: 0 0 18px #0E4AB7;
+        text-shadow: 0 0 18px #0E4AB7;
+    }
+
+    &__welcome{
+        font-size: $h2-size;
+        color: $light-grey;
+        margin-bottom: $space-p;
     }
 
     &__text{
         color: $light-grey;
         font-size: $p-size;
         width: 100%;
+    }
+
+    &__scroll{
+        position: absolute;
+        transform: translate(-50%, -50%);
+        bottom: 4%; left: 50%;
+
+        background: none;
+        width: 44px;
+        height: 44px;
+        border: none;
+        cursor: pointer;
+    }
+
+    &__arrow{
+        filter: drop-shadow(0 0 18px #0E4AB7);
+
+        transition: .3s;
+
+        &:hover{
+            transform: scale(0.75);
+        }
+
+        path{
+            fill: $light-grey;
+        }
     }
 }
