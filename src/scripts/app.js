@@ -1,7 +1,43 @@
 "use strict";
 
+import { gsap } from "gsap";
+import ScrollTrigger from 'gsap/ScrollTrigger';
+gsap.registerPlugin(ScrollTrigger);
+
+// let timeline = gsap.timeline();
+
+gsap.from('.presentation__title', {
+    duration: 2,
+    opacity: 0,
+    scale: 0,
+    ease: "back.out(2)",
+});
 
 
+
+gsap.from('.skills__title', {
+    duration: 1,
+    opacity: 0,
+    x: '-25%',
+    // scrollTrigger: '.box',
+    scrollTrigger: {
+        trigger: '.skills',
+        pin: true,
+        start: 'top 80%',
+        end: 'top 80%',
+        scrub: 1,
+        toggleActions: "restart pause reverse pause",
+        delay: 0.2,
+        markers: true,
+        ease: "power4.inOut",
+        // endTrigger: '.box', 
+    }
+});
+
+
+
+
+// ----- CANVAS -----
 let canvas = document.getElementById('canvas'),
     ctx = canvas.getContext('2d'),
     w = canvas.width = window.innerWidth,
