@@ -43,6 +43,11 @@ a{
     line-height: $line-height;
 }
 
+.wrapper{
+    width: 70%;
+    margin: 0 auto;
+}
+
 
 .presentation{
     width: 100%;
@@ -105,4 +110,27 @@ a{
             fill: $light-grey;
         }
     }
+}
+
+.skills{
+    width: 100%;
+    height: 100vh;
+
+    background-color: $darker-blue;
+    border-top: 3px solid $light-grey;
+    display: grid;
+
+    &__title{
+        margin: $space-h1 0 0;
+        font-size: $h1-size;
+        color: $light-grey;
+    }
+}
+
+.projects{
+    width: 100%;
+    height: 100vh;
+
+    background-color: $light-grey;
+    border-top: 3px solid $light-grey;
 }
