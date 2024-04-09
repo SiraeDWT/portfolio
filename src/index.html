@@ -27,13 +27,18 @@
     <script src="scripts/app.js" defer></script>
 </head>
 <body>
-    <section class="presentation">
-        <div class="presentation__content">
-            <h1 class="presentation__title title">Dylan Vercalsteren</h1>
-            <p class="presentation__text text">Hey, bienvenue&#8239;! Je suis actuellement étudiant à la <a href="https://www.heaj.be/fr/" target="_blank">Haute&nbsp;École Albert&nbsp;Jacquard</a> dans l’option <a href="https://dwt.heaj.be/" target="_blank">Design&nbsp;Web&nbsp;Transmedia</a>.&nbsp;</p>
-        </div>
-        <canvas id="canvas"></canvas>
-        
-    </section>
+    <main>
+        <section class="presentation">
+            <div class="presentation__content">
+                <h1 class="presentation__title title">Dylan Vercalsteren</h1>
+                <p class="presentation__welcome text">Hey, bienvenue&#8239;!</p>
+                <p class="presentation__text text">Je suis actuellement étudiant à la <a href="https://www.heaj.be/fr/" target="_blank">Haute&nbsp;École Albert&nbsp;Jacquard</a> dans l’option <a href="https://dwt.heaj.be/" target="_blank">Design&nbsp;Web&nbsp;Transmedia</a>.&nbsp;</p>   
+            </div>
+            <button class="presentation__scroll">
+                <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" class="presentation__arrow"><path d="M0 7.33l2.829-2.83 9.175 9.339 9.167-9.339 2.829 2.83-11.996 12.17z"/></svg>
+            </button>
+            <canvas id="canvas"></canvas>   
+        </section>
+    </main>
 </body>
 </html>
