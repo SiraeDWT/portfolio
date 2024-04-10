@@ -10,7 +10,7 @@ gsap.from('.presentation__title', {
     duration: 2,
     opacity: 0,
     scale: 0,
-    ease: "back.out(2)",
+    ease: "slow(0.7,0.7,false)",
 });
 
 
@@ -21,16 +21,50 @@ gsap.from('.skills__title', {
     x: '-25%',
     // scrollTrigger: '.box',
     scrollTrigger: {
-        trigger: '.skills',
+        trigger: '.skills__title',
         pin: true,
-        start: 'top 80%',
-        end: 'top 80%',
+        start: '50% 65%',
+        end: '50% 65%',
         scrub: 1,
         toggleActions: "restart pause reverse pause",
         delay: 0.2,
         markers: true,
-        ease: "power4.inOut",
+        ease: "slow(0.7,0.7,false)",
         // endTrigger: '.box', 
+    }
+});
+
+gsap.from('.skills__text', {
+    duration: 1,
+    opacity: 0,
+    x: '-25%',
+    scrollTrigger: {
+        trigger: '.skills__text',
+        pin: true,
+        start: '50% 65%',
+        end: '50% 65%',
+        scrub: 1,
+        toggleActions: "restart pause reverse pause",
+        delay: 0.2,
+        markers: true,
+        ease: "slow(0.7,0.7,false)",
+    }
+});
+
+gsap.from('.skills__el', {
+    duration: 1,
+    opacity: 0,
+    x: '-25%',
+    scrollTrigger: {
+        trigger: '.skills__list',
+        pin: true,
+        start: '50% 65%',
+        end: '50% 65%',
+        scrub: 1,
+        toggleActions: "restart pause reverse pause",
+        delay: 0.2,
+        markers: true,
+        ease: "slow(0.7,0.7,false)",
     }
 });
 
