@@ -121,8 +121,19 @@ a{
     display: grid;
 
     &__title{
-        margin: $space-h1 0 0;
+        margin: $space-h1 0 $space-h3;
         font-size: $h1-size;
+        color: $light-grey;
+    }
+
+    &__text{
+        color: $light-grey;
+        font-size: $p-size;
+        width: 100%;
+        margin-bottom: $space-p;
+    }
+
+    &__list{
         color: $light-grey;
     }
 }
