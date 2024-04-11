@@ -290,3 +290,50 @@ let delay = 200, tid,
 rgb = opts.lineColor.match(/\d+/g);
 resizeReset();
 setup();
+
+
+
+// ----- CURSOR -----
+
+var cursor = document.querySelector(".cursor");
+var follower = document.querySelector(".cursor-follower");
+
+var posX = 0;
+var posY = 0;
+
+var mouseX = 0;
+var mouseY = 0;
+
+function animateCursor() {
+    posX += (mouseX - posX) / 9;
+    posY += (mouseY - posY) / 9;
+
+    follower.style.left = posX - 12 + "px";
+    follower.style.top = posY - 12 + "px";
+
+    cursor.style.left = mouseX + "px";
+    cursor.style.top = mouseY + "px";
+
+    requestAnimationFrame(animateCursor);
+}
+
+animateCursor();
+
+document.addEventListener("pointermove", function (e) {
+    mouseX = e.pageX;
+    mouseY = e.pageY;
+});
+
+var links = document.querySelectorAll(".link");
+
+links.forEach(function (link) {
+    link.addEventListener("mouseenter", function () {
+        cursor.classList.add("active");
+        follower.classList.add("active");
+    });
+
+    link.addEventListener("mouseleave", function () {
+        cursor.classList.remove("active");
+        follower.classList.remove("active");
+    });
+});
