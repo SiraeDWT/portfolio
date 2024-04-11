@@ -15,63 +15,63 @@ gsap.from('.presentation__title', {
 
 
 
-gsap.from('.skills__title', {
-    duration: 1,
-    opacity: 0,
-    x: '-25%',
-    // scrollTrigger: '.box',
-    scrollTrigger: {
-        trigger: '.skills__title',
-        pin: true,
-        start: '50% 65%',
-        end: '50% 65%',
-        scrub: 1,
-        toggleActions: "restart pause reverse pause",
-        delay: 0.2,
-        markers: true,
-        ease: "slow(0.7,0.7,false)",
-        // endTrigger: '.box', 
-    }
-});
+// gsap.from('.skills__title', {
+//     duration: 1,
+//     opacity: 0,
+//     x: '-25%',
+//     // scrollTrigger: '.box',
+//     scrollTrigger: {
+//         trigger: '.skills__title',
+//         pin: true,
+//         start: '50% 65%',
+//         end: '50% 65%',
+//         scrub: 1,
+//         toggleActions: "restart pause reverse pause",
+//         delay: 0.2,
+//         markers: true,
+//         ease: "slow(0.7,0.7,false)",
+//         // endTrigger: '.box', 
+//     }
+// });
 
-gsap.from('.skills__text', {
-    duration: 1,
-    opacity: 0,
-    x: '-25%',
-    scrollTrigger: {
-        trigger: '.skills__text',
-        pin: true,
-        start: '50% 65%',
-        end: '50% 65%',
-        scrub: 1,
-        toggleActions: "restart pause reverse pause",
-        delay: 0.2,
-        markers: true,
-        ease: "slow(0.7,0.7,false)",
-    }
-});
+// gsap.from('.skills__text', {
+//     duration: 1,
+//     opacity: 0,
+//     x: '-25%',
+//     scrollTrigger: {
+//         trigger: '.skills__text',
+//         pin: true,
+//         start: '50% 65%',
+//         end: '50% 65%',
+//         scrub: 1,
+//         toggleActions: "restart pause reverse pause",
+//         delay: 0.2,
+//         markers: true,
+//         ease: "slow(0.7,0.7,false)",
+//     }
+// });
 
-gsap.from('.skills__el', {
-    duration: 1,
-    opacity: 0,
-    x: '-25%',
-    scrollTrigger: {
-        trigger: '.skills__list',
-        pin: true,
-        start: '50% 65%',
-        end: '50% 65%',
-        scrub: 1,
-        toggleActions: "restart pause reverse pause",
-        delay: 0.2,
-        markers: true,
-        ease: "slow(0.7,0.7,false)",
-    }
-});
-
-
+// gsap.from('.skills__el', {
+//     duration: 1,
+//     opacity: 0,
+//     x: '-25%',
+//     scrollTrigger: {
+//         trigger: '.skills__list',
+//         pin: true,
+//         start: '50% 65%',
+//         end: '50% 65%',
+//         scrub: 1,
+//         toggleActions: "restart pause reverse pause",
+//         delay: 0.2,
+//         markers: true,
+//         ease: "slow(0.7,0.7,false)",
+//     }
+// });
 
 
-// ----- CANVAS -----
+
+
+// ----- CANVAS INTRO -----
 let canvas = document.getElementById('canvas'),
     ctx = canvas.getContext('2d'),
     w = canvas.width = window.innerWidth,
@@ -171,3 +171,122 @@ function animation() {
 }
 
 animation();
+
+
+
+// ----- CANVAS CONTACT -----
+let wi, he;
+
+const resizeReset = function() {
+    wi = canvasBody.width = window.innerWidth;
+    he = canvasBody.height = window.innerHeight;
+};
+
+const opts = { 
+    particleColor: "rgb(200,200,200)",
+    lineColor: "rgb(200,200,200)",
+    particleAmount: 30,
+    defaultSpeed: 1,
+    variantSpeed: 1,
+    defaultRadius: 2,
+    variantRadius: 2,
+    linkRadius: 200,
+};
+
+window.addEventListener("resize", function(){
+    deBouncer();
+});
+
+let deBouncer = function() {
+    clearTimeout(tid);
+    tid = setTimeout(function() {
+        resizeReset();
+    }, delay);
+};
+
+const checkDistance = function(x1, y1, x2, y2){ 
+    return Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2));
+};
+
+const linkPoints = function(point1, hubs){ 
+    for (let i = 0; i < hubs.length; i++) {
+        let distance = checkDistance(point1.x, point1.y, hubs[i].x, hubs[i].y);
+        let opacity = 1 - distance / opts.linkRadius;
+        if (opacity > 0) { 
+            drawArea.lineWidth = 0.5;
+            drawArea.strokeStyle = `rgba(${rgb[0]}, ${rgb[1]}, ${rgb[2]}, ${opacity})`;
+            drawArea.beginPath();
+            drawArea.moveTo(point1.x, point1.y);
+            drawArea.lineTo(hubs[i].x, hubs[i].y);
+            drawArea.closePath();
+            drawArea.stroke();
+        }
+    }
+};
+
+const Particle = function(xPos, yPos){ 
+    this.x = Math.random() * wi; 
+    this.y = Math.random() * he;
+    this.speed = opts.defaultSpeed + Math.random() * opts.variantSpeed; 
+    this.directionAngle = Math.floor(Math.random() * 360); 
+    this.color = opts.particleColor;
+    this.radius = opts.defaultRadius + Math.random() * opts. variantRadius; 
+    this.vector = {
+        x: Math.cos(this.directionAngle) * this.speed,
+        y: Math.sin(this.directionAngle) * this.speed
+    };
+    this.update = function(){ 
+        this.border(); 
+        this.x += this.vector.x; 
+        this.y += this.vector.y; 
+    };
+    this.border = function(){ 
+        if (this.x >= wi || this.x <= 0) { 
+            this.vector.x *= -1;
+        }
+        if (this.y >= he || this.y <= 0) {
+            this.vector.y *= -1;
+        }
+        if (this.x > wi) this.x = wi;
+        if (this.y > he) this.y = he;
+        if (this.x < 0) this.x = 0;
+        if (this.y < 0) this.y = 0;    
+    };
+    this.draw = function(){ 
+        drawArea.beginPath();
+        drawArea.arc(this.x, this.y, this.radius, 0, Math.PI*2);
+        drawArea.closePath();
+        drawArea.fillStyle = this.color;
+        drawArea.fill();
+    };
+};
+
+let particles = [];
+
+function setup(){ 
+    particles = [];
+    resizeReset();
+    for (let i = 0; i < opts.particleAmount; i++){
+        particles.push( new Particle() );
+    }
+    window.requestAnimationFrame(loop);
+}
+
+function loop(){ 
+    window.requestAnimationFrame(loop);
+    drawArea.clearRect(0,0,wi,he);
+    for (let i = 0; i < particles.length; i++){
+        particles[i].update();
+        particles[i].draw();
+    }
+    for (let i = 0; i < particles.length; i++){
+        linkPoints(particles[i], particles);
+    }
+}
+
+const canvasBody = document.getElementById("contact-canvas"),
+drawArea = canvasBody.getContext("2d");
+let delay = 200, tid,
+rgb = opts.lineColor.match(/\d+/g);
+resizeReset();
+setup();
