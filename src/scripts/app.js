@@ -6,7 +6,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 // let timeline = gsap.timeline();
 
-gsap.from('.presentation__title', {
+gsap.from('.presentation__welcome', {
     duration: 2,
     opacity: 0,
     scale: 0,
