@@ -82,6 +82,15 @@ let canvas = document.getElementById('canvas'),
     count = 0,
     maxStars = 1400;
 
+let mouseX = w / 2;
+let mouseY = h / 2;
+let lastMouseX = w / 2;
+let lastMouseY = h / 2;
+
+canvas.addEventListener('pointermove', function(e) {
+    mouseX = e.pageX;
+    mouseY = e.pageY;
+});
 
 let canvas2 = document.createElement('canvas'),
     ctx2 = canvas2.getContext('2d');
@@ -94,12 +103,11 @@ let half = canvas2.width/2,
     gradient2.addColorStop(0.25, 'hsl(' + hue + ', 64%, 6%)');
     gradient2.addColorStop(1, 'transparent');
 
-    ctx2.fillStyle = gradient2;
-    ctx2.beginPath();
-    ctx2.arc(half, half, half, 0, Math.PI * 2);
-    ctx2.fill();
+ctx2.fillStyle = gradient2;
+ctx2.beginPath();
+ctx2.arc(half, half, half, 0, Math.PI * 2);
+ctx2.fill();
 
-// End cache
 
 function random(min, max) {
     if (arguments.length < 2) {
@@ -131,12 +139,20 @@ let Star = function() {
     this.timePassed = random(0, maxStars);
     this.speed = random(this.orbitRadius) / 600000; // Vitesse
     this.alpha = random(2, 10) / 10;
+    
+    // Nouvelles propriétés pour la position cible
+    this.targetX = 0;
+    this.targetY = 0;
 
     count++;
     stars[count] = this;
 }
 
 Star.prototype.draw = function() {
+    // Interpolation de la position actuelle vers la position cible
+    this.orbitX += (mouseX - lastMouseX) / 10;
+    this.orbitY += (mouseY - lastMouseY) / 10;
+
     let x = Math.sin(this.timePassed) * this.orbitRadius + this.orbitX,
         y = Math.cos(this.timePassed) * this.orbitRadius + this.orbitY,
         twinkle = random(10);
@@ -148,7 +164,7 @@ Star.prototype.draw = function() {
     }
 
     ctx.globalAlpha = this.alpha;
-        ctx.drawImage(canvas2, x - this.radius / 2, y - this.radius / 2, this.radius, this.radius);
+    ctx.drawImage(canvas2, x - this.radius / 2, y - this.radius / 2, this.radius, this.radius);
     this.timePassed += this.speed;
 }
 
@@ -157,16 +173,19 @@ for (let i = 0; i < maxStars; i++) {
 }
 
 function animation() {
-        ctx.globalCompositeOperation = 'source-over';
-        ctx.globalAlpha = 0.8;
-        ctx.fillStyle = 'hsla(' + hue + ', 64%, 6%, 1)';
-        ctx.fillRect(0, 0, w, h)
-    
+    ctx.globalCompositeOperation = 'source-over';
+    ctx.globalAlpha = 0.8;
+    ctx.fillStyle = 'hsla(' + hue + ', 64%, 6%, 1)';
+    ctx.fillRect(0, 0, w, h)
+
     ctx.globalCompositeOperation = 'lighter';
     for (let i = 1, l = stars.length; i < l; i++) {
         stars[i].draw();
     };  
     
+    lastMouseX = mouseX;
+    lastMouseY = mouseY;
+
     window.requestAnimationFrame(animation);
 }
 
@@ -185,8 +204,8 @@ const resizeReset = function() {
 const opts = { 
     particleColor: "rgb(200,200,200)",
     lineColor: "rgb(200,200,200)",
-    particleAmount: 30,
-    defaultSpeed: 1,
+    particleAmount: 50,
+    defaultSpeed: 0.1,
     variantSpeed: 1,
     defaultRadius: 2,
     variantRadius: 2,
@@ -295,45 +314,45 @@ setup();
 
 // ----- CURSOR -----
 
-var cursor = document.querySelector(".cursor");
-var follower = document.querySelector(".cursor-follower");
+// var cursor = document.querySelector(".cursor");
+// var follower = document.querySelector(".cursor-follower");
 
-var posX = 0;
-var posY = 0;
+// var posX = 0;
+// var posY = 0;
 
-var mouseX = 0;
-var mouseY = 0;
+// var mouseX = 0;
+// var mouseY = 0;
 
-function animateCursor() {
-    posX += (mouseX - posX) / 9;
-    posY += (mouseY - posY) / 9;
+// function animateCursor() {
+//     posX += (mouseX - posX) / 9;
+//     posY += (mouseY - posY) / 9;
 
-    follower.style.left = posX - 12 + "px";
-    follower.style.top = posY - 12 + "px";
+//     follower.style.left = posX - 12 + "px";
+//     follower.style.top = posY - 12 + "px";
 
-    cursor.style.left = mouseX + "px";
-    cursor.style.top = mouseY + "px";
+//     cursor.style.left = mouseX + "px";
+//     cursor.style.top = mouseY + "px";
 
-    requestAnimationFrame(animateCursor);
-}
+//     requestAnimationFrame(animateCursor);
+// }
 
-animateCursor();
+// animateCursor();
 
-document.addEventListener("pointermove", function (e) {
-    mouseX = e.pageX;
-    mouseY = e.pageY;
-});
+// document.addEventListener("pointermove", function (e) {
+//     mouseX = e.pageX;
+//     mouseY = e.pageY;
+// });
 
-var links = document.querySelectorAll(".link");
+// var links = document.querySelectorAll(".link");
 
-links.forEach(function (link) {
-    link.addEventListener("mouseenter", function () {
-        cursor.classList.add("active");
-        follower.classList.add("active");
-    });
+// links.forEach(function (link) {
+//     link.addEventListener("mouseenter", function () {
+//         cursor.classList.add("active");
+//         follower.classList.add("active");
+//     });
 
-    link.addEventListener("mouseleave", function () {
-        cursor.classList.remove("active");
-        follower.classList.remove("active");
-    });
-});
+//     link.addEventListener("mouseleave", function () {
+//         cursor.classList.remove("active");
+//         follower.classList.remove("active");
+//     });
+// });
