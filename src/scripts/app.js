@@ -290,24 +290,24 @@ setup();
 
 
 // ----- CURSOR -----
-// var cursor = document.querySelector(".cursor");
-// var follower = document.querySelector(".cursor-follower");
+// let cursor = document.querySelector(".cursor");
+// let follower = document.querySelector(".cursor-follower");
 
-// var posX = 0;
-// var posY = 0;
+// let posX = 0;
+// let posY = 0;
 
-// var mouseX = 0;
-// var mouseY = 0;
+// let pointerX = 0;
+// let pointerY = 0;
 
 // function animateCursor() {
-//     posX += (mouseX - posX) / 9;
-//     posY += (mouseY - posY) / 9;
+//     posX += (pointerX - posX) / 9;
+//     posY += (pointerY - posY) / 9;
 
 //     follower.style.left = posX - 12 + "px";
 //     follower.style.top = posY - 12 + "px";
 
-//     cursor.style.left = mouseX + "px";
-//     cursor.style.top = mouseY + "px";
+//     cursor.style.left = pointerX + "px";
+//     cursor.style.top = pointerY + "px";
 
 //     requestAnimationFrame(animateCursor);
 // }
@@ -315,11 +315,11 @@ setup();
 // animateCursor();
 
 // document.addEventListener("pointermove", function (e) {
-//     mouseX = e.pageX;
-//     mouseY = e.pageY;
+//     pointerX = e.pageX;
+//     pointerY = e.pageY;
 // });
 
-// var links = document.querySelectorAll(".link");
+// let links = document.querySelectorAll(".link");
 
 // links.forEach(function (link) {
 //     link.addEventListener("mouseenter", function () {
@@ -335,7 +335,7 @@ setup();
 
 
 
-
+// ----- Slide Projects -----
 let sections = gsap.utils.toArray(".projects__projet");
     
 gsap.to(sections,{
