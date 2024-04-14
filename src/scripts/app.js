@@ -140,7 +140,6 @@ let Star = function() {
     this.speed = random(this.orbitRadius) / 600000; // Vitesse
     this.alpha = random(2, 10) / 10;
     
-    // Nouvelles propriétés pour la position cible
     this.targetX = 0;
     this.targetY = 0;
 
@@ -149,7 +148,6 @@ let Star = function() {
 }
 
 Star.prototype.draw = function() {
-    // Interpolation de la position actuelle vers la position cible
     this.orbitX += (mouseX - lastMouseX) / 10;
     this.orbitY += (mouseY - lastMouseY) / 10;
 
@@ -202,9 +200,9 @@ const resizeReset = function() {
 };
 
 const opts = { 
-    particleColor: "rgb(200,200,200)",
+    particleColor: "#FAAC32",
     lineColor: "rgb(200,200,200)",
-    particleAmount: 50,
+    particleAmount: 30,
     defaultSpeed: 0.1,
     variantSpeed: 1,
     defaultRadius: 2,
