@@ -193,6 +193,31 @@ a{
 
     background-color: $darker-blue;
     border-top: 1px solid $complementary-color;
+
+    overflow-x: hidden;
+    
+    &__projet{
+        height: 100vh;
+        width: 100%;
+
+        border-left: 18px solid $complementary-color;
+
+        &:nth-child(2n){
+            background-color:aqua;
+        }
+    }
+
+    &__title{
+        margin: $space-h1 0 $space-h3;
+        font-size: $h1-size;
+        color: $light-grey; 
+    }
+
+    &__secondary-title{
+        margin: $space-h1 0 $space-h3;
+        font-size: $h2-size;
+        color: $light-grey; 
+    }
 }
 
 .contact{
@@ -449,7 +474,7 @@ a{
 
         & .img-space-line{
             width: 80px;
-            height: 100%;
+            height: 0%;
             background: url(../assets/images/space-line.svg);
 
             background-position: center;
@@ -484,4 +509,12 @@ a{
             grid-column: 2/5;
         }
     }
+}
+
+
+.projects__slider{
+    display: flex;
+    flex-wrap: no-wrap;
+    width: 300%;
+    overflow-x: hidden;
 }

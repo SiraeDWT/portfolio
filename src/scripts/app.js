@@ -34,39 +34,18 @@ gsap.from('.presentation__welcome', {
 //     }
 // });
 
-// gsap.from('.skills__text', {
-//     duration: 1,
-//     opacity: 0,
-//     x: '-25%',
-//     scrollTrigger: {
-//         trigger: '.skills__text',
-//         pin: true,
-//         start: '50% 65%',
-//         end: '50% 65%',
-//         scrub: 1,
-//         toggleActions: "restart pause reverse pause",
-//         delay: 0.2,
-//         markers: true,
-//         ease: "slow(0.7,0.7,false)",
-//     }
-// });
 
-// gsap.from('.skills__el', {
-//     duration: 1,
-//     opacity: 0,
-//     x: '-25%',
-//     scrollTrigger: {
-//         trigger: '.skills__list',
-//         pin: true,
-//         start: '50% 65%',
-//         end: '50% 65%',
-//         scrub: 1,
-//         toggleActions: "restart pause reverse pause",
-//         delay: 0.2,
-//         markers: true,
-//         ease: "slow(0.7,0.7,false)",
-//     }
-// });
+gsap.to("#imgSpaceLine", {
+    height: "100%",
+    duration: 5,
+    
+    scrollTrigger: {
+        trigger: "#skills",
+        start: "top 75%",
+        end: "40% 75%",
+        scrub: 1,
+    },   
+});
 
 
 
@@ -311,7 +290,6 @@ setup();
 
 
 // ----- CURSOR -----
-
 // var cursor = document.querySelector(".cursor");
 // var follower = document.querySelector(".cursor-follower");
 
@@ -354,3 +332,29 @@ setup();
 //         follower.classList.remove("active");
 //     });
 // });
+
+
+
+
+let sections = gsap.utils.toArray(".projects__projet");
+    
+gsap.to(sections,{
+  xPercent: -100 * (sections.length - 1),
+  ease: "none",
+  scrollTrigger: {
+    trigger: ".projects__slider",
+    pin: ".projects",
+    pinSpacing: true,
+    scrub: 1,
+    end: "+=3000",
+  }
+});
+
+gsap.to('.contact',{
+  scrollTrigger:{
+    trigger: '.contact',
+    pinnedContainer: ".projects",
+    start:'top 50%',
+    toggleActions: 'play none reset none',
+  }
+});
