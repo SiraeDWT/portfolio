@@ -73,6 +73,12 @@ a{
 
     position: relative;
 
+    // border-right: 25px solid $complementary-color;
+    // &__canvas{
+    //     position: absolute;
+    //     z-index: -1;
+    // }
+
     &__content{
         position: absolute;
         transform: translate(-50%, -50%);
@@ -185,6 +191,12 @@ a{
     &__el::marker{
         color: $complementary-color;
     }
+
+    & .test{
+        height: 2px;
+        color: $complementary-color;
+        margin: $space-h2 0;
+    }
 }
 
 .projects{
@@ -200,10 +212,10 @@ a{
         height: 100vh;
         width: 100%;
 
-        border-left: 18px solid $complementary-color;
+        border-right: 25px solid $complementary-color;
 
         &:nth-child(2n){
-            background-color:aqua;
+            background-color:$light-grey;
         }
     }
 
@@ -310,6 +322,67 @@ a{
         & svg{
             fill: $light-grey;
         }
+    }
+}
+
+.network{
+
+    &__list{
+        position: fixed;
+        z-index: 20;
+        bottom: 10px; left: 10px;
+        list-style: none;
+        display: none;
+    }
+
+    &__el{
+        padding: 10px 0;
+
+        &:last-child{
+            padding-bottom: 0;
+        }
+
+        & a{
+            padding: 5px;
+            fill: $link-color;
+
+            &:visited{
+                fill: $link-visited-color;
+            }
+
+            &:hover{
+                fill: $link-hover-color;
+            }
+
+            &:active{
+                fill: $link-active-color;
+            }
+        }
+    }
+}
+
+.top{
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    background-color: rgba(250, 172, 50, 0.5);
+    width: 44px;
+    height: 44px;
+
+    z-index: 20;
+
+    display: none;
+
+    &:hover{
+        background-color: $complementary-color;
+    }
+
+    & svg{
+        position: absolute;
+        transform: translate(-50%, -50%);
+        top: 50%;
+        left: 50%;
+        fill: #060D19;
     }
 }
 
@@ -456,7 +529,20 @@ a{
 }
 
 @media only screen and (min-width: $breakpoint-tablet){
+    .network{
 
+        &__list{
+            position: fixed;
+            z-index: 20;
+            bottom: 10px; left: 10px;
+            list-style: none;
+            display: block;
+        }
+    }
+
+    .top{
+        display: block;
+    }
 }
 
 @media only screen and (min-width: $breakpoint-desktop){
