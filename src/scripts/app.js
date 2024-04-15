@@ -14,37 +14,83 @@ gsap.from('.presentation__welcome', {
 });
 
 
+gsap.from('.skills__title', {
+    x: '-25%',
+    duration: 1,
+    opacity: 0,
+    stagger: 0.25,
+    scrollTrigger: {
+        trigger: '.skills',
+        start: 'top 40%',
+        end: 'bottom 30%',
+        // markers: true,
+    }
+});
 
-// gsap.from('.skills__title', {
-//     duration: 1,
-//     opacity: 0,
-//     x: '-25%',
-//     // scrollTrigger: '.box',
-//     scrollTrigger: {
-//         trigger: '.skills__title',
-//         pin: true,
-//         start: '50% 65%',
-//         end: '50% 65%',
-//         scrub: 1,
-//         toggleActions: "restart pause reverse pause",
-//         delay: 0.2,
-//         markers: true,
-//         ease: "slow(0.7,0.7,false)",
-//         // endTrigger: '.box', 
-//     }
-// });
+gsap.from('.grid-col-3', {
+    x: '-25%',
+    duration: 1,
+    opacity: 0,
+    stagger: 0.25,
+    scrollTrigger: {
+        trigger: '.skills__title',
+        start: 'top 40%',
+        end: 'bottom 30%',
+        // markers: true,
+    }
+});
+
+gsap.from('.skills__el', {
+    x: '-25%',
+    duration: 1,
+    opacity: 0,
+    stagger: 0.25,
+    scrollTrigger: {
+        trigger: '.skills__text',
+        start: 'top 40%',
+        end: 'bottom 30%',
+        // markers: true,
+    }
+});
 
 
-gsap.to("#imgSpaceLine", {
-    height: "100%",
-    duration: 5,
+gsap.from(".img-space-line", {
+    height: "0%",
+    duration: 2,
     
     scrollTrigger: {
-        trigger: "#skills",
-        start: "top 75%",
-        end: "40% 75%",
-        scrub: 1,
+        trigger: ".skills",
+        start: 'top 40%',
+        end: 'bottom 30%',
+        // start: "top 75%",
+        // end: "40% 75%",
+        // scrub: 1,
     },   
+});
+
+
+// ----- Slide Projects -----
+let sections = gsap.utils.toArray(".projects__projet");
+    
+gsap.to(sections,{
+  xPercent: -100 * (sections.length - 1),
+  ease: "slow(0.7,0.7,false)",
+  scrollTrigger: {
+    trigger: ".projects__slider",
+    pin: ".projects",
+    pinSpacing: true,
+    scrub: 1,
+    end: "+=3000",
+  }
+});
+
+gsap.to('.contact',{
+  scrollTrigger:{
+    trigger: '.contact',
+    pinnedContainer: ".projects",
+    start:'top 50%',
+    toggleActions: 'play none reset none',
+  }
 });
 
 
@@ -332,29 +378,3 @@ setup();
 //         follower.classList.remove("active");
 //     });
 // });
-
-
-
-// ----- Slide Projects -----
-let sections = gsap.utils.toArray(".projects__projet");
-    
-gsap.to(sections,{
-  xPercent: -100 * (sections.length - 1),
-  ease: "none",
-  scrollTrigger: {
-    trigger: ".projects__slider",
-    pin: ".projects",
-    pinSpacing: true,
-    scrub: 1,
-    end: "+=3000",
-  }
-});
-
-gsap.to('.contact',{
-  scrollTrigger:{
-    trigger: '.contact',
-    pinnedContainer: ".projects",
-    start:'top 50%',
-    toggleActions: 'play none reset none',
-  }
-});
