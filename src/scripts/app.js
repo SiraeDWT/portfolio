@@ -70,7 +70,7 @@ gsap.from(".img-space-line", {
 
 
 // ----- Slide Projects -----
-let sections = gsap.utils.toArray(".projects__projet");
+let sections = gsap.utils.toArray(".projects__el");
     
 gsap.to(sections,{
   xPercent: -100 * (sections.length - 1),
