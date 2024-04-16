@@ -349,7 +349,7 @@ a{
         gap: 13px;
         align-items: center;
 
-        color: $link-color;
+        color: $light-grey;
         border: 1px solid $complementary-color;
         background-color: $darker-blue;
 
@@ -359,8 +359,16 @@ a{
         position: relative;
         z-index: 10;
 
+        & svg{
+            fill: $light-grey;
+        }
+
         &:focus{
             outline: 0;
+        }
+
+        &:visited{
+            color: $light-grey;
         }
 
         &:hover{
@@ -391,7 +399,7 @@ a{
 
         &:active{
             transform: scale(1.1);
-        }
+        } 
     }
 
     &__img{
