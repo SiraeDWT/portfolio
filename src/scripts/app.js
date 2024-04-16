@@ -14,6 +14,61 @@ gsap.from('.presentation__welcome', {
 });
 
 
+gsap.from('.softskills__title', {
+    x: '-25%',
+    duration: 1,
+    opacity: 0,
+    stagger: 0.25,
+    scrollTrigger: {
+        trigger: '.softskills',
+        start: 'top 40%',
+        end: 'bottom 30%',
+        // markers: true,
+    }
+});
+
+gsap.from('.softskills__grid-col-3', {
+    x: '-25%',
+    duration: 1,
+    opacity: 0,
+    stagger: 0.25,
+    scrollTrigger: {
+        trigger: '.softskills__title',
+        start: 'top 40%',
+        end: 'bottom 30%',
+        // markers: true,
+    }
+});
+
+gsap.from('.softskills__el', {
+    x: '-25%',
+    duration: 1,
+    opacity: 0,
+    stagger: 0.25,
+    scrollTrigger: {
+        trigger: '.softskills__text',
+        start: 'top 40%',
+        end: 'bottom 30%',
+        // markers: true,
+    }
+});
+
+gsap.from(".softskills__line", {
+    height: "0%",
+    duration: 2,
+    
+    scrollTrigger: {
+        trigger: ".softskills",
+        start: 'top 40%',
+        end: 'bottom 30%',
+        // start: "top 75%",
+        // end: "40% 75%",
+        // scrub: 1,
+    },   
+});
+
+
+
 gsap.from('.skills__title', {
     x: '-25%',
     duration: 1,
@@ -27,7 +82,7 @@ gsap.from('.skills__title', {
     }
 });
 
-gsap.from('.grid-col-3', {
+gsap.from('.skills__grid-col-3', {
     x: '-25%',
     duration: 1,
     opacity: 0,
@@ -54,7 +109,9 @@ gsap.from('.skills__el', {
 });
 
 
-gsap.from(".img-space-line", {
+
+
+gsap.from(".skills__line", {
     height: "0%",
     duration: 2,
     

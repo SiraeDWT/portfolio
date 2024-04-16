@@ -27,8 +27,8 @@
     <script src="scripts/app.js" defer></script>
 </head>
 <body id="top">
-    <div class="cursor"></div>
-    <div class="cursor-follower"></div>
+    <!-- <div class="cursor"></div>
+    <div class="cursor-follower"></div> -->
     <main>
         <section class="presentation">
             <div class="presentation__content">
@@ -42,27 +42,75 @@
             <canvas id="canvas" class="presentation__canvas"></canvas>   
         </section>
 
-        <section class="skills" id="skills">
-            <div class="skills__container wrapper">
-                <h2 class="skills__title title">Présentation</h2>
-                <div class="grid-col-3">
-                    <p class="skills__text text">Je m’appelle Dylan Vercalsteren, j’ai actuellement 27 ans et je suis étudiant à la HEAJ.&nbsp;</p>
-                    <p class="skills__text text">Cela fait maintenant plusieurs années que je me suis pris de passion pour le développement et que je suis en perpétuelle quête d’amélioration. Certains diront que je prends peut-être mon travail trop à cœur, personnellement, je préfère dire que je suis passionné.&nbsp;</p>
-                    <p class="skills__text text">Si je devais définir mes qualités personnelles, je dirais que je suis&nbsp;: </p>
+        <section class="softskills" id="skills">
+            <div class="softskills__container wrapper">
+                <h2 class="softskills__title title">Présentation</h2>
+                <div class="softskills__grid-col-3">
+                    <p class="softskills__text text">Je m’appelle Dylan Vercalsteren, j’ai actuellement 27 ans et je suis étudiant à la HEAJ.&nbsp;</p>
+                    <p class="softskills__text text">Cela fait maintenant plusieurs années que je me suis pris de passion pour le développement et que je suis en perpétuelle quête d’amélioration. Certains diront que je prends peut-être mon travail trop à cœur, personnellement, je préfère dire que je suis passionné.&nbsp;</p>
+                    <p class="softskills__text text">Si je devais définir mes qualités personnelles, je dirais que je suis&nbsp;: </p>
                 </div>
                 
-                <ul class="skills__list">
-                    <li class="skills__el text">Déterminé&#8239;;</li>
-                    <li class="skills__el text">motivé&#8239;;</li>
-                    <li class="skills__el text">passionné&#8239;;</li>
-                    <li class="skills__el text">sociable.&nbsp;</li>
+                <ul class="softskills__list">
+                    <li class="softskills__el text">Déterminé&#8239;;</li>
+                    <li class="softskills__el text">motivé&#8239;;</li>
+                    <li class="softskills__el text">passionné&#8239;;</li>
+                    <li class="softskills__el text">sociable.&nbsp;</li>
                 </ul>
    
             </div>
-            <div class="img-space-line" id="imgSpaceLine"></div>
+            <div class="softskills__line" id="imgSpaceLine"></div> 
+        </section>
 
-            
-            
+        <section class="skills">
+            <div class="skills__container wrapper">
+                <h2 class="skills__title title">Compétences techniques</h2>
+                <div class="skills__grid-col-3">
+                    <p class="skills__text text">En termes de compétences, je m’estime plus doué en code qu’en design même si les deux restent liés.&nbsp;</p>
+                    <p class="skills__text text">À l’heure actuelle, je me considère plus Front-End Developer. Cependant, cette tendance ne m'empêche pas d'utiliser tout un tas d’outils essentiels au quotidien d'un Web Designer.&nbsp;</p>
+                </div>
+                
+                <ul class="skills__list">
+                    <li class="skills__el">
+                        <div class="skills__box">
+                            <div>
+                                <svg width="38" height="38" viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <rect width="38" height="38" fill="#FAAC32"/>
+                                    <path d="M22.0404 22.6312C22.7731 23.8254 23.5693 24.9697 25.256 24.9697C26.6727 24.9697 27.4159 24.2632 27.4159 23.2857C27.4159 22.1159 26.6472 21.7004 25.0887 21.0194L24.2342 20.6539C21.7683 19.6041 20.1282 18.2888 20.1282 15.5103C20.1282 12.9497 22.0817 11.0011 25.1342 11.0011C27.3079 11.0011 28.8697 11.7565 29.9962 13.7349L27.3344 15.4423C26.7489 14.3926 26.1157 13.9793 25.1342 13.9793C24.1326 13.9793 23.4983 14.6136 23.4983 15.4423C23.4983 16.4666 24.1336 16.8809 25.6001 17.5152L26.4545 17.8807C29.361 19.1228 31 20.3914 31 23.2432C31 26.3159 28.5817 28 25.3354 28C22.16 28 20.3569 26.4009 19.3531 24.4215L22.0404 22.6312ZM9.77302 22.7183C10.3088 23.6809 11.123 24.4215 12.294 24.4215C13.4143 24.4215 14.0591 23.9774 14.0591 22.2508V11H17.5881V22.7948C17.5881 26.3723 15.5202 28 12.5005 28C9.77196 28 7.80258 26.1449 7 24.4215L9.77302 22.7183Z" fill="#060D19"/>
+                                </svg>
+                                <h3 class="skills__secondary-title skills__secondary-title--first title">html/scss/js</h3>
+                            </div>
+                            <p class="text">J’utilise ces trois technologies au quotien pour réaliser mes projets dans le but de m’améliorer et de me lancer dans l’apprentissage d’un framework.&nbsp;</p>
+                        </div>
+                    </li>
+                    <li class="skills__el">
+                        <div class="skills__box">
+                            <div>
+                                <svg width="38" height="38" viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <rect width="38" height="38" fill="#FAAC32"/>
+                                    <path d="M23 8C19.99 8 17.2693 9.20992 15.2793 11.1699C14.6993 11.0599 14.11 11 13.5 11C8.26 11 4 15.26 4 20.5C4 25.74 8.26 30 13.5 30H18H23C29.07 30 34 25.07 34 19C34 12.93 29.07 8 23 8ZM23 10C27.96 10 32 14.04 32 19C32 23.96 27.96 28 23 28C21.56 28 20.2999 27.6291 19.1699 27.0391C17.6099 26.2291 16.2891 24.9804 15.0391 23.6504L13.9902 22.5098C13.4302 21.8998 12.8691 21.2809 12.2891 20.7109C11.8991 20.3209 11.8991 19.6791 12.2891 19.2891C12.6791 18.8991 13.3209 18.8991 13.7109 19.2891C14.3009 19.8891 14.8809 20.5202 15.4609 21.1602C17.7409 23.6502 19.89 26 23 26C26.86 26 30 22.86 30 19C30 15.14 26.86 12 23 12C21.63 12 20.3192 12.3909 19.1992 13.1309C18.6392 12.7009 18.0309 12.3007 17.3809 11.9707C18.9709 10.7007 20.94 10 23 10ZM13.5 13C14.67 13 15.7292 13.3409 16.6992 13.8809C17.2192 14.1609 17.7002 14.4894 18.1602 14.8594C19.1602 15.6394 20.0496 16.5602 20.8496 17.4102C21.1396 17.7102 21.4309 18.0091 21.7109 18.2891C22.1009 18.6791 22.1009 19.3209 21.7109 19.7109C21.3209 20.1009 20.6791 20.1009 20.2891 19.7109C19.9991 19.4209 19.7104 19.1091 19.4004 18.7891C17.7004 17.0091 15.78 15 13.5 15C10.47 15 8 17.47 8 20.5C8 23.53 10.47 26 13.5 26C13.82 26 14.1392 25.9702 14.4492 25.9102C14.9892 26.4502 15.5807 26.9902 16.2207 27.4902C15.3607 27.8302 14.44 28 13.5 28C9.36 28 6 24.64 6 20.5C6 16.36 9.36 13 13.5 13Z" fill="#060D19"/>
+                                </svg>                                
+                                <h3 class="skills__secondary-title title">Logiciels Adobe</h3>
+                            </div>
+                            <p class="text">J’utilise régulièrement les logiciels Adobe. Que ce soit dans la réalisation d'assets pour mes projets ou pour créer des visuels attractifs.&nbsp;</p>
+                        </div>
+                    </li>
+                    <li class="skills__el">
+                        <div class="skills__box">
+                            <div>
+                                <svg width="38" height="38" viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <rect width="38" height="38" fill="#FAAC32"/>
+                                    <path d="M18.4 5V13.5217H14.2C11.887 13.5217 10 11.6074 10 9.26087C10 6.91435 11.887 5 14.2 5H18.4ZM18.4 14.7391V23.2609H14.2C11.887 23.2609 10 21.3465 10 19C10 16.6535 11.887 14.7391 14.2 14.7391H18.4ZM18.4 24.4783V28.7391C18.4 31.0857 16.513 33 14.2 33C11.887 33 10 31.0857 10 28.7391C10 26.3926 11.887 24.4783 14.2 24.4783H18.4ZM28 9.26087C28 11.6074 26.113 13.5217 23.8 13.5217H19.6V5H23.8C26.113 5 28 6.91435 28 9.26087ZM23.8 14.7391C22.6861 14.7391 21.6178 15.188 20.8302 15.9871C20.0425 16.7862 19.6 17.8699 19.6 19C19.6 20.1301 20.0425 21.2138 20.8302 22.0129C21.6178 22.812 22.6861 23.2609 23.8 23.2609C24.9139 23.2609 25.9822 22.812 26.7699 22.0129C27.5575 21.2138 28 20.1301 28 19C28 17.8699 27.5575 16.7862 26.7699 15.9871C25.9822 15.188 24.9139 14.7391 23.8 14.7391Z" fill="#060D19"/>
+                                </svg>   
+                                <h3 class="skills__secondary-title title">Figma</h3>
+                            </div>
+                            <p class="text">J’utilise Figma pour réaliser le design de mes projets et leur prototypage. C’est devenu un &#8239;«&#8239;must-have&#8239;»&#8239;dans le quotidien d’un web designer.&nbsp;</p>
+                        </div>
+                    </li>
+                </ul>
+   
+            </div>
+            <div class="skills__line" id="imgSpaceLine"></div> 
         </section>
 
         <section class="projects">
