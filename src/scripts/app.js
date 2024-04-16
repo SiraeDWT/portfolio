@@ -283,7 +283,7 @@ const resizeReset = function() {
 
 const opts = { 
     particleColor: "#FAAC32",
-    lineColor: "rgb(200,200,200)",
+    lineColor: "rgb(250,250,250)",
     particleAmount: 30,
     defaultSpeed: 0.1,
     variantSpeed: 1,
