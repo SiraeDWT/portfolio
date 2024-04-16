@@ -233,6 +233,7 @@ a{
     &__el{
         padding: calc($space-p);
         border: 1px solid $complementary-color;
+        background-color: $darker-blue;
     }
 
     &__secondary-title{
@@ -301,7 +302,7 @@ a{
     }
 
     &__wrapper{
-        width: 85%;
+        width: 82%;
         margin: 0 auto;
     }
 
