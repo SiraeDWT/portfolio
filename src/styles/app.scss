@@ -638,6 +638,118 @@ a{
     
 }
 
+.credits{
+    background-color: $darker-blue;
+    color: $complementary-color;
+
+    &__wrapper{
+        max-width: 85%;
+        margin: 0 auto;
+    }
+
+    &__content{
+        padding-bottom: $space-h3;
+    }
+
+    &__btn{
+        margin-top: $space-h3;
+        --cta-outline: -13px;
+        --cta-outline-hover: -1px;
+
+        cursor: pointer;
+        text-decoration: none;
+
+        padding: 13px 18px;
+        display: inline-flex;
+        justify-content: center;
+        gap: 13px;
+        align-items: center;
+
+        color: $light-grey;
+        border: 1px solid $complementary-color;
+        background-color: $darker-blue;
+
+        font-size: $p-size;
+        font-weight: 400;
+
+        position: relative;
+        z-index: 10;
+
+        & svg{
+            fill: $light-grey;
+        }
+
+        &:focus{
+            outline: 0;
+        }
+
+        &:visited{
+            color: $light-grey;
+        }
+
+        &:hover{
+            color: $light-grey;
+        }
+
+        &:hover:after{
+            opacity: 1;
+            outline: 0;
+            top: var(--cta-outline-hover);
+            right: var(--cta-outline-hover);
+            bottom: var(--cta-outline-hover);
+            left: var(--cta-outline-hover);
+        }
+
+        &:after{
+            border: 2px solid $light-grey;
+            content: "";
+            filter: drop-shadow(0 0 3px $blue);
+            opacity: 0;
+            position: absolute;
+            transition: .2s ease;
+            top: var(--cta-outline);
+            right: var(--cta-outline);
+            bottom: var(--cta-outline);
+            left: var(--cta-outline);
+        }
+
+        &:active{
+            transform: scale(1.1);
+        } 
+    }
+
+    &__title--h1{
+        margin: $space-h3 0;
+        font-size: $h1-ultra-size;
+    }
+
+    &__title--h2{
+        margin-bottom: $space-h3;
+        font-size: $h2-size;
+        color: $light-grey;
+    }
+
+    &__title--h3{
+        margin-bottom: calc($space-p/2);
+        font-size: $h3-size;
+    }
+
+    &__list{
+        margin-bottom: $space-h3;
+        padding: 0;
+        list-style: square;
+    }
+
+    &__el{
+        margin-bottom: calc($space-p/2);
+        font-size: 22px;
+        color: $light-grey;
+
+        &::marker{
+            color: $complementary-color;
+        }
+    }
+}
 
 @media only screen and (min-width: 420px){
     .presentation{
@@ -763,6 +875,13 @@ a{
 
     .top{
         display: block;
+    }
+
+    .credits{
+        &__wrapper{
+            max-width: 75%;
+            margin: 0 auto;
+        }
     }
 }
 
@@ -1031,6 +1150,13 @@ a{
 
             position: absolute;
             bottom: 5%; right: 9%;
+        }
+    }
+
+    .credits{
+        &__wrapper{
+            max-width: 70%;
+            margin: 0 auto;
         }
     }
 }
