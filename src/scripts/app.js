@@ -6,13 +6,6 @@ gsap.registerPlugin(ScrollTrigger);
 
 // let timeline = gsap.timeline();
 
-gsap.from('.presentation__welcome', {
-    duration: 2,
-    opacity: 0,
-    scale: 0,
-    ease: "slow(0.7,0.7,false)",
-});
-
 
 gsap.from('.softskills__title', {
     x: '-25%',
@@ -53,6 +46,21 @@ gsap.from('.softskills__el', {
 
 gsap.from(".softskills__line", {
     height: "0%",
+    duration: 0.8,
+    
+    scrollTrigger: {
+        trigger: ".softskills",
+        start: 'top 40%',
+        end: 'bottom 30%',
+        // start: "top 75%",
+        // end: "40% 75%",
+        // scrub: 1,
+    },   
+});
+
+gsap.from(".softskills__dots", {
+    x: "25%",
+    opacity: 0,
     duration: 0.8,
     
     scrollTrigger: {
@@ -109,6 +117,21 @@ gsap.from('.skills__el', {
 
 gsap.from(".skills__line", {
     height: "0%",
+    duration: 0.8,
+    
+    scrollTrigger: {
+        trigger: ".skills",
+        start: 'top 40%',
+        end: 'bottom 30%',
+        // start: "top 75%",
+        // end: "40% 75%",
+        // scrub: 1,
+    },   
+});
+
+gsap.from(".skills__dots", {
+    y: "-25%",
+    opacity: 0,
     duration: 0.8,
     
     scrollTrigger: {
