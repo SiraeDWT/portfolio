@@ -927,6 +927,45 @@ a{
                 stroke-opacity: 1;
             }
         }
+
+        &__indicator1{
+            width: 170px;
+            height: 10px;
+            background: url(../assets/images/indicator1.svg);
+
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+
+            position: absolute;
+            bottom: 5%; right: 10%;
+        }
+
+        &__indicator2{
+            width: 170px;
+            height: 10px;
+            background: url(../assets/images/indicator2.svg);
+
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+
+            position: absolute;
+            bottom: 5%; right: 10%;
+        }
+
+        &__indicator3{
+            width: 170px;
+            height: 10px;
+            background: url(../assets/images/indicator3.svg);
+
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+
+            position: absolute;
+            bottom: 5%; right: 10%;
+        }
     }
 }
 
