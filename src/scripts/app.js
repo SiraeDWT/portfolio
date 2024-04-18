@@ -16,9 +16,8 @@ gsap.from('.presentation__welcome', {
 
 gsap.from('.softskills__title', {
     x: '-25%',
-    duration: 1,
+    duration: 0.7,
     opacity: 0,
-    stagger: 0.25,
     scrollTrigger: {
         trigger: '.softskills',
         start: 'top 40%',
@@ -28,10 +27,9 @@ gsap.from('.softskills__title', {
 });
 
 gsap.from('.softskills__grid-col-3', {
-    x: '-25%',
-    duration: 1,
+    x: '-20%',
+    duration: 0.7,
     opacity: 0,
-    stagger: 0.25,
     scrollTrigger: {
         trigger: '.softskills__title',
         start: 'top 40%',
@@ -41,10 +39,10 @@ gsap.from('.softskills__grid-col-3', {
 });
 
 gsap.from('.softskills__el', {
-    x: '-25%',
-    duration: 1,
+    x: '-15%',
+    duration: 0.7,
     opacity: 0,
-    stagger: 0.25,
+    stagger: 0.1,
     scrollTrigger: {
         trigger: '.softskills__text',
         start: 'top 40%',
@@ -55,7 +53,7 @@ gsap.from('.softskills__el', {
 
 gsap.from(".softskills__line", {
     height: "0%",
-    duration: 2,
+    duration: 0.8,
     
     scrollTrigger: {
         trigger: ".softskills",
@@ -71,9 +69,8 @@ gsap.from(".softskills__line", {
 
 gsap.from('.skills__title', {
     x: '-25%',
-    duration: 1,
+    duration: 0.7,
     opacity: 0,
-    stagger: 0.25,
     scrollTrigger: {
         trigger: '.skills',
         start: 'top 40%',
@@ -83,10 +80,9 @@ gsap.from('.skills__title', {
 });
 
 gsap.from('.skills__grid-col-3', {
-    x: '-25%',
-    duration: 1,
+    x: '-15%',
+    duration: 0.7,
     opacity: 0,
-    stagger: 0.25,
     scrollTrigger: {
         trigger: '.skills__title',
         start: 'top 40%',
@@ -96,8 +92,8 @@ gsap.from('.skills__grid-col-3', {
 });
 
 gsap.from('.skills__el', {
-    x: '-25%',
-    duration: 1,
+    x: '-20%',
+    duration: 0.7,
     opacity: 0,
     stagger: 0.25,
     scrollTrigger: {
@@ -113,7 +109,7 @@ gsap.from('.skills__el', {
 
 gsap.from(".skills__line", {
     height: "0%",
-    duration: 2,
+    duration: 0.8,
     
     scrollTrigger: {
         trigger: ".skills",
