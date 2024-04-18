@@ -145,6 +145,57 @@ gsap.from(".skills__dots", {
 });
 
 
+
+
+gsap.from(".projects__description > *", {
+    x: "-25%",
+    opacity: 0,
+    duration: 0.8,
+    stagger: 0.2,
+    
+    scrollTrigger: {
+        trigger: ".projects",
+        start: 'top 40%',
+        end: 'bottom 30%',
+        // start: "top 75%",
+        // end: "40% 75%",
+        // scrub: 1,
+    },   
+});
+
+gsap.from(".projects__assets a", {
+    x: "25%",
+    opacity: 0,
+    duration: 0.8,
+    stagger: 0.2,
+    
+    scrollTrigger: {
+        trigger: ".projects",
+        start: 'top 40%',
+        end: 'bottom 30%',
+        // start: "top 75%",
+        // end: "40% 75%",
+        // scrub: 1,
+    },   
+});
+
+gsap.from(".technologies > *", {
+    x: "25%",
+    opacity: 0,
+    duration: 0.8,
+    stagger: 0.2,
+    
+    scrollTrigger: {
+        trigger: ".projects",
+        start: 'top 40%',
+        end: 'bottom 30%',
+        // start: "top 75%",
+        // end: "40% 75%",
+        // scrub: 1,
+    },   
+});
+
+
 // ----- Slide Projects -----
 let sections = gsap.utils.toArray(".projects__el");
     
