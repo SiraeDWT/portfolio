@@ -772,9 +772,9 @@ a{
         position: relative;
 
         &__line{
-            width: 80px;
+            width: 75px;
             height: 100%;
-            background: url(../assets/images/line-quote.svg);
+            background: url(../assets/images/line-presentation.svg);
 
             background-position: center;
             background-repeat: no-repeat;
@@ -830,9 +830,9 @@ a{
         position: relative;
 
         &__line{
-            width: 90px;
+            width: 85px;
             height: 100%;
-            background: url(../assets/images/lightning.svg);
+            background: url(../assets/images/line-skills.svg);
 
             background-position: center;
             background-repeat: no-repeat;
@@ -882,6 +882,50 @@ a{
 
         &__el{
             flex: 1;
+        }
+    }
+
+    .projects{
+
+        position: relative;
+
+        &__slider{
+            overflow: hidden;
+        }
+
+        &__el{
+            overflow: hidden;
+        }
+        
+        &__svg{
+            position: absolute;
+            top: 0;
+            left: 2%;
+            z-index: -1;
+        }
+
+        &__path{
+            animation: draw 15s reverse infinite;
+            animation-timing-function: linear;
+            stroke: $light-grey;
+            stroke-width: 2px;
+        }
+          
+        // .path-2 {
+        //     animation: draw 20s infinite;
+        //     animation-delay: 0.5s;
+        //     animation-timing-function: linear;
+        // }
+          
+        @keyframes draw {
+            0% {
+
+            }
+
+            100% {
+                stroke-dashoffset: 0;
+                stroke-opacity: 1;
+            }
         }
     }
 }
