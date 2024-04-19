@@ -258,7 +258,7 @@ a{
 .technologies{
     display: flex;
     gap: 10px;
-    margin-top: calc($space-p/2);
+    margin-top: calc($space-h3);
     // justify-content: end;
 
     list-style: none;
@@ -1151,6 +1151,10 @@ a{
             position: absolute;
             bottom: 5%; right: 9%;
         }
+    }
+
+    .technologies{
+        margin-top: calc($space-p/2);
     }
 
     .credits{
