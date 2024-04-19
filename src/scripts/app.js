@@ -6,7 +6,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 // let timeline = gsap.timeline();
 
-
+// Animations
 gsap.from('.softskills__title', {
     x: '-25%',
     duration: 0.7,
@@ -201,7 +201,8 @@ let sections = gsap.utils.toArray(".projects__el");
     
 gsap.to(sections,{
   xPercent: -100 * (sections.length - 1),
-  ease: "slow(0.7,0.7,false)",
+  ease: "none",
+//   ease: "slow(0.7,0.7,false)",
   scrollTrigger: {
     trigger: ".projects__slider",
     pin: ".projects",
@@ -219,6 +220,20 @@ gsap.to('.contact',{
     toggleActions: 'play none reset none',
   }
 });
+
+
+
+// Change width svg
+let projectSvg = document.querySelector('.projects__svg');
+
+window.addEventListener('resize', () => {
+    if (window.matchMedia('(max-width: 1920px)').matches) {
+        projectSvg.setAttribute('width', '2000px');
+    } else {
+        projectSvg.setAttribute('width', '3000px');
+    }
+})
+
 
 
 
