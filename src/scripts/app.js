@@ -224,15 +224,25 @@ gsap.to('.contact',{
 
 
 // Change width svg
-let projectSvg = document.querySelector('.projects__svg');
+let projectSvg = document.querySelectorAll('.projects__svg');
+
+projectSvg.forEach((svg) => {
+    if (window.matchMedia('(max-width: 1920px)').matches) {
+        svg.setAttribute('width', '2000px');
+    } else {
+        svg.setAttribute('width', '3000px');
+    }
+});
 
 window.addEventListener('resize', () => {
-    if (window.matchMedia('(max-width: 1920px)').matches) {
-        projectSvg.setAttribute('width', '2000px');
-    } else {
-        projectSvg.setAttribute('width', '3000px');
-    }
-})
+    projectSvg.forEach((svg) => {
+        if (window.matchMedia('(max-width: 1920px)').matches) {
+            svg.setAttribute('width', '2000px');
+        } else {
+            svg.setAttribute('width', '3000px');
+        }
+    });
+});
 
 
 
