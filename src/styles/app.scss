@@ -750,7 +750,7 @@ a{
 
     &__el{
         margin-bottom: calc($space-p/2);
-        font-size: 22px;
+        font-size: $p-size;
         color: $light-grey;
 
         &::marker{
