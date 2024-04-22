@@ -244,10 +244,10 @@ let canvas = document.getElementById('canvas'),
     w = canvas.width = window.innerWidth,
     h = canvas.height = window.innerHeight,
         
-    hue = 217,
+    hue = 218,
     stars = [],
     count = 0,
-    maxStars = 1400;
+    maxStars = 700; //1400
 
 let mouseX = w / 2;
 let mouseY = h / 2;
