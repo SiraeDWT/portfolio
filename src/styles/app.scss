@@ -179,6 +179,9 @@ a{
         width: 100%;
         margin-bottom: $space-p;
         
+        &:nth-last-child(-n +1){
+            margin-bottom: calc($space-p/2);
+        }
     }
 
     &__list{
@@ -188,8 +191,12 @@ a{
         // grid-column: 2/5;
     }
 
-    &__el::marker{
-        color: $complementary-color;
+    &__el{
+        font-size: $h3-size;
+
+        &::marker{
+            color: $complementary-color;
+        }
     }
 
     & .test{
@@ -804,6 +811,10 @@ a{
             font-size: $p-size;
             width: 100%;
             margin-bottom: $space-p;
+
+            &:nth-last-child(-n +1){
+                margin-bottom: calc($space-p/2);
+            }
             
         }
     
@@ -899,9 +910,9 @@ a{
         position: relative;
 
         &__line{
-            width: 75px;
+            width: 84px;
             height: 100%;
-            background: url(../assets/images/line-presentation.svg);
+            background: url(../assets/images/test1.svg);
 
             background-position: center;
             background-repeat: no-repeat;
@@ -935,18 +946,21 @@ a{
     
         &__grid-col-3{
             grid-row: 2;
-            grid-column: 2/6;
+            grid-column: 2/5;
         }
         
         &__title{
             grid-row: 1;
             grid-column: 2/5;
+            font-size: $h1-ultra-size;
         }
     
         &__list{
             grid-row: 3;
             grid-column: 2/5;
         }
+
+        
     }
 
     .skills{
@@ -957,9 +971,9 @@ a{
         position: relative;
 
         &__line{
-            width: 85px;
+            width: 90px;
             height: 100%;
-            background: url(../assets/images/line-skills.svg);
+            background: url(../assets/images/test2.svg);
 
             background-position: center;
             background-repeat: no-repeat;
@@ -993,7 +1007,7 @@ a{
     
         &__grid-col-3{
             grid-row: 2;
-            grid-column: 3/8;
+            grid-column: 3/7;
         }
         
         &__title{
@@ -1037,6 +1051,8 @@ a{
             justify-content: center;
             flex-direction: row;
             align-items: center;
+
+            margin-top: $space-h1;
         }
 
         &__wrapper{
@@ -1170,6 +1186,14 @@ a{
         &__text{
             width: 90%;
             margin: 0 auto;
+        }
+    }
+}
+
+@media only screen and (min-width: 1921px){
+    .projects{
+        &__projet{
+            margin-top: $space-giga-h1;
         }
     }
 }
