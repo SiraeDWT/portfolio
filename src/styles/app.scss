@@ -241,6 +241,7 @@ a{
         padding: calc($space-p);
         border: 1px solid $complementary-color;
         background-color: $darker-blue;
+        clip-path: polygon(10% 0%, 100% 0%, 100% 100%, 0% 100%, 0% 20%); // Link the two sides
     }
 
     &__secondary-title{
@@ -1131,8 +1132,8 @@ a{
 
         &__indicator1{
             width: 170px;
-            height: 10px;
-            background: url(../assets/images/indicator1.svg);
+            height: 42px; // 10px
+            background: url(../assets/images/indicator1-bis.svg);
 
             background-position: center;
             background-repeat: no-repeat;
@@ -1144,8 +1145,8 @@ a{
 
         &__indicator2{
             width: 170px;
-            height: 10px;
-            background: url(../assets/images/indicator2.svg);
+            height: 42px; // 10px
+            background: url(../assets/images/indicator2-bis.svg);
 
             background-position: center;
             background-repeat: no-repeat;
@@ -1157,8 +1158,8 @@ a{
 
         &__indicator3{
             width: 170px;
-            height: 10px;
-            background: url(../assets/images/indicator3.svg);
+            height: 42px; // 10px
+            background: url(../assets/images/indicator3-bis.svg);
 
             background-position: center;
             background-repeat: no-repeat;
