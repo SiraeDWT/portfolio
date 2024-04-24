@@ -936,7 +936,7 @@ a{
 
             background-position: center;
             background-repeat: no-repeat;
-            background-size: cover;
+            background-size: 100% 100%; //Add preserveAspectRatio="none" in svg and bg-size: 100% 100%;
 
             position: absolute;
             top: 0; left: 5%;
