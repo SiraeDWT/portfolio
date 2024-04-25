@@ -202,7 +202,6 @@ let sections = gsap.utils.toArray(".projects__el");
 gsap.to(sections,{
   xPercent: -100 * (sections.length - 1),
   ease: "none",
-//   ease: "slow(0.7,0.7,false)",
   scrollTrigger: {
     trigger: ".projects__slider",
     pin: ".projects",
@@ -246,7 +245,7 @@ window.addEventListener('resize', () => {
 
 
 // ----- CANVAS CONTACT -----
-function displayCanvas(id, drawArea){
+function displayCanvas(id, drawArea, particleAmount){
     let wi, he;
 
     const resizeReset = function() {
@@ -257,7 +256,7 @@ function displayCanvas(id, drawArea){
     const opts = { 
         particleColor: "#FAAC32",
         lineColor: "rgb(250,250,250)",
-        particleAmount: 30,
+        particleAmount: particleAmount,
         defaultSpeed: 0.1,
         variantSpeed: 1,
         defaultRadius: 2,
@@ -368,5 +367,31 @@ const drawAreaContact = canvasContact.getContext("2d");
 const canvas = document.getElementById("canvas");
 const drawArea = canvas.getContext("2d");
 
-displayCanvas(canvas, drawArea);
-displayCanvas(canvasContact, drawAreaContact);
+const particleAmountDesktop = 30;
+const particleAmountMobile = 10;
+
+displayCanvas(canvas, drawArea, particleAmountDesktop);
+displayCanvas(canvasContact, drawAreaContact, particleAmountDesktop);
+
+if (window.matchMedia('(min-width: 640px)').matches) {
+    displayCanvas(canvas, drawArea, particleAmountDesktop);
+    displayCanvas(canvasContact, drawAreaContact, particleAmountDesktop);
+} else {
+    displayCanvas(canvas, drawArea, particleAmountMobile);
+    displayCanvas(canvasContact, drawAreaContact, particleAmountMobile);
+}
+
+// Button to the top
+window.addEventListener('scroll', function() {
+    const button = document.querySelector('.top');
+
+    if(button){
+        if (window.scrollY > 250) {
+            button.classList.remove('top--hide');
+            button.classList.add('top--show');
+        } else {
+            button.classList.remove('top--show');
+            button.classList.add('top--hide');
+        }
+    }
+});
