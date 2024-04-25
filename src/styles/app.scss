@@ -581,7 +581,13 @@ a{
 
     z-index: 20;
 
-    // display: none;
+    &--show{
+        display: block;
+    }
+
+    &--hide{
+        display: none;
+    }
 
     &:hover{
         background-color: $complementary-color;
@@ -897,10 +903,6 @@ a{
         }
     }
 
-    .top{
-        display: block;
-    }
-
     .credits{
         &__wrapper{
             max-width: 75%;
@@ -949,7 +951,7 @@ a{
 
             background-position: center;
             background-repeat: no-repeat;
-            background-size: 100% 100%;
+            background-size: cover;
 
             position: absolute;
             bottom: 15%; right: 10%;
@@ -997,7 +999,7 @@ a{
 
             background-position: center;
             background-repeat: no-repeat;
-            background-size: cover;
+            background-size: 100% 100%;
 
             position: absolute;
             top: 0; left: 12%;
