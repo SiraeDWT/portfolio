@@ -4,9 +4,25 @@ import { gsap } from "gsap";
 import ScrollTrigger from 'gsap/ScrollTrigger';
 gsap.registerPlugin(ScrollTrigger);
 
-// let timeline = gsap.timeline();
 
-// Animations
+// ----- Button to the top -----
+window.addEventListener('scroll', function() {
+    const button = document.querySelector('.top');
+
+    if(button){
+        if (window.scrollY > 250) {
+            button.classList.remove('top--hide');
+            button.classList.add('top--show');
+        } else {
+            button.classList.remove('top--show');
+            button.classList.add('top--hide');
+        }
+    }
+});
+
+
+// ----- Animations GSAP -----
+// Softskills section
 gsap.from('.softskills__title', {
     x: '-25%',
     duration: 0.7,
@@ -75,7 +91,7 @@ gsap.from(".softskills__dot", {
 });
 
 
-
+// Skills section
 gsap.from('.skills__title', {
     x: '-25%',
     duration: 0.7,
@@ -113,9 +129,6 @@ gsap.from('.skills__el', {
     }
 });
 
-
-
-
 gsap.from(".skills__line", {
     height: "0%",
     duration: 0.8,
@@ -144,8 +157,7 @@ gsap.from(".skills__dot", {
 });
 
 
-
-
+// Projects section
 gsap.from(".projects__description > *", {
     x: "-25%",
     opacity: 0,
@@ -178,6 +190,8 @@ gsap.from(".projects__assets a", {
     },   
 });
 
+
+// Technologies list
 gsap.from(".technologies > *", {
     x: "25%",
     opacity: 0,
@@ -220,8 +234,7 @@ gsap.to('.contact',{
 });
 
 
-
-// Change width svg
+// ----- Change width svg -----
 let projectSvg = document.querySelectorAll('.projects__svg');
 
 projectSvg.forEach((svg) => {
@@ -379,18 +392,3 @@ if (window.matchMedia('(min-width: 640px)').matches) {
     displayCanvas(canvas, drawArea, particleAmountMobile);
     displayCanvas(canvasContact, drawAreaContact, particleAmountMobile);
 }
-
-// Button to the top
-window.addEventListener('scroll', function() {
-    const button = document.querySelector('.top');
-
-    if(button){
-        if (window.scrollY > 250) {
-            button.classList.remove('top--hide');
-            button.classList.add('top--show');
-        } else {
-            button.classList.remove('top--show');
-            button.classList.add('top--hide');
-        }
-    }
-});
