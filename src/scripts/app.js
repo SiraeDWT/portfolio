@@ -58,10 +58,11 @@ gsap.from(".softskills__line", {
     },   
 });
 
-gsap.from(".softskills__dots", {
-    x: "25%",
+gsap.from(".softskills__dots .dots", {
+    x: "100px",
     opacity: 0,
-    duration: 0.8,
+    duration: 0.3,
+    stagger: 0.1,
     
     scrollTrigger: {
         trigger: ".softskills",

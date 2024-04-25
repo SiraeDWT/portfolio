@@ -1,5 +1,4 @@
 @import 'utils/variables';
-@import 'components/type';
 
 *{
     margin: 0;
@@ -13,8 +12,6 @@ body, html{
 
     scrollbar-width: auto;
     scrollbar-color: $complementary-color $darker-blue;
-
-    // cursor: none;
 }
 
 ::-webkit-scrollbar {
@@ -772,6 +769,9 @@ a{
     }
 }
 
+
+// @import 'components/mediaqueries';
+
 @media only screen and (min-width: 420px){
     .presentation{
         &__title{
@@ -947,11 +947,10 @@ a{
         &__dots{
             width: 276.75px;
             height: 108px;
-            background: url(../assets/images/dots.svg);
 
             background-position: center;
             background-repeat: no-repeat;
-            background-size: cover;
+            background-size: 100% 100%;
 
             position: absolute;
             bottom: 15%; right: 10%;
