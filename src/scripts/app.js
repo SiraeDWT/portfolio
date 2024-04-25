@@ -58,7 +58,7 @@ gsap.from(".softskills__line", {
     },   
 });
 
-gsap.from(".softskills__dots .dots", {
+gsap.from(".softskills__dot", {
     x: "100px",
     opacity: 0,
     duration: 0.3,
@@ -130,18 +130,16 @@ gsap.from(".skills__line", {
     },   
 });
 
-gsap.from(".skills__dots", {
-    y: "-25%",
+gsap.from(".skills__dot", {
+    y: "50px",
     opacity: 0,
-    duration: 0.8,
+    duration: 0.3,
+    stagger: 0.1,
     
     scrollTrigger: {
-        trigger: ".skills",
+        trigger: '.skills__text',
         start: 'top 40%',
         end: 'bottom 30%',
-        // start: "top 75%",
-        // end: "40% 75%",
-        // scrub: 1,
     },   
 });
 

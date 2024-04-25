@@ -1005,13 +1005,13 @@ a{
         }
 
         &__dots{
-            width: 150px;
-            height: 150px;
-            background: url(../assets/images/dots.svg);
+            width: 276.75px;
+            height: 108px;
+            // background: url(../assets/images/dots.svg);
 
             background-position: center;
             background-repeat: no-repeat;
-            background-size: cover;
+            background-size: 100% 100%;
 
             position: absolute;
             bottom: 15%; left: 5%;
