@@ -200,6 +200,10 @@ a{
             color: $complementary-color;
         }
     }
+
+    &__dots{
+        display: none;
+    }
 }
 
 .skills{
@@ -256,6 +260,10 @@ a{
 
             margin: 0 0 $space-p;
         }
+    }
+
+    &__dots{
+        display: none;
     }
 }
 
@@ -467,6 +475,8 @@ a{
         position: relative;
         text-align: center;
         z-index: 10;
+
+        line-height: 110%;
     }
 
     &__link{
@@ -886,10 +896,24 @@ a{
     }
 }
 
+@media only screen and (min-width: 725px){
+    .contact{
+        &__title{
+            line-height: $line-height;
+        }
+    }
+}
+
 @media only screen and (min-width: $breakpoint-tablet){
     .wrapper{
         width: 55%;
         margin: 0 auto;
+    }
+
+    .presentation{
+        &__content{
+            width: 900px;
+        }
     }
 
     .network{
@@ -945,6 +969,8 @@ a{
         }
 
         &__dots{
+            display: block;
+
             width: 276.75px;
             height: 108px;
 
@@ -1005,6 +1031,8 @@ a{
         }
 
         &__dots{
+            display: block;
+
             width: 276.75px;
             height: 108px;
             // background: url(../assets/images/dots.svg);
