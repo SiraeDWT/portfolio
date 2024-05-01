@@ -209,29 +209,34 @@ gsap.from(".technologies > *", {
 });
 
 
-// ----- Slide Projects -----
-let sections = gsap.utils.toArray(".projects__el");
-    
-gsap.to(sections,{
-  xPercent: -100 * (sections.length - 1),
-  ease: "none",
-  scrollTrigger: {
-    trigger: ".projects__slider",
-    pin: ".projects",
-    pinSpacing: true,
-    scrub: 1,
-    end: "+=3000",
-  }
-});
 
-gsap.to('.contact',{
-  scrollTrigger:{
-    trigger: '.contact',
-    pinnedContainer: ".projects",
-    start:'top 50%',
-    toggleActions: 'play none reset none',
-  }
-});
+if (window.matchMedia('(min-width: 1440px)').matches) {
+    // ----- Slide Projects -----
+    let sections = gsap.utils.toArray(".projects__el");
+        
+    gsap.to(sections,{
+    xPercent: -100 * (sections.length - 1),
+    ease: "none",
+    scrollTrigger: {
+        trigger: ".projects__slider",
+        pin: ".projects",
+        pinSpacing: true,
+        scrub: 1,
+        end: "+=3000",
+    }
+    });
+
+    gsap.to('.contact',{
+    scrollTrigger:{
+        trigger: '.contact',
+        pinnedContainer: ".projects",
+        start:'top 50%',
+        toggleActions: 'play none reset none',
+    }
+    });
+}
+
+
 
 
 // ----- Change width svg -----
