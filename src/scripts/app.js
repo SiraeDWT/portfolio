@@ -407,12 +407,12 @@ if (window.matchMedia('(min-width: 640px)').matches) {
 
 // TEST CANVAS FIRST SECTION
 
-var can = document.getElementById("canvas");
-var ctx = can.getContext("2d");
+let can = document.getElementById("canvas");
+let ctx = can.getContext("2d");
 can.width = window.innerWidth;
 can.height = window.innerHeight;
 can.style.background = "#060D19";
-var p = []
+let p = []
 function Clear() {
 ctx.fillStyle="rgba(0,0,0,0.12)"
 ctx.fillRect(0,0,can.width,can.height);
@@ -433,19 +433,19 @@ ctx.lineTo(this.x,this.y)
 ctx.stroke()
  this.ang = Math.atan2(this.speed.y,this.speed.x)
 this.mag = Math.sqrt(this.speed.x**2 + this.speed.y**2)
-var op = [this.ang+Math.PI/4,this.ang-Math.PI/4]
-var ch = Math.floor(Math.random()*op.length)
+let op = [this.ang+Math.PI/4,this.ang-Math.PI/4]
+let ch = Math.floor(Math.random()*op.length)
 if(Math.random() < 0.05) {
 this.speed.x = Math.cos(op[ch])*this.mag
 this.speed.y = Math.sin(op[ch])*this.mag
 }
 }
 }
-var speed = 15
-var period = 3000
+let speed = 15
+let period = 3000
 function pulse() {
 setTimeout(pulse,period)
-var h = Math.random()*(210-150) + 150
+let h = Math.random()*(210-150) + 150
 for(var i = 0; i < 56; i++) {
 p.push(new particle(can.width/2,0,
 {
