@@ -1092,7 +1092,7 @@ a{
 
         #svg2{
             position: absolute;
-            top: $space-ultra-h1; left: 0; right: 0;
+            top: $space-h3; left: 0; right: 0;
             z-index: 0;
         }
 
@@ -1100,15 +1100,16 @@ a{
             position: absolute;
             top: $space-p; left: 0; right: 0;
             z-index: 0;
+            width: 100vw;
         }
     
         .path{
             stroke-dasharray: 10000;
             stroke-dashoffset: 10000;
             display: block;
-            animation: dash 15s linear forwards;
+            animation: dash 7s linear forwards;
     
-            fill: rgba(0,0,0,0);
+            fill: none;
             stroke: #faac32;
             stroke-miterlimit: 100;
             stroke-width: 2px;
@@ -1117,7 +1118,7 @@ a{
         .path2{
             stroke-dasharray: 10000;
             stroke-dashoffset: 10000;
-            animation: dash 15s linear forwards;
+            animation: dash 7s linear forwards;
     
             fill: rgba(0,0,0,0);
             stroke: #faac32;
@@ -1128,7 +1129,7 @@ a{
         .path3{
             stroke-dasharray: 10000;
             stroke-dashoffset: 10000;
-            animation: dash 15s linear forwards;
+            animation: dash 7s linear forwards;
     
             fill: rgba(0,0,0,0);
             stroke: #faac32;
