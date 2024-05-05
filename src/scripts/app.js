@@ -160,8 +160,6 @@ gsap.from(".skills__dot", {
 // Projects section
 gsap.from(".path", {
     display: "none",
-    duration: 10,
-    stagger: 0.2,
     
     scrollTrigger: {
         trigger: ".projects",
@@ -191,9 +189,9 @@ gsap.from(".path3", {
         trigger: ".projects",
         start: '+=250% 40%',
         end: '+=250% 30%',
-        markers: true,
     },   
 });
+
 
 gsap.from(".projects__description > *", {
     x: "-25%",
@@ -494,7 +492,7 @@ function pulse(){
     setTimeout(pulse,period);
     let h = Math.random()*(210-150) + 150;
     for(var i = 0; i < 56; i++) {
-        p.push(new particle(can.width/2, 0, {x:Math.cos(i/8*2*Math.PI)*speed, y:Math.sin(i/8*2*Math.PI)*speed}, "#ffdd00"));
+        p.push(new particle(can.width/2, can.height/2.2, {x:Math.cos(i/8*2*Math.PI)*speed, y:Math.sin(i/8*2*Math.PI)*speed}, "#ffdd00"));
     }
 }
 
