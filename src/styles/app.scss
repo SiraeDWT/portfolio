@@ -300,6 +300,18 @@ a{
 
     // overflow-x: hidden;
 
+    #svg{
+        display: none;
+    }
+
+    #svg2{
+        display: none;
+    }
+
+    #svg3{
+        display: none;
+    }
+
     &::-webkit-scrollbar{
         display: none;
     }
@@ -1088,19 +1100,24 @@ a{
             position: absolute;
             top: $space-h2; left: 0; right: 0;
             z-index: 0;
+
+            display: block;
         }
 
         #svg2{
             position: absolute;
             top: $space-h3; left: 0; right: 0;
             z-index: 0;
+
+            display: block;
         }
 
         #svg3{
             position: absolute;
             top: $space-p; left: 0; right: 0;
             z-index: 0;
-            width: 100vw;
+
+            display: block;
         }
     
         .path{
