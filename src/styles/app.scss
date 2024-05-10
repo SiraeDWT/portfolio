@@ -307,6 +307,11 @@ a{
     -ms-overflow-style: none;
     scrollbar-width: none;
 
+    &__title{
+        position: fixed;
+        left: -100%;
+    }
+
     &__slider{
         list-style: none;
 
