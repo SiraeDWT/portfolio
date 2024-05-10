@@ -20,6 +20,35 @@ window.addEventListener('scroll', function() {
     }
 });
 
+// ----- Typing Animation Effect -----
+let i = 0;
+let textArray = ['Dylan Vercalsteren', 'Sirae_'];
+let currentTextIndex = 0;
+let speedy = 75;
+let mainTitle = document.querySelector('.presentation__title');
+
+mainTitle.innerHTML = '';
+
+function typeWriter() {
+    const txt = textArray[currentTextIndex];
+    if (i < txt.length) {
+        mainTitle.innerHTML += txt.charAt(i);
+        i++;
+        setTimeout(typeWriter, speedy);
+    } else {
+        setTimeout(() => {
+            i = 0;
+            currentTextIndex = (currentTextIndex + 1) % textArray.length;
+
+            mainTitle.innerHTML = '';
+
+            typeWriter();
+        }, 5000);
+    }
+}
+
+typeWriter();
+
 
 // ----- Animations GSAP -----
 // Softskills section
@@ -536,95 +565,3 @@ function gameMove(){
 pulse();
 gameMove();
 
-
-
-
-// CANVAS REMODIF
-// let can = document.getElementById("canvas");
-// let ctx = can.getContext("2d");
-
-// can.width = window.innerWidth;
-// can.height = window.innerHeight;
-// can.style.background = "#060D19";
-
-// let mouseX = 0;
-// let mouseY = 0;
-// let prevMouseX = 0;
-// let prevMouseY = 0;
-
-// can.addEventListener('pointermove', function(e) {
-//     prevMouseX = mouseX;
-//     prevMouseY = mouseY;
-//     mouseX = e.pageX;
-//     mouseY = e.pageY;
-// });
-
-// let p = [];
-
-// function clear(){
-//     ctx.fillStyle="rgba(6, 13, 25, 0.15)"
-//     ctx.fillRect(0,0,can.width,can.height);
-// }
-
-// function particle(x,y,speed,c){
-//     this.x = x;
-//     this.y = y;
-//     this.speed = speed;
-//     this.originalSpeed = Object.assign({}, speed);
-//     this.c = c;
-//     this.upd = function(){
-//         ctx.strokeStyle = this.c;
-//         ctx.lineWidth = 1;
-//         ctx.lineCap = "round";
-//         ctx.beginPath();
-//         ctx.moveTo(this.x,this.y);
-
-//         this.x += this.speed.x;
-//         this.y += this.speed.y;
-
-//         ctx.lineTo(this.x,this.y);
-//         ctx.stroke();
-
-//         this.ang = Math.atan2(this.speed.y,this.speed.x);
-//         this.mag = Math.sqrt(this.speed.x**2 + this.speed.y**2);
-
-//         let op = [this.ang+Math.PI/4,this.ang-Math.PI/4];
-//         let ch = Math.floor(Math.random()*op.length);
-
-//         if(Math.random() < 0.05) {
-//             this.speed.x = Math.cos(op[ch])*this.mag
-//             this.speed.y = Math.sin(op[ch])*this.mag
-//         }
-//     }
-// }
-
-// let speed = 25;
-// let period = 3000;
-
-// function pulse(){
-//     setTimeout(pulse,period);
-//     let h = Math.random()*(210-150) + 150;
-//     for(var i = 0; i < 56; i++) {
-//         p.push(new particle(can.width/2, 0, {x:Math.cos(i/8*2*Math.PI)*speed, y:Math.sin(i/8*2*Math.PI)*speed}, "#ffdd00"));
-//     }
-// }
-
-// function gameMove(){
-//     requestAnimationFrame(gameMove);
-//     clear();
-//     for(let i = 0; i < p.length; i++) {
-//         let speedFactor = 0.1;
-//         let dx = mouseX - prevMouseX;
-//         let dy = mouseY - prevMouseY;
-//         p[i].speed.x = p[i].originalSpeed.x + dx * speedFactor;
-//         p[i].speed.y = p[i].originalSpeed.y + dy * speedFactor;
-
-//         p[i].upd();
-//         if(p[i].x < 0 || p[i].x > can.width || p[i].y < 0 || p[i].y > can.height) {
-//             p.splice(i,1);
-//         }
-//     }
-// }
-
-// pulse();
-// gameMove();
