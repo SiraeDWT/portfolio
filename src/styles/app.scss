@@ -312,6 +312,10 @@ a{
         left: -100%;
     }
 
+    &__indicator{
+        display: none;
+    }
+
     &__slider{
         list-style: none;
 
@@ -1148,13 +1152,40 @@ a{
                 stroke: #faac32;
                 stroke-miterlimit: 100;
                 stroke-width: 2px;
-            }
-
-            
+            } 
         }
+
         @keyframes dash {
             to {
                 stroke-dashoffset: 0;
+            }
+        }
+
+        &__indicator{
+            position: absolute;
+            bottom: 5%; right: 9%;
+
+            display: flex;
+            gap: 10px;
+        }
+
+        &__number{
+            position: absolute;
+            bottom: 100%; right: 0;
+            color: white;
+
+            &--size{
+                font-size: $h3-size;
+            }
+        }
+
+        &__indicator-bar{
+            width: 50px;
+            height: 10px;
+            background-color: $light-grey;
+
+            &--active{
+                background-color: $complementary-color;
             }
         }
 
@@ -1226,71 +1257,44 @@ a{
             z-index: 2;
         }
 
-        // &__svg{
-        //     display: block;
+        // &__indicator1{
+        //     width: 170px;
+        //     height: 42px; // 10px
+        //     background: url(../assets/images/indicator1-bis.svg);
+
+        //     background-position: center;
+        //     background-repeat: no-repeat;
+        //     background-size: cover;
 
         //     position: absolute;
-        //     top: 0;
-        //     left: 0;
-        //     z-index: -1;
+        //     bottom: 5%; right: 9%;
         // }
 
-        // &__path{
-        //     animation: draw 45s reverse infinite;
-        //     animation-timing-function: linear;
-        //     stroke: $light-grey;
-        //     stroke-width: 2px;
-        // }
-          
-        // @keyframes draw {
-        //     0% {
+        // &__indicator2{
+        //     width: 170px;
+        //     height: 42px; // 10px
+        //     background: url(../assets/images/indicator2-bis.svg);
 
-        //     }
+        //     background-position: center;
+        //     background-repeat: no-repeat;
+        //     background-size: cover;
 
-        //     100% {
-        //         stroke-dashoffset: 0;
-        //         stroke-opacity: 1;
-        //     }
+        //     position: absolute;
+        //     bottom: 5%; right: 9%;
         // }
 
-        &__indicator1{
-            width: 170px;
-            height: 42px; // 10px
-            background: url(../assets/images/indicator1-bis.svg);
+        // &__indicator3{
+        //     width: 170px;
+        //     height: 42px; // 10px
+        //     background: url(../assets/images/indicator3-bis.svg);
 
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: cover;
+        //     background-position: center;
+        //     background-repeat: no-repeat;
+        //     background-size: cover;
 
-            position: absolute;
-            bottom: 5%; right: 9%;
-        }
-
-        &__indicator2{
-            width: 170px;
-            height: 42px; // 10px
-            background: url(../assets/images/indicator2-bis.svg);
-
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: cover;
-
-            position: absolute;
-            bottom: 5%; right: 9%;
-        }
-
-        &__indicator3{
-            width: 170px;
-            height: 42px; // 10px
-            background: url(../assets/images/indicator3-bis.svg);
-
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: cover;
-
-            position: absolute;
-            bottom: 5%; right: 9%;
-        }
+        //     position: absolute;
+        //     bottom: 5%; right: 9%;
+        // }
     }
 
     .technologies{
