@@ -1381,6 +1381,13 @@ a{
     }
 }
 
+@media (-webkit-min-device-pixel-ratio: 2),
+(min-resolution: 192dpi) {
+    .projects{
+        background: url(../assets/images/circuit-imprime-bg@2x.png);
+    }
+}
+
 
 
 // .projects__slider{
