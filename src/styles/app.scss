@@ -459,7 +459,9 @@ a{
         max-width: 100%;
         min-width: 100%;
         border: 2px solid $complementary-color;
-        display: none;
+
+        margin-top: $space-h3;
+        // display: none;
     }
 }
 
@@ -1273,6 +1275,8 @@ a{
 
             position: relative;
             z-index: 2;
+
+            margin-top: 0;
         }
 
         // &__indicator1{
