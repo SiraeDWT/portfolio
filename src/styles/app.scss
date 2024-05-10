@@ -300,18 +300,6 @@ a{
 
     // overflow-x: hidden;
 
-    #svg{
-        display: none;
-    }
-
-    #svg2{
-        display: none;
-    }
-
-    #svg3{
-        display: none;
-    }
-
     &::-webkit-scrollbar{
         display: none;
     }
@@ -1096,64 +1084,69 @@ a{
         position: relative;
         // overflow-x: none;
 
-        #svg{
+        &__svg{
             position: absolute;
-            top: $space-h2; left: 0; right: 0;
             z-index: 0;
 
             display: block;
+
+            &--first{
+                top: $space-h2; left: 0; right: 0; 
+            }
+
+            &--second{
+                top: $space-h3; left: 0; right: 0;
+            }
+
+            &--third{
+                top: $space-p; left: 0; right: 0;
+            }
+            
         }
 
-        #svg2{
-            position: absolute;
-            top: $space-h3; left: 0; right: 0;
-            z-index: 0;
+        &__path{
 
-            display: block;
-        }
-
-        #svg3{
-            position: absolute;
-            top: $space-p; left: 0; right: 0;
-            z-index: 0;
-
-            display: block;
-        }
-    
-        .path{
-            stroke-dasharray: 10000;
-            stroke-dashoffset: 10000;
-            display: block;
-            animation: dash 7s linear forwards;
-    
             fill: none;
             stroke: #faac32;
             stroke-miterlimit: 100;
             stroke-width: 2px;
-        }
 
-        .path2{
-            stroke-dasharray: 10000;
-            stroke-dashoffset: 10000;
-            animation: dash 7s linear forwards;
-    
-            fill: rgba(0,0,0,0);
-            stroke: #faac32;
-            stroke-miterlimit: 100;
-            stroke-width: 2px;
-        }
+            &--first{
+                stroke-dasharray: 10000;
+                stroke-dashoffset: 10000;
+                display: block;
+                animation: dash 7s linear forwards;
+        
+                fill: none;
+                stroke: #faac32;
+                stroke-miterlimit: 100;
+                stroke-width: 2px;
+            }
 
-        .path3{
-            stroke-dasharray: 10000;
-            stroke-dashoffset: 10000;
-            animation: dash 7s linear forwards;
-    
-            fill: rgba(0,0,0,0);
-            stroke: #faac32;
-            stroke-miterlimit: 100;
-            stroke-width: 2px;
+            &--second{
+                stroke-dasharray: 10000;
+                stroke-dashoffset: 10000;
+                animation: dash 7s linear forwards;
+        
+                fill: rgba(0,0,0,0);
+                stroke: #faac32;
+                stroke-miterlimit: 100;
+                stroke-width: 2px;
+            }
+
+            &--third{
+                stroke-dasharray: 10000;
+                stroke-dashoffset: 10000;
+                animation: dash 7s linear forwards;
+        
+                fill: rgba(0,0,0,0);
+                stroke: #faac32;
+                stroke-miterlimit: 100;
+                stroke-width: 2px;
+            }
+
+            
         }
-          
         @keyframes dash {
             to {
                 stroke-dashoffset: 0;
@@ -1228,32 +1221,32 @@ a{
             z-index: 2;
         }
 
-        &__svg{
-            display: block;
+        // &__svg{
+        //     display: block;
 
-            position: absolute;
-            top: 0;
-            left: 0;
-            z-index: -1;
-        }
+        //     position: absolute;
+        //     top: 0;
+        //     left: 0;
+        //     z-index: -1;
+        // }
 
-        &__path{
-            animation: draw 45s reverse infinite;
-            animation-timing-function: linear;
-            stroke: $light-grey;
-            stroke-width: 2px;
-        }
+        // &__path{
+        //     animation: draw 45s reverse infinite;
+        //     animation-timing-function: linear;
+        //     stroke: $light-grey;
+        //     stroke-width: 2px;
+        // }
           
-        @keyframes draw {
-            0% {
+        // @keyframes draw {
+        //     0% {
 
-            }
+        //     }
 
-            100% {
-                stroke-dashoffset: 0;
-                stroke-opacity: 1;
-            }
-        }
+        //     100% {
+        //         stroke-dashoffset: 0;
+        //         stroke-opacity: 1;
+        //     }
+        // }
 
         &__indicator1{
             width: 170px;

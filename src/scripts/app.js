@@ -158,7 +158,7 @@ gsap.from(".skills__dot", {
 
 
 // Projects section
-gsap.from(".path", {
+gsap.from(".projects__path--first", {
     display: "none",
     
     scrollTrigger: {
@@ -168,7 +168,7 @@ gsap.from(".path", {
     },   
 });
 
-gsap.from(".path2", {
+gsap.from(".projects__path--second", {
     display: "none",
     duration: 10,
     stagger: 0.2,
@@ -180,7 +180,7 @@ gsap.from(".path2", {
     },   
 });
 
-gsap.from(".path3", {
+gsap.from(".projects__path--third", {
     display: "none",
     duration: 10,
     stagger: 0.2,
@@ -270,30 +270,6 @@ if (window.matchMedia('(min-width: 1440px)').matches) {
     }
     });
 }
-
-
-
-
-// ----- Change width svg -----
-// let projectSvg = document.querySelectorAll('.projects__svg');
-
-// projectSvg.forEach((svg) => {
-//     if (window.matchMedia('(max-width: 1920px)').matches) {
-//         svg.setAttribute('width', '2500px');
-//     } else {
-//         svg.setAttribute('width', '3000px');
-//     }
-// });
-
-// window.addEventListener('resize', () => {
-//     projectSvg.forEach((svg) => {
-//         if (window.matchMedia('(max-width: 1920px)').matches) {
-//             svg.setAttribute('width', '2500px');
-//         } else {
-//             svg.setAttribute('width', '3000px');
-//         }
-//     });
-// });
 
 
 // ----- CANVAS CONTACT -----
