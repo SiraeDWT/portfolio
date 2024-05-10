@@ -965,17 +965,36 @@ a{
 
         position: relative;
 
+        // &__line{
+        //     width: 84px;
+        //     height: 100%;
+        //     background: url(../assets/images/test1.svg);
+
+        //     background-position: center;
+        //     background-repeat: no-repeat;
+        //     background-size: 100% 100%; //Add preserveAspectRatio="none" in svg and bg-size: 100% 100%;
+
+        //     position: absolute;
+        //     top: 0; left: 5%;
+        // }
+
         &__line{
-            width: 84px;
-            height: 100%;
-            background: url(../assets/images/test1.svg);
-
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: 100% 100%; //Add preserveAspectRatio="none" in svg and bg-size: 100% 100%;
-
             position: absolute;
             top: 0; left: 5%;
+
+            display: block;
+        }
+
+        &__path{
+            stroke-dasharray: 10000;
+            stroke-dashoffset: 10000;
+            display: block;
+            animation: dash 10s linear forwards;
+    
+            fill: none;
+            stroke: #faac32;
+            stroke-miterlimit: 100;
+            stroke-width: 2px;
         }
 
         &__dots{
@@ -1028,16 +1047,22 @@ a{
         position: relative;
 
         &__line{
-            width: 90px;
-            height: 100%;
-            background: url(../assets/images/test2.svg);
-
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: 100% 100%;
-
             position: absolute;
             top: 0; left: 12%;
+
+            display: block;
+        }
+
+        &__path{
+            stroke-dasharray: 10000;
+            stroke-dashoffset: 10000;
+            display: block;
+            animation: dash 10s linear forwards;
+    
+            fill: none;
+            stroke: #faac32;
+            stroke-miterlimit: 100;
+            stroke-width: 2px;
         }
 
         &__dots{
@@ -1125,33 +1150,18 @@ a{
                 stroke-dashoffset: 10000;
                 display: block;
                 animation: dash 7s linear forwards;
-        
-                fill: none;
-                stroke: #faac32;
-                stroke-miterlimit: 100;
-                stroke-width: 2px;
             }
 
             &--second{
                 stroke-dasharray: 10000;
                 stroke-dashoffset: 10000;
                 animation: dash 7s linear forwards;
-        
-                fill: rgba(0,0,0,0);
-                stroke: #faac32;
-                stroke-miterlimit: 100;
-                stroke-width: 2px;
             }
 
             &--third{
                 stroke-dasharray: 10000;
                 stroke-dashoffset: 10000;
                 animation: dash 7s linear forwards;
-        
-                fill: rgba(0,0,0,0);
-                stroke: #faac32;
-                stroke-miterlimit: 100;
-                stroke-width: 2px;
             } 
         }
 

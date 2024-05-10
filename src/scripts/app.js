@@ -60,19 +60,30 @@ gsap.from('.softskills__el', {
     }
 });
 
+// gsap.from(".softskills__line", {
+//     height: "0%",
+//     duration: 0.8,
+    
+//     scrollTrigger: {
+//         trigger: ".softskills",
+//         start: 'top 40%',
+//         end: 'bottom 30%',
+//         // start: "top 75%",
+//         // end: "40% 75%",
+//         // scrub: 1,
+//     },   
+// });
+
 gsap.from(".softskills__line", {
-    height: "0%",
-    duration: 0.8,
+    display: "none",
     
     scrollTrigger: {
         trigger: ".softskills",
         start: 'top 40%',
         end: 'bottom 30%',
-        // start: "top 75%",
-        // end: "40% 75%",
-        // scrub: 1,
     },   
 });
+
 
 gsap.from(".softskills__dot", {
     x: "100px",
@@ -129,17 +140,27 @@ gsap.from('.skills__el', {
     }
 });
 
+// gsap.from(".skills__line", {
+//     height: "0%",
+//     duration: 0.8,
+    
+//     scrollTrigger: {
+//         trigger: ".skills",
+//         start: 'top 40%',
+//         end: 'bottom 30%',
+//         // start: "top 75%",
+//         // end: "40% 75%",
+//         // scrub: 1,
+//     },   
+// });
+
 gsap.from(".skills__line", {
-    height: "0%",
-    duration: 0.8,
+    display: "none",
     
     scrollTrigger: {
         trigger: ".skills",
         start: 'top 40%',
         end: 'bottom 30%',
-        // start: "top 75%",
-        // end: "40% 75%",
-        // scrub: 1,
     },   
 });
 
@@ -242,6 +263,36 @@ gsap.from(".technologies > *", {
         // scrub: 1,
     },   
 });
+
+
+
+
+
+// let tl = gsap.timeline({
+//     scrollTrigger: {
+//       trigger: '.projects__el',
+//       start: 'top top',
+//       endTrigger: '.test',
+//       end: 'bottom 80%',
+//       markers: true,
+//     }
+// });
+
+
+// const allContent = gsap.utils.toArray('.projects__el')
+// allContent.forEach((eachPoint, i) => {
+//   if (i) {
+//     tl.to('.test', {
+//       y: -32 * i
+//     }, i * 1 - 0.5)
+//   }
+// });
+// tl.to({}, {duration: 0.5});
+
+
+
+
+
 
 
 
