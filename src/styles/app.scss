@@ -204,6 +204,10 @@ a{
     &__dots{
         display: none;
     }
+
+    &__line{
+        display: none;
+    }
 }
 
 .skills{
@@ -263,6 +267,10 @@ a{
     }
 
     &__dots{
+        display: none;
+    }
+
+    &__line{
         display: none;
     }
 }
