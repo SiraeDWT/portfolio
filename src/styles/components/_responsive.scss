@@ -169,7 +169,8 @@
             top: 50%; left: 50%;
             z-index: -1;
 
-            display: block;           
+            display: block;
+            width: 76%;     
         }
 
         &__path{
@@ -561,7 +562,8 @@
                 display: grid;
                 grid-template-columns: repeat(7, 1fr);
                 // grid-template-rows: repeat(3, 1fr);
-                grid-template-rows: 100% 100% 100%;
+                // grid-template-rows: 100% 100% 100%;
+                grid-template-rows: repeat(3, 100%);
                 column-gap: $space-p-mini;
     
                 padding-bottom: $space-h3;
@@ -636,6 +638,11 @@
 }
 
 @media only screen and (min-width: 1921px){
+    .presentation{
+        &__svg{ 
+            width: 100%;
+        }
+    }
     .projects{
         &__projet{
             margin-top: $space-giga-h1;
