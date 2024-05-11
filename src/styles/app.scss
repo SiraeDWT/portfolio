@@ -82,6 +82,10 @@ a{
         z-index: -1;
     }
 
+    &__svg{
+        display: none;
+    }
+
     &__content{
         position: absolute;
         transform: translate(-50%, -50%);

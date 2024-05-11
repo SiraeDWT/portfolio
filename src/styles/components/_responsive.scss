@@ -162,6 +162,35 @@
             max-width: 65%;
             margin: 0 auto;
         }
+
+        &__svg{
+            position: absolute;
+            transform: translate(-50%, -50%);
+            top: 50%; left: 50%;
+            z-index: -1;
+
+            display: block;           
+        }
+
+        &__path{
+
+            fill: none;
+            stroke: #faac32;
+            stroke-miterlimit: 100;
+            stroke-width: 2px;
+
+
+            stroke-dasharray: 10000;
+            stroke-dashoffset: 10000;
+            display: block;
+            animation: dash 7s linear forwards;
+        }
+
+        @keyframes dash {
+            to {
+                stroke-dashoffset: 0;
+            }
+        }
     }
 
     .softskills{
