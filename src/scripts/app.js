@@ -21,33 +21,33 @@ window.addEventListener('scroll', function() {
 });
 
 // ----- Typing Animation Effect -----
-let i = 0;
-let textArray = ['Dylan Vercalsteren', 'Sirae_'];
-let currentTextIndex = 0;
-let speedy = 75;
-let mainTitle = document.querySelector('.presentation__title');
+// let i = 0;
+// let textArray = ['Dylan Vercalsteren', 'SiraeDWT'];
+// let currentTextIndex = 0;
+// let speedy = 75;
+// let mainTitle = document.querySelector('.presentation__title');
 
-mainTitle.innerHTML = '';
+// mainTitle.innerHTML = '';
 
-function typeWriter() {
-    const txt = textArray[currentTextIndex];
-    if (i < txt.length) {
-        mainTitle.innerHTML += txt.charAt(i);
-        i++;
-        setTimeout(typeWriter, speedy);
-    } else {
-        setTimeout(() => {
-            i = 0;
-            currentTextIndex = (currentTextIndex + 1) % textArray.length;
+// function typeWriter() {
+//     const txt = textArray[currentTextIndex];
+//     if (i < txt.length) {
+//         mainTitle.innerHTML += txt.charAt(i);
+//         i++;
+//         setTimeout(typeWriter, speedy);
+//     } else {
+//         setTimeout(() => {
+//             i = 0;
+//             currentTextIndex = (currentTextIndex + 1) % textArray.length;
 
-            mainTitle.innerHTML = '';
+//             mainTitle.innerHTML = '';
 
-            typeWriter();
-        }, 5000);
-    }
-}
+//             typeWriter();
+//         }, 5000);
+//     }
+// }
 
-typeWriter();
+// typeWriter();
 
 
 // ----- Animations GSAP -----
