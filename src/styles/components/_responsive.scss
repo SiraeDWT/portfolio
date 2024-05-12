@@ -110,6 +110,12 @@
         }
         
     }
+
+    .social{
+        &__wrapper{
+            width: 80%;
+        }
+    }
 }
 
 @media only screen and (min-width: 725px){
@@ -147,6 +153,12 @@
         &__wrapper{
             max-width: 75%;
             margin: 0 auto;
+        }
+    }
+
+    .social{
+        &__wrapper{
+            width: 55%;
         }
     }
 }
@@ -556,6 +568,12 @@
         }
     }
 
+    .social{
+        &__wrapper{
+            width: 35%;
+        }
+    }
+
     @media only screen and (max-height: 900px){
         .softskills{
             &__container{
@@ -646,6 +664,12 @@
     .projects{
         &__projet{
             margin-top: $space-giga-h1;
+        }
+    }
+
+    .social{
+        &__wrapper{
+            width: 30%;
         }
     }
 }
