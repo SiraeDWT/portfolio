@@ -20,34 +20,100 @@ window.addEventListener('scroll', function() {
     }
 });
 
-// ----- Typing Animation Effect -----
-// let i = 0;
-// let textArray = ['Dylan Vercalsteren', 'SiraeDWT'];
-// let currentTextIndex = 0;
-// let speedy = 75;
-// let mainTitle = document.querySelector('.presentation__title');
+// ----- CANVAS -----
+function initializeCanvas(id, context, canvasHeight) {
+    let can = id;
+    let ctx = context;
 
-// mainTitle.innerHTML = '';
+    function resizeCanvas() {
+        can.width = window.innerWidth;
+        can.height = window.innerHeight;
+        clear();
+    }
 
-// function typeWriter() {
-//     const txt = textArray[currentTextIndex];
-//     if (i < txt.length) {
-//         mainTitle.innerHTML += txt.charAt(i);
-//         i++;
-//         setTimeout(typeWriter, speedy);
-//     } else {
-//         setTimeout(() => {
-//             i = 0;
-//             currentTextIndex = (currentTextIndex + 1) % textArray.length;
+    can.style.background = "#060D19";
 
-//             mainTitle.innerHTML = '';
+    let p = [];
 
-//             typeWriter();
-//         }, 5000);
-//     }
-// }
+    function clear(){
+        ctx.fillStyle="rgba(6, 13, 25, 0.15)"
+        ctx.fillRect(0,0,can.width,can.height);
+    }
 
-// typeWriter();
+    function particle(x,y,speed,c){
+        this.x = x;
+        this.y = y;
+        this.speed = speed;
+        this.upd = function(){
+            ctx.strokeStyle = c;
+            ctx.lineWidth = 1;
+            ctx.lineCap = "round";
+            ctx.beginPath();
+            ctx.moveTo(this.x,this.y);
+
+            this.x += this.speed.x;
+            this.y += this.speed.y;
+
+            ctx.lineTo(this.x,this.y);
+            ctx.stroke();
+
+            this.ang = Math.atan2(this.speed.y,this.speed.x);
+            this.mag = Math.sqrt(this.speed.x**2 + this.speed.y**2);
+
+            let op = [this.ang+Math.PI/4,this.ang-Math.PI/4];
+            let ch = Math.floor(Math.random()*op.length);
+
+            if(Math.random() < 0.05) {
+                this.speed.x = Math.cos(op[ch])*this.mag
+                this.speed.y = Math.sin(op[ch])*this.mag
+            }
+        }
+    }
+
+    let speed = 15;
+    let period = 3000;
+
+    function pulse(){
+        setTimeout(pulse,period);
+        let h = Math.random()*(210-150) + 150;
+        for(let i = 0; i < 56; i++) {
+            p.push(new particle(can.width/2, canvasHeight, {x:Math.cos(i/8*2*Math.PI)*speed, y:Math.sin(i/8*2*Math.PI)*speed}, "#ffdd00"));
+            console.log(can.height/2.2)
+        }
+    }
+
+    function gameMove(){
+        requestAnimationFrame(gameMove);
+        clear();
+        for(let i = 0; i < p.length; i++) {
+            p[i].upd();
+            if(p[i].x < 0 || p[i].x > can.width || p[i].y < 0 || p[i].y > can.height) {
+                p.splice(i,1);
+            }
+        }
+    }
+
+    resizeCanvas();
+
+    window.addEventListener('resize', resizeCanvas);
+
+    pulse();
+    gameMove();
+}
+
+// For first section canvas
+const canvasPresentation = document.getElementById("canvas");
+const ctxPresentation = canvasPresentation.getContext("2d");
+const presentationHeight = 430;
+
+// For last section canvas
+const canvasContact = document.getElementById("contact-canvas");
+const ctxContact = canvasContact.getContext("2d");
+const contactHeight = 0;
+
+initializeCanvas(canvasPresentation, ctxPresentation, presentationHeight);
+initializeCanvas(canvasContact, ctxContact, contactHeight);
+
 
 
 // ----- Animations GSAP -----
@@ -350,218 +416,3 @@ if (window.matchMedia('(min-width: 1440px)').matches) {
     }
     });
 }
-
-
-// ----- CANVAS CONTACT -----
-function displayCanvas(id, drawArea, particleAmount){
-    let wi, he;
-
-    const resizeReset = function() {
-        wi = id.width = window.innerWidth;
-        he = id.height = window.innerHeight;
-    };
-    
-    const opts = { 
-        particleColor: "#FAAC32",
-        lineColor: "rgb(250,250,250)",
-        particleAmount: particleAmount,
-        defaultSpeed: 0.1,
-        variantSpeed: 1,
-        defaultRadius: 2,
-        variantRadius: 2,
-        linkRadius: 200,
-    };
-    
-    window.addEventListener("resize", function(){
-        deBouncer();
-    });
-    
-    let deBouncer = function() {
-        clearTimeout(tid);
-        tid = setTimeout(function() {
-            resizeReset();
-        }, delay);
-    };
-    
-    const checkDistance = function(x1, y1, x2, y2){ 
-        return Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2));
-    };
-    
-    const linkPoints = function(point1, hubs){ 
-        for (let i = 0; i < hubs.length; i++) {
-            let distance = checkDistance(point1.x, point1.y, hubs[i].x, hubs[i].y);
-            let opacity = 1 - distance / opts.linkRadius;
-            if (opacity > 0) { 
-                drawArea.lineWidth = 0.5;
-                drawArea.strokeStyle = `rgba(${rgb[0]}, ${rgb[1]}, ${rgb[2]}, ${opacity})`;
-                drawArea.beginPath();
-                drawArea.moveTo(point1.x, point1.y);
-                drawArea.lineTo(hubs[i].x, hubs[i].y);
-                drawArea.closePath();
-                drawArea.stroke();
-            }
-        }
-    };
-    
-    const Particle = function(xPos, yPos){ 
-        this.x = Math.random() * wi; 
-        this.y = Math.random() * he;
-        this.speed = opts.defaultSpeed + Math.random() * opts.variantSpeed; 
-        this.directionAngle = Math.floor(Math.random() * 360); 
-        this.color = opts.particleColor;
-        this.radius = opts.defaultRadius + Math.random() * opts. variantRadius; 
-        this.vector = {
-            x: Math.cos(this.directionAngle) * this.speed,
-            y: Math.sin(this.directionAngle) * this.speed
-        };
-        this.update = function(){ 
-            this.border(); 
-            this.x += this.vector.x; 
-            this.y += this.vector.y; 
-        };
-        this.border = function(){ 
-            if (this.x >= wi || this.x <= 0) { 
-                this.vector.x *= -1;
-            }
-            if (this.y >= he || this.y <= 0) {
-                this.vector.y *= -1;
-            }
-            if (this.x > wi) this.x = wi;
-            if (this.y > he) this.y = he;
-            if (this.x < 0) this.x = 0;
-            if (this.y < 0) this.y = 0;    
-        };
-        this.draw = function(){ 
-            drawArea.beginPath();
-            drawArea.arc(this.x, this.y, this.radius, 0, Math.PI*2);
-            drawArea.closePath();
-            drawArea.fillStyle = this.color;
-            drawArea.fill();
-        };
-    };
-    
-    let particles = [];
-    
-    function setup(){ 
-        particles = [];
-        resizeReset();
-        for (let i = 0; i < opts.particleAmount; i++){
-            particles.push( new Particle() );
-        }
-        window.requestAnimationFrame(loop);
-    }
-    
-    function loop(){ 
-        window.requestAnimationFrame(loop);
-        drawArea.clearRect(0,0,wi,he);
-        for (let i = 0; i < particles.length; i++){
-            particles[i].update();
-            particles[i].draw();
-        }
-        for (let i = 0; i < particles.length; i++){
-            linkPoints(particles[i], particles);
-        }
-    }
-
-    let delay = 200, tid,
-    rgb = opts.lineColor.match(/\d+/g);
-    resizeReset();
-    setup();
-}
-
-const canvasContact = document.getElementById("contact-canvas");
-const drawAreaContact = canvasContact.getContext("2d");
-
-const canvas = document.getElementById("canvas");
-const drawArea = canvas.getContext("2d");
-
-const particleAmountDesktop = 30;
-const particleAmountMobile = 10;
-
-// displayCanvas(canvas, drawArea, particleAmountDesktop);
-displayCanvas(canvasContact, drawAreaContact, particleAmountDesktop);
-
-if (window.matchMedia('(min-width: 640px)').matches) {
-    // displayCanvas(canvas, drawArea, particleAmountDesktop);
-    displayCanvas(canvasContact, drawAreaContact, particleAmountDesktop);
-} else {
-    // displayCanvas(canvas, drawArea, particleAmountMobile);
-    displayCanvas(canvasContact, drawAreaContact, particleAmountMobile);
-}
-
-
-
-
-
-
-
-
-// CANVAS FIRST SECTION
-let can = document.getElementById("canvas");
-let ctx = can.getContext("2d");
-
-can.width = window.innerWidth;
-can.height = window.innerHeight;
-can.style.background = "#060D19";
-
-let p = [];
-
-function clear(){
-    ctx.fillStyle="rgba(6, 13, 25, 0.15)"
-    ctx.fillRect(0,0,can.width,can.height);
-}
-
-function particle(x,y,speed,c){
-    this.x = x;
-    this.y = y;
-    this.speed = speed;
-    this.upd = function(){
-        ctx.strokeStyle = c;
-        ctx.lineWidth = 1;
-        ctx.lineCap = "round";
-        ctx.beginPath();
-        ctx.moveTo(this.x,this.y);
-
-        this.x += this.speed.x;
-        this.y += this.speed.y;
-
-        ctx.lineTo(this.x,this.y);
-        ctx.stroke();
-
-        this.ang = Math.atan2(this.speed.y,this.speed.x);
-        this.mag = Math.sqrt(this.speed.x**2 + this.speed.y**2);
-
-        let op = [this.ang+Math.PI/4,this.ang-Math.PI/4];
-        let ch = Math.floor(Math.random()*op.length);
-
-        if(Math.random() < 0.05) {
-            this.speed.x = Math.cos(op[ch])*this.mag
-            this.speed.y = Math.sin(op[ch])*this.mag
-        }
-    }
-}
-
-let speed = 15;
-let period = 3000;
-
-function pulse(){
-    setTimeout(pulse,period);
-    let h = Math.random()*(210-150) + 150;
-    for(var i = 0; i < 56; i++) {
-        p.push(new particle(can.width/2, can.height/2.2, {x:Math.cos(i/8*2*Math.PI)*speed, y:Math.sin(i/8*2*Math.PI)*speed}, "#ffdd00"));
-    }
-}
-
-function gameMove(){
-    requestAnimationFrame(gameMove);
-    clear();
-    for(var i = 0; i < p.length; i++) {
-        p[i].upd();
-        if(p[i].x < 0 || p[i].x > can.width || p[i].y < 0 || p[i].y > can.height) {
-            p.splice(i,1);
-        }
-    }
-}
-pulse();
-gameMove();
-
