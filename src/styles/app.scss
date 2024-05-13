@@ -839,6 +839,7 @@ a{
         display: flex;
         flex-direction: column;
         gap: $space-p-mini;
+        list-style: none;
     }
 
     &__el{
