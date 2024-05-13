@@ -1,22 +1,11 @@
 @media only screen and (min-width: 420px){
     .presentation{
         &__title{
-            color: $light-grey;
             font-size: $h1-ultra-size;
-            font-weight: 700;
-            margin-bottom: $space-h3;
-    
-            // text-shadow: 0 0 18px #0E4AB7;
-    
-            line-height: 110%; // For mobile title
     
             & span{
                 font-size: $h1-giga-size;
             }
-        }
-
-        &__welcome{
-            font-size: $h2-size;
         }
     }
 }
