@@ -32,6 +32,7 @@ a{
 
     // font-family: "adelle", serif;
     font-family: "proxima-nova", sans-serif;
+    font-style: normal;
     font-weight: 500;
 
     &:visited{
@@ -54,11 +55,12 @@ a{
 
 .text{
     // font-family: $text-font;
+    // font-weight: 300;
 
     // font-family: "adelle", serif;
     font-family: "proxima-nova", sans-serif;
     font-style: normal;
-    font-weight: 300;
+    font-weight: 400;
 }
 
 .title, .text{
@@ -77,12 +79,6 @@ a{
     display: flex;
 
     position: relative;
-
-    // border-right: 25px solid $complementary-color;
-    // &__canvas{
-    //     position: absolute;
-    //     z-index: -1;
-    // }
 
     &__canvas{
         position: absolute;
@@ -107,8 +103,6 @@ a{
         font-size: $h1-size;
         font-weight: 500; // 700 de base
         margin-bottom: $space-h3;
-
-        // text-shadow: 0 0 18px #0E4AB7;
 
         line-height: 110%; // For mobile title
 
@@ -136,8 +130,6 @@ a{
     }
 
     &__arrow{
-        // filter: drop-shadow(0 0 18px #0E4AB7);
-
         transition: .3s;
 
         &:hover{
@@ -151,23 +143,8 @@ a{
 }
 
 .softskills{
-    // width: 100%;
-    // height: 100vh;
-
     background-color: $darker-blue;
     border-top: 1px solid $complementary-color;
-
-    // &__container{
-    //     display: grid;
-    //     grid-template-columns: repeat(7, 1fr);
-    //     grid-template-rows: repeat(3, 1fr);
-    //     column-gap: $space-p-mini; 
-    // }
-
-    // .grid-col-3{
-    //     grid-row: 2;
-    //     grid-column: 2/6;
-    // }
 
     &__container{
         padding-bottom: $space-h1;
@@ -177,9 +154,6 @@ a{
         margin: $space-h1 0 $space-h3;
         font-size: $h1-size;
         color: $light-grey; 
-
-        // grid-row: 1;
-        // grid-column: 2/5;
     }
 
     &__text{
@@ -196,8 +170,6 @@ a{
     &__list{
         color: $light-grey;
         list-style: square;
-        // grid-row: 3;
-        // grid-column: 2/5;
     }
 
     &__el{
@@ -286,7 +258,6 @@ a{
     display: flex;
     gap: 10px;
     margin: calc($space-h3) 0;
-    // justify-content: end;
 
     list-style: none;
     
@@ -301,9 +272,6 @@ a{
 }
 
 .projects{
-    // width: 100%;
-    // height: 100vh;
-
     // background-color: $dark-blue;
     background: url(../assets/images/circuit-imprime-bg.png);
 
@@ -312,8 +280,6 @@ a{
     background-size: cover;
     
     border-top: 1px solid $complementary-color;
-
-    // overflow-x: hidden;
 
     &::-webkit-scrollbar{
         display: none;
@@ -332,19 +298,10 @@ a{
     }
 
     &__slider{
-        list-style: none;
-
-        // display: flex;
-        // flex-wrap: nowrap;
-
-        // width: 100vw;
-        // overflow-x: hidden;      
+        list-style: none;     
     }
 
     &__el{
-        // height: 100vh;
-        // width: 100%;
-
         border-right: 2px solid $complementary-color;
         border-bottom: 2px solid $complementary-color;
     }
@@ -468,7 +425,6 @@ a{
         border: 2px solid $complementary-color;
 
         margin-top: $space-h3;
-        // display: none;
     }
 }
 
@@ -476,7 +432,6 @@ a{
     width: 100%;
     height: 100vh;
     background: linear-gradient(180deg, rgba(1,1,3,1) 10%, rgba(3,6,12,1) 30%, rgba(6,13,25,1) 100%);
-    // background-color: $darker-blue;
     border-top: 1px solid $complementary-color;
 
     display: flex;
@@ -885,590 +840,3 @@ a{
 }
 
 @import 'components/responsive';
-
-
-// @media only screen and (min-width: 420px){
-//     .presentation{
-//         &__title{
-//             color: $light-grey;
-//             font-size: $h1-ultra-size;
-//             font-weight: 700;
-//             margin-bottom: $space-h3;
-    
-//             // text-shadow: 0 0 18px #0E4AB7;
-    
-//             line-height: 110%; // For mobile title
-    
-//             & span{
-//                 font-size: $h1-giga-size;
-//             }
-//         }
-
-//         &__welcome{
-//             font-size: $h2-size;
-//         }
-//     }
-// }
-
-// @media only screen and (min-width: $breakpoint-mobile){
-//     .wrapper{
-//         width: 80%;
-//         margin: 0 auto;
-//     }
-
-//     .presentation{
-    
-//         &__title{
-//             font-size: $h1-giga-size;
-//             // line-height: $line-height;
-//         }
-//     }
-    
-//     .softskills{
-        
-//         &__title{
-//             margin: $space-h1 0 $space-h3;
-//             font-size: $h1-size;
-//             color: $light-grey; 
-    
-//             // grid-row: 1;
-//             // grid-column: 2/5;
-//         }
-    
-//         &__text{
-//             color: $light-grey;
-//             font-size: $p-size;
-//             width: 100%;
-//             margin-bottom: $space-p;
-
-//             &:nth-last-child(-n +1){
-//                 margin-bottom: calc($space-p/2);
-//             }
-            
-//         }
-    
-//         &__list{
-//             color: $light-grey;
-//             // grid-row: 3;
-//             // grid-column: 2/5;
-//         }
-//     }
-
-//     .skills{
-        
-//         &__title{
-//             margin: $space-h1 0 $space-h3;
-//             font-size: $h1-size;
-//             color: $light-grey; 
-    
-//             // grid-row: 1;
-//             // grid-column: 2/5;
-//         }
-    
-//         &__text{
-//             color: $light-grey;
-//             font-size: $p-size;
-//             width: 100%;
-//             margin-bottom: $space-p;
-            
-//         }
-    
-//         &__list{
-//             color: $light-grey;
-//             // grid-row: 3;
-//             // grid-column: 2/5;
-//         }
-//     }
-
-//     .contact{
-    
-//         &__title{
-//             font-size: $h1-ultra-size;
-//         }
-//     }
-    
-//     .footer{
-    
-//         &__content{
-//             flex-direction: row;
-//             gap: $space-h1;
-//         }
-        
-//         &__el a{
-//             padding: 0 5px;
-//         }
-        
-//     }
-// }
-
-// @media only screen and (min-width: 725px){
-//     .contact{
-//         &__title{
-//             line-height: $line-height;
-//         }
-//     }
-// }
-
-// @media only screen and (min-width: $breakpoint-tablet){
-//     .wrapper{
-//         width: 55%;
-//         margin: 0 auto;
-//     }
-
-//     .presentation{
-//         &__content{
-//             width: 900px;
-//         }
-//     }
-
-//     .network{
-
-//         &__list{
-//             position: fixed;
-//             z-index: 20;
-//             bottom: 10px; left: 10px;
-//             list-style: none;
-//             display: block;
-//         }
-//     }
-
-//     .credits{
-//         &__wrapper{
-//             max-width: 75%;
-//             margin: 0 auto;
-//         }
-//     }
-// }
-
-// @media only screen and (min-width: $breakpoint-desktop){
-//     .wrapper{
-//         width: 100%;
-//         margin: auto;
-//     }
-
-//     .presentation{
-//         &__text{
-//             max-width: 65%;
-//             margin: 0 auto;
-//         }
-//     }
-
-//     .softskills{
-    
-//         background-color: $darker-blue;
-//         border-top: 1px solid $complementary-color;
-
-//         position: relative;
-
-//         // &__line{
-//         //     width: 84px;
-//         //     height: 100%;
-//         //     background: url(../assets/images/test1.svg);
-
-//         //     background-position: center;
-//         //     background-repeat: no-repeat;
-//         //     background-size: 100% 100%; //Add preserveAspectRatio="none" in svg and bg-size: 100% 100%;
-
-//         //     position: absolute;
-//         //     top: 0; left: 5%;
-//         // }
-
-//         &__line{
-//             position: absolute;
-//             top: 0; left: 5%;
-
-//             display: block;
-//         }
-
-//         &__path{
-//             stroke-dasharray: 10000;
-//             stroke-dashoffset: 10000;
-//             display: block;
-//             animation: dash 10s linear forwards;
-    
-//             fill: none;
-//             stroke: #faac32;
-//             stroke-miterlimit: 100;
-//             stroke-width: 2px;
-//         }
-
-//         &__dots{
-//             display: block;
-
-//             width: 276.75px;
-//             height: 108px;
-
-//             background-position: center;
-//             background-repeat: no-repeat;
-//             background-size: 100% 100%;
-
-//             position: absolute;
-//             bottom: 15%; right: 10%;
-//         }
-    
-//         &__container{
-//             display: grid;
-//             grid-template-columns: repeat(7, 1fr);
-//             grid-template-rows: repeat(3, 1fr);
-//             column-gap: $space-p-mini;
-
-//             padding-bottom: 0;
-//         }
-    
-//         &__grid-col-3{
-//             grid-row: 2;
-//             grid-column: 2/5;
-//         }
-        
-//         &__title{
-//             grid-row: 1;
-//             grid-column: 2/5;
-//             font-size: $h1-ultra-size;
-//         }
-    
-//         &__list{
-//             grid-row: 3;
-//             grid-column: 2/5;
-//         }
-
-        
-//     }
-
-//     .skills{
-    
-//         background-color: $darker-blue;
-//         border-top: 1px solid $complementary-color;
-
-//         position: relative;
-
-//         &__line{
-//             position: absolute;
-//             top: 0; left: 12%;
-
-//             display: block;
-//         }
-
-//         &__path{
-//             stroke-dasharray: 10000;
-//             stroke-dashoffset: 10000;
-//             display: block;
-//             animation: dash 10s linear forwards;
-    
-//             fill: none;
-//             stroke: #faac32;
-//             stroke-miterlimit: 100;
-//             stroke-width: 2px;
-//         }
-
-//         &__dots{
-//             display: block;
-
-//             width: 276.75px;
-//             height: 108px;
-//             // background: url(../assets/images/dots.svg);
-
-//             background-position: center;
-//             background-repeat: no-repeat;
-//             background-size: 100% 100%;
-
-//             position: absolute;
-//             bottom: 15%; left: 5%;
-//         }
-    
-//         &__container{
-//             display: grid;
-//             grid-template-columns: repeat(9, 1fr);
-//             grid-template-rows: repeat(3, 1fr);
-//             column-gap: $space-p-mini;
-
-//             padding-bottom: $space-h2;
-//         }
-    
-//         &__grid-col-3{
-//             grid-row: 2;
-//             grid-column: 3/7;
-//         }
-        
-//         &__title{
-//             grid-row: 1;
-//             grid-column: 3/6;
-//         }
-    
-//         &__list{
-//             flex-wrap: nowrap;
-//             grid-row: 3;
-//             grid-column: 3/9;
-//         }
-
-//         &__el{
-//             flex: 1;
-//         }
-//     }
-
-//     .projects{
-//         width: 100%;
-//         height: 100vh;
-    
-//         overflow-x: hidden;
-//         position: relative;
-//         // overflow-x: none;
-
-//         &__svg{
-//             position: absolute;
-//             z-index: 0;
-
-//             display: block;
-
-//             &--first{
-//                 top: $space-h2; left: 0; right: 0; 
-//             }
-
-//             &--second{
-//                 top: $space-h3; left: 0; right: 0;
-//             }
-
-//             &--third{
-//                 top: $space-p; left: 0; right: 0;
-//             }
-            
-//         }
-
-//         &__path{
-
-//             fill: none;
-//             stroke: #faac32;
-//             stroke-miterlimit: 100;
-//             stroke-width: 2px;
-
-//             &--first{
-//                 stroke-dasharray: 10000;
-//                 stroke-dashoffset: 10000;
-//                 display: block;
-//                 animation: dash 7s linear forwards;
-//             }
-
-//             &--second{
-//                 stroke-dasharray: 10000;
-//                 stroke-dashoffset: 10000;
-//                 animation: dash 7s linear forwards;
-//             }
-
-//             &--third{
-//                 stroke-dasharray: 10000;
-//                 stroke-dashoffset: 10000;
-//                 animation: dash 7s linear forwards;
-//             } 
-//         }
-
-//         @keyframes dash {
-//             to {
-//                 stroke-dashoffset: 0;
-//             }
-//         }
-
-//         &__indicator{
-//             position: absolute;
-//             bottom: 5%; right: 9%;
-
-//             display: flex;
-//             gap: 10px;
-//         }
-
-//         &__number{
-//             position: absolute;
-//             bottom: 100%; right: 0;
-//             color: white;
-
-//             &--size{
-//                 font-size: $h3-size;
-//             }
-//         }
-
-//         &__indicator-bar{
-//             width: 50px;
-//             height: 10px;
-//             background-color: $light-grey;
-
-//             &--active{
-//                 background-color: $complementary-color;
-//             }
-//         }
-
-//         &__slider{
-//             display: flex;
-//             flex-wrap: nowrap;
-
-//             width: 300vw;
-//             overflow: hidden;
-//         }
-
-//         &__el{
-//             overflow: hidden;
-//             height: 100vh;
-//             width: 100%;
-
-//             // &:nth-last-child(n){
-//             //     border-right: 0px solid $complementary-color;
-//             // }
-
-//             border-right: 2px solid $complementary-color;
-//         }
-
-//         &__projet{
-//             flex-direction: row;
-
-//             margin-top: $space-h1;
-//         }
-
-//         &__wrapper{
-//             width: 82%; //! IMPORTANT
-//             // margin: 0 auto;
-//         }
-
-        
-//         &__description{
-//             margin: $space-h1 $space-h2;
-//         }
-
-//         &__secondary-title{
-//             font-size: $h1-ultra-size;
-
-//             &--big{
-//                 font-size: $h1-ultra-size;
-//             }
-
-//             &--great{
-//                 font-size: $h1-giga-size;
-//             }
-//         }
-
-//         &__assets{
-//             a:has(> img){
-                
-//                 & img{
-//                     transition: .2s ease-in-out;
-//                 }
-                
-//                 &:hover img{
-//                     transform: scale(1.02);
-//                 }
-//             }
-//         }
-
-//         &__img{
-//             display: block;
-
-//             position: relative;
-//             z-index: 2;
-
-//             margin-top: 0;
-//         }
-
-//         // &__indicator1{
-//         //     width: 170px;
-//         //     height: 42px; // 10px
-//         //     background: url(../assets/images/indicator1-bis.svg);
-
-//         //     background-position: center;
-//         //     background-repeat: no-repeat;
-//         //     background-size: cover;
-
-//         //     position: absolute;
-//         //     bottom: 5%; right: 9%;
-//         // }
-
-//         // &__indicator2{
-//         //     width: 170px;
-//         //     height: 42px; // 10px
-//         //     background: url(../assets/images/indicator2-bis.svg);
-
-//         //     background-position: center;
-//         //     background-repeat: no-repeat;
-//         //     background-size: cover;
-
-//         //     position: absolute;
-//         //     bottom: 5%; right: 9%;
-//         // }
-
-//         // &__indicator3{
-//         //     width: 170px;
-//         //     height: 42px; // 10px
-//         //     background: url(../assets/images/indicator3-bis.svg);
-
-//         //     background-position: center;
-//         //     background-repeat: no-repeat;
-//         //     background-size: cover;
-
-//         //     position: absolute;
-//         //     bottom: 5%; right: 9%;
-//         // }
-//     }
-
-//     .technologies{
-//         margin: calc($space-p/2) 0 0;
-//     }
-
-//     .credits{
-//         &__wrapper{
-//             max-width: 70%;
-//             margin: 0 auto;
-//         }
-//     }
-
-//     @media only screen and (max-height: 900px){
-//         .skills{
-//             &__grid-col-3{
-//                 grid-row: 2;
-//                 grid-column: 3/7;
-//             }
-            
-//             &__title{
-//                 grid-row: 1;
-//                 grid-column: 3/7;
-//             }
-        
-//             &__list{
-//                 flex-wrap: nowrap;
-//                 grid-row: 3;
-//                 grid-column: 3/10;
-//             }
-//         }
-//         .projects{
-//             &__projet{
-//                 margin: $space-h3 auto 0;
-//             }
-    
-//             &__wrapper{
-//                 width: 75%;
-//             }
-    
-//             &__description{
-//                 margin: $space-h1 $space-h3;
-//             }
-//         }
-//     }
-// }
-
-// @media only screen and (min-width: 1845px){
-//     .presentation{
-//         &__text{
-//             width: 90%;
-//             margin: 0 auto;
-//         }
-//     }
-// }
-
-// @media only screen and (min-width: 1921px){
-//     .projects{
-//         &__projet{
-//             margin-top: $space-giga-h1;
-//         }
-//     }
-// }
-
-// @media (-webkit-min-device-pixel-ratio: 2),
-// (min-resolution: 192dpi) {
-//     .projects{
-//         background: url(../assets/images/circuit-imprime-bg@2x.png);
-//     }
-// }
