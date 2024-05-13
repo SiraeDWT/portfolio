@@ -46,6 +46,7 @@ a{
 
 .title{
     font-family: $title-font;
+    font-weight: 500;
 }
 
 .text{
@@ -96,7 +97,7 @@ a{
     &__title{
         color: $light-grey;
         font-size: $h1-size;
-        font-weight: 700;
+        font-weight: 500; // 700 de base
         margin-bottom: $space-h3;
 
         // text-shadow: 0 0 18px #0E4AB7;
@@ -106,12 +107,6 @@ a{
         & span{
             font-size: $h1-ultra-size;
         }
-    }
-
-    &__welcome{
-        font-size: $h3-size;
-        color: $light-grey;
-        margin-bottom: $space-p;
     }
 
     &__text{
