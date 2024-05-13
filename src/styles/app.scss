@@ -28,7 +28,10 @@ body, html{
 
 a{
     color: $complementary-color;
-    font-family: $text-font;
+    // font-family: $text-font;
+    
+    // font-family: "adelle", serif;
+    font-family: "proxima-nova", sans-serif;
     font-weight: 500;
 
     &:visited{
@@ -50,7 +53,11 @@ a{
 }
 
 .text{
-    font-family: $text-font;
+    // font-family: $text-font;
+
+    // font-family: "adelle", serif;
+    font-family: "proxima-nova", sans-serif;
+    font-style: normal;
     font-weight: 300;
 }
 
