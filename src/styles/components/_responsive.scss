@@ -28,8 +28,7 @@
         
         &__title{
             margin: $space-h1 0 $space-h3;
-            font-size: $h1-size;
-            color: $light-grey; 
+            font-size: $h2-size;
     
             // grid-row: 1;
             // grid-column: 2/5;
@@ -265,7 +264,7 @@
         &__title{
             grid-row: 1;
             grid-column: 2/5;
-            font-size: $h1-ultra-size;
+            font-size: $h1-size;
         }
     
         &__list{
