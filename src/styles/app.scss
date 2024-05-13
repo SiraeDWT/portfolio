@@ -29,7 +29,7 @@ body, html{
 a{
     color: $complementary-color;
     // font-family: $text-font;
-    
+
     // font-family: "adelle", serif;
     font-family: "proxima-nova", sans-serif;
     font-weight: 500;
@@ -99,6 +99,7 @@ a{
         transform: translate(-50%, -50%);
         top: 50%; left: 50%;
         text-align: center;
+        width: 90%; // Pour ne pas avoir le texte sur 4 lignes en mobile
     }
 
     &__title{
@@ -174,7 +175,7 @@ a{
     
     &__title{
         margin: $space-h1 0 $space-h3;
-        font-size: $h2-size;
+        font-size: $h1-size;
         color: $light-grey; 
 
         // grid-row: 1;
