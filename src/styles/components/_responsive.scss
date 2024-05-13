@@ -251,7 +251,7 @@
         &__container{
             display: grid;
             grid-template-columns: repeat(7, 1fr);
-            grid-template-rows: repeat(3, 1fr);
+            grid-template-rows: repeat(3, 100%);
             column-gap: $space-p-mini;
 
             padding-bottom: 0;
@@ -271,6 +271,7 @@
         &__list{
             grid-row: 3;
             grid-column: 2/5;
+            margin-bottom: $space-h1;
         }
 
         
@@ -320,7 +321,7 @@
         &__container{
             display: grid;
             grid-template-columns: repeat(9, 1fr);
-            grid-template-rows: repeat(3, 1fr);
+            grid-template-rows: repeat(3, 100%);
             column-gap: $space-p-mini;
 
             padding-bottom: $space-h2;
@@ -333,13 +334,14 @@
         
         &__title{
             grid-row: 1;
-            grid-column: 3/6;
+            grid-column: 3/7;
         }
     
         &__list{
             flex-wrap: nowrap;
             grid-row: 3;
             grid-column: 3/9;
+            margin-top: $space-h3;
         }
 
         &__el{
@@ -505,45 +507,6 @@
 
             margin-top: 0;
         }
-
-        // &__indicator1{
-        //     width: 170px;
-        //     height: 42px; // 10px
-        //     background: url(../assets/images/indicator1-bis.svg);
-
-        //     background-position: center;
-        //     background-repeat: no-repeat;
-        //     background-size: cover;
-
-        //     position: absolute;
-        //     bottom: 5%; right: 9%;
-        // }
-
-        // &__indicator2{
-        //     width: 170px;
-        //     height: 42px; // 10px
-        //     background: url(../assets/images/indicator2-bis.svg);
-
-        //     background-position: center;
-        //     background-repeat: no-repeat;
-        //     background-size: cover;
-
-        //     position: absolute;
-        //     bottom: 5%; right: 9%;
-        // }
-
-        // &__indicator3{
-        //     width: 170px;
-        //     height: 42px; // 10px
-        //     background: url(../assets/images/indicator3-bis.svg);
-
-        //     background-position: center;
-        //     background-repeat: no-repeat;
-        //     background-size: cover;
-
-        //     position: absolute;
-        //     bottom: 5%; right: 9%;
-        // }
     }
 
     .technologies{
