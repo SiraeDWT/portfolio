@@ -36,7 +36,7 @@ function initializeCanvas(id, context, canvasHeight) {
     let p = [];
 
     function clear(){
-        ctx.fillStyle="rgba(6, 13, 25, 0.15)"
+        ctx.fillStyle="rgba(6, 13, 25, 0.15)";
         ctx.fillRect(0,0,can.width,can.height);
     }
 
@@ -78,7 +78,6 @@ function initializeCanvas(id, context, canvasHeight) {
         let h = Math.random()*(210-150) + 150;
         for(let i = 0; i < 56; i++) {
             p.push(new particle(can.width/2, canvasHeight, {x:Math.cos(i/8*2*Math.PI)*speed, y:Math.sin(i/8*2*Math.PI)*speed}, "#ffdd00"));
-            console.log(can.height/2.2)
         }
     }
 
@@ -383,11 +382,6 @@ gsap.from(".technologies > *", {
 //   }
 // });
 // tl.to({}, {duration: 0.5});
-
-
-
-
-
 
 
 
