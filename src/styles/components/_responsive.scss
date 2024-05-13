@@ -79,6 +79,12 @@
         }
     }
 
+    .projects{
+        &__wrapper{
+            width: 80%;
+        }
+    }
+
     .contact{
     
         &__title{
@@ -123,6 +129,12 @@
     .presentation{
         &__content{
             width: 900px;
+        }
+    }
+
+    .projects{
+        &__wrapper{
+            width: 55%;
         }
     }
 
@@ -459,18 +471,20 @@
 
         &__projet{
             flex-direction: row;
+            gap: $space-h2;
 
             margin-top: $space-h1;
         }
 
         &__wrapper{
-            width: 82%; //! IMPORTANT
+            width: 75%; //! IMPORTANT // 82% est opti ! 88 ?
             // margin: 0 auto;
         }
 
         
         &__description{
-            margin: $space-h1 $space-h2;
+            // margin: $space-h1 $space-h2;
+            margin: $space-h1 0;
         }
 
         &__secondary-title{
