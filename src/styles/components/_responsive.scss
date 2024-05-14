@@ -20,7 +20,6 @@
     
         &__title{
             font-size: $h1-giga-size;
-            // line-height: $line-height;
         }
     }
     
@@ -28,10 +27,6 @@
         
         &__title{
             margin: $space-h1 0 $space-h3;
-            font-size: $h2-size;
-    
-            // grid-row: 1;
-            // grid-column: 2/5;
         }
     
         &__text{
@@ -48,8 +43,6 @@
     
         &__list{
             color: $light-grey;
-            // grid-row: 3;
-            // grid-column: 2/5;
         }
     }
 
@@ -59,23 +52,17 @@
             margin: $space-h1 0 $space-h3;
             font-size: $h1-size;
             color: $light-grey; 
-    
-            // grid-row: 1;
-            // grid-column: 2/5;
         }
     
         &__text{
             color: $light-grey;
             font-size: $p-size;
             width: 100%;
-            margin-bottom: $space-p;
-            
+            margin-bottom: $space-p;    
         }
     
         &__list{
             color: $light-grey;
-            // grid-row: 3;
-            // grid-column: 2/5;
         }
     }
 
@@ -149,7 +136,6 @@
     }
 
     .network{
-
         &__list{
             position: fixed;
             z-index: 20;
@@ -216,25 +202,9 @@
         }
     }
 
-    .softskills{
-    
+    .softskills{   
         background-color: $darker-blue;
-        border-top: 1px solid $complementary-color;
-
         position: relative;
-
-        // &__line{
-        //     width: 84px;
-        //     height: 100%;
-        //     background: url(../assets/images/test1.svg);
-
-        //     background-position: center;
-        //     background-repeat: no-repeat;
-        //     background-size: 100% 100%; //Add preserveAspectRatio="none" in svg and bg-size: 100% 100%;
-
-        //     position: absolute;
-        //     top: 0; left: 5%;
-        // }
 
         &__line{
             position: absolute;
@@ -299,9 +269,7 @@
     }
 
     .skills{
-    
         background-color: $darker-blue;
-        border-top: 1px solid $complementary-color;
 
         position: relative;
 
@@ -329,7 +297,6 @@
 
             width: 276.75px;
             height: 108px;
-            // background: url(../assets/images/dots.svg);
 
             background-position: center;
             background-repeat: no-repeat;
@@ -376,7 +343,6 @@
     
         overflow-x: hidden;
         position: relative;
-        // overflow-x: none;
 
         &__svg{
             position: absolute;
@@ -488,7 +454,6 @@
 
         &__wrapper{
             width: 75%; //! IMPORTANT // 82% est opti ! 88 ?
-            // margin: 0 auto;
         }
 
         
@@ -550,87 +515,170 @@
         }
     }
 
-    @media only screen and (max-height: 900px){
-        .softskills{
-            &__container{
-                display: grid;
-                grid-template-columns: repeat(7, 1fr);
-                // grid-template-rows: repeat(3, 1fr);
-                // grid-template-rows: 100% 100% 100%;
-                grid-template-rows: repeat(3, 100%);
-                column-gap: $space-p-mini;
+    // @media only screen and (max-height: 900px){
+    //     .softskills{
+    //         &__container{
+    //             display: grid;
+    //             grid-template-columns: repeat(7, 1fr);
+    //             // grid-template-rows: repeat(3, 1fr);
+    //             // grid-template-rows: 100% 100% 100%;
+    //             grid-template-rows: repeat(3, 100%);
+    //             column-gap: $space-p-mini;
     
-                // padding-bottom: $space-h3;
-            }
+    //             // padding-bottom: $space-h3;
+    //         }
         
-            &__grid-col-3{
-                grid-row: 2;
-                grid-column: 2/5;
-            }
+    //         &__grid-col-3{
+    //             grid-row: 2;
+    //             grid-column: 2/5;
+    //         }
             
-            &__title{
-                grid-row: 1;
-                grid-column: 2/5;
-                font-size: $h1-ultra-size;
-            }
+    //         &__title{
+    //             grid-row: 1;
+    //             grid-column: 2/5;
+    //             font-size: $h1-ultra-size;
+    //         }
         
-            &__list{
-                grid-row: 3;
-                grid-column: 2/5;
+    //         &__list{
+    //             grid-row: 3;
+    //             grid-column: 2/5;
 
-                margin-bottom: $space-h2;
-            }
+    //             margin-bottom: $space-h2;
+    //         }
+    //     }
+
+    //     .skills{
+    //         &__container{
+    //             display: grid;
+    //             grid-template-columns: repeat(11, 1fr);
+    //             grid-template-rows: repeat(3, 100%);
+    //             column-gap: $space-p-mini;
+    
+    //             // padding-bottom: $space-h3;
+    //         }
+            
+    //         &__grid-col-3{
+    //             grid-row: 2;
+    //             grid-column: 3/9;
+    //         }
+            
+    //         &__title{
+    //             grid-row: 1;
+    //             grid-column: 3/9;
+    //         }
+        
+    //         &__list{
+    //             flex-wrap: nowrap;
+    //             grid-row: 3;
+    //             grid-column: 3/11;
+    //         }
+
+    //         &__line{
+    //             left: 9%;
+    //         }
+    //     }
+
+    //     .projects{
+    //         &__projet{
+    //             margin: $space-h3 auto 0;
+    //             gap: $space-p;
+    //         }
+    
+    //         &__wrapper{
+    //             width: 80%;
+    //         }
+    
+    //         &__description{
+    //             margin: $space-h1 $space-h3;
+    //             flex: 0 0 56%;
+    //         }
+
+    //         &__assets{
+    //             flex: 0 0 44%;
+    //         }
+    //     }
+    // }
+}
+
+@media only screen and (min-width: $breakpoint-desktop) and (max-height: 900px){
+    .softskills{
+        &__container{
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+
+            grid-template-rows: repeat(3, 100%);
+            column-gap: $space-p-mini;
+
+            // padding-bottom: $space-h3;
+        }
+    
+        &__grid-col-3{
+            grid-row: 2;
+            grid-column: 2/5;
+        }
+        
+        &__title{
+            grid-row: 1;
+            grid-column: 2/5;
+            font-size: $h1-ultra-size;
+        }
+    
+        &__list{
+            grid-row: 3;
+            grid-column: 2/5;
+
+            margin-bottom: $space-h2;
+        }
+    }
+
+    .skills{
+        &__container{
+            display: grid;
+            grid-template-columns: repeat(11, 1fr);
+            grid-template-rows: repeat(3, 100%);
+            column-gap: $space-p-mini;
+
+            // padding-bottom: $space-h3;
+        }
+        
+        &__grid-col-3{
+            grid-row: 2;
+            grid-column: 3/9;
+        }
+        
+        &__title{
+            grid-row: 1;
+            grid-column: 3/9;
+        }
+    
+        &__list{
+            flex-wrap: nowrap;
+            grid-row: 3;
+            grid-column: 3/11;
         }
 
-        .skills{
-            &__container{
-                display: grid;
-                grid-template-columns: repeat(11, 1fr);
-                grid-template-rows: repeat(3, 100%);
-                column-gap: $space-p-mini;
-    
-                // padding-bottom: $space-h3;
-            }
-            
-            &__grid-col-3{
-                grid-row: 2;
-                grid-column: 3/9;
-            }
-            
-            &__title{
-                grid-row: 1;
-                grid-column: 3/9;
-            }
-        
-            &__list{
-                flex-wrap: nowrap;
-                grid-row: 3;
-                grid-column: 3/11;
-            }
+        &__line{
+            left: 9%;
+        }
+    }
 
-            &__line{
-                left: 9%;
-            }
+    .projects{
+        &__projet{
+            margin: $space-h3 auto 0;
+            gap: $space-p;
         }
 
-        .projects{
-            &__projet{
-                margin: $space-h3 auto 0;
-                gap: $space-p;
-            }
-    
-            &__wrapper{
-                width: 80%;
-            }
-    
-            &__description{
-                margin: $space-h1 $space-h3;
-                flex: 0 0 56%;
-            }
+        &__wrapper{
+            width: 80%;
+        }
 
-            &__assets{
-                flex: 0 0 44%;
-            }
+        &__description{
+            margin: $space-h1 $space-h3;
+            flex: 0 0 56%;
+        }
+
+        &__assets{
+            flex: 0 0 44%;
         }
     }
 }
@@ -650,6 +698,7 @@
             width: 100%;
         }
     }
+    
     .projects{
         &__projet{
             margin-top: $space-giga-h1;
