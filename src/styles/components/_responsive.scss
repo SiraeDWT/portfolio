@@ -451,7 +451,7 @@
 
         &__projet{
             flex-direction: row;
-            gap: $space-h3;
+            gap: $space-h2;
 
             margin-top: $space-h1;
         }
@@ -464,7 +464,7 @@
         &__description{
             // margin: $space-h1 $space-h2;
             margin: $space-h1 0;
-            flex: 0 0 56%;
+            flex: 0 0 46%;
         }
 
         &__secondary-title{
@@ -472,7 +472,7 @@
         }
 
         &__assets{
-            flex: 0 0 44%;
+            flex: 0 0 54%;
 
             a:has(> img){
                 
