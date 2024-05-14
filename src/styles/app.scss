@@ -65,7 +65,7 @@ a{
 }
 
 .wrapper{
-    width: 90%;
+    width: 88%;
     margin: 0 auto;
 }
 
@@ -92,12 +92,12 @@ a{
         transform: translate(-50%, -50%);
         top: 50%; left: 50%;
         text-align: center;
-        width: 90%; // Pour ne pas avoir le texte sur 4 lignes en mobile
+        width: 88%; // Pour ne pas avoir le texte sur 4 lignes en mobile
     }
 
     &__title{
         color: $light-grey;
-        font-size: $h1-size;
+        font-size: $h1-ultra-size;
         font-weight: 500; // 700 de base
         margin-bottom: $space-h3;
 
@@ -156,7 +156,7 @@ a{
     }
     
     &__title{
-        margin: $space-h1 0 $space-h3;
+        margin: $space-h3 0;
         font-size: $h1-size;
         color: $light-grey; 
     }
@@ -203,9 +203,11 @@ a{
     }
     
     &__title{
-        margin: $space-h1 0 $space-h3;
+        margin: $space-h3 0;
         font-size: $h1-size;
-        color: $light-grey; 
+        color: $light-grey;
+
+        line-height: 110%;
     }
 
     &__text{
@@ -262,7 +264,7 @@ a{
 .technologies{
     display: flex;
     gap: 10px;
-    margin: calc($space-h3) 0;
+    margin: calc($space-p/2) 0 $space-h3;
 
     list-style: none;
     
@@ -321,7 +323,7 @@ a{
     }
 
     &__wrapper{
-        width: 90%;
+        width: 88%;
         margin: 0 auto;
     }
 
@@ -466,7 +468,7 @@ a{
         margin-bottom: $space-h2;
         font-size: $p-size;
 
-        width: 90%;
+        width: 88%;
     }
 
     &__link{
