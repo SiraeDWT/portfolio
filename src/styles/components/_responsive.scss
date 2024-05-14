@@ -2,10 +2,6 @@
     .presentation{
         &__title{
             font-size: $h1-ultra-size;
-    
-            & span{
-                font-size: $h1-giga-size;
-            }
         }
     }
 }
@@ -20,6 +16,10 @@
     
         &__title{
             font-size: $h1-giga-size;
+        }
+
+        &__letter{
+            letter-spacing: -10px;
         }
     }
     
@@ -698,7 +698,7 @@
             width: 100%;
         }
     }
-    
+
     .projects{
         &__projet{
             margin-top: $space-giga-h1;

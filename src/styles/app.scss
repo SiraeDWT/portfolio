@@ -103,9 +103,17 @@ a{
 
         line-height: 110%; // For mobile title
 
-        & span{
-            font-size: $h1-ultra-size;
-        }
+        // & span{
+        //     font-size: $h1-ultra-size;
+        // }
+
+        // & > span:first-of-type{
+        //     font-size: $h1-ultra-size;
+        // }
+    }
+
+    &__letter{
+        letter-spacing: -5px;
     }
 
     &__text{
