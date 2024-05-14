@@ -35,6 +35,8 @@ a{
     font-style: normal;
     font-weight: 500;
 
+    text-decoration: none;
+
     &:visited{
         color: $link-visited-color;
     }
@@ -279,7 +281,7 @@ a{
     background-repeat: no-repeat;
     background-size: cover;
     
-    border-top: 1px solid $complementary-color;
+    border-top: 2px solid $complementary-color;
 
     &::-webkit-scrollbar{
         display: none;
@@ -302,7 +304,7 @@ a{
     }
 
     &__el{
-        border-right: 2px solid $complementary-color;
+        // border-right: 2px solid $complementary-color;
         border-bottom: 2px solid $complementary-color;
     }
 
@@ -337,14 +339,6 @@ a{
         margin: 0 0 $space-h3;
         font-size: $h1-size;
         color: $light-grey;
-
-        &--big{
-            font-size: $h1-size;
-        }
-
-        &--great{
-            font-size: $h1-size;
-        }
     }
 
     &__text{
@@ -459,6 +453,19 @@ a{
         z-index: 10;
 
         line-height: 110%;
+    }
+
+    &__text{
+        position: relative;
+        text-align: center;
+        z-index: 10;
+
+        color: $light-grey;
+
+        margin-bottom: $space-h2;
+        font-size: $p-size;
+
+        width: 90%;
     }
 
     &__link{
