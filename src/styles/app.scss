@@ -53,8 +53,6 @@ a{
 }
 
 .text{
-    // font-family: "Sora", sans-serif;
-
     font-family: $text-font;
     font-style: normal;
     font-weight: 400;
@@ -102,14 +100,6 @@ a{
         margin-bottom: $space-h3;
 
         line-height: 110%; // For mobile title
-
-        // & span{
-        //     font-size: $h1-ultra-size;
-        // }
-
-        // & > span:first-of-type{
-        //     font-size: $h1-ultra-size;
-        // }
     }
 
     &__letter{

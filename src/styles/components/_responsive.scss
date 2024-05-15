@@ -1,15 +1,14 @@
-@media only screen and (min-width: 420px){
-    .presentation{
-        &__title{
-            font-size: $h1-ultra-size;
-        }
-    }
-}
+// @media only screen and (min-width: 420px){
+//     .presentation{
+//         &__title{
+//             font-size: $h1-ultra-size;
+//         }
+//     }
+// }
 
 @media only screen and (min-width: $breakpoint-mobile){
     .wrapper{
         width: 80%;
-        margin: 0 auto;
     }
 
     .presentation{
@@ -28,25 +27,9 @@
     }
     
     .softskills{
-        
+
         &__title{
             margin: $space-h1 0 $space-h3;
-        }
-    
-        &__text{
-            color: $light-grey;
-            font-size: $p-size;
-            width: 100%;
-            margin-bottom: $space-p;
-
-            &:nth-last-child(-n +1){
-                margin-bottom: calc($space-p/2);
-            }
-            
-        }
-    
-        &__list{
-            color: $light-grey;
         }
     }
 
@@ -54,25 +37,13 @@
         
         &__title{
             margin: $space-h1 0 $space-h3;
-            font-size: $h1-size;
-            color: $light-grey; 
 
             line-height: $line-height;
-        }
-    
-        &__text{
-            color: $light-grey;
-            font-size: $p-size;
-            width: 100%;
-            margin-bottom: $space-p;    
-        }
-    
-        &__list{
-            color: $light-grey;
         }
     }
 
     .projects{
+
         &__wrapper{
             width: 80%;
         }
@@ -103,6 +74,7 @@
     }
 
     .social{
+
         &__wrapper{
             width: 80%;
         }
@@ -111,6 +83,7 @@
 
 @media only screen and (min-width: 725px){
     .contact{
+
         &__title{
             line-height: $line-height;
         }
@@ -120,45 +93,45 @@
 @media only screen and (min-width: $breakpoint-tablet){
     .wrapper{
         width: 55%;
-        margin: 0 auto;
     }
 
     .presentation{
+
         &__content{
             width: 55%;
         }
     }
 
     .projects{
+
         &__wrapper{
             width: 55%;
         }
     }
 
     .contact{
+
         &__text{
             width: 55%;
         }
     }
 
     .network{
+
         &__list{
-            position: fixed;
-            z-index: 20;
-            bottom: 10px; left: 10px;
-            list-style: none;
             display: block;
         }
     }
 
     .credits{
+
         &__wrapper{
             max-width: 75%;
-            margin: 0 auto;
         }
     }
 
     .social{
+
         &__wrapper{
             width: 55%;
         }
@@ -168,10 +141,11 @@
 @media only screen and (min-width: $breakpoint-desktop){
     .wrapper{
         width: 100%;
-        margin: auto;
+        // margin: auto;
     }
 
     .presentation{
+
         &__text{
             max-width: 65%;
             margin: 0 auto;
@@ -188,12 +162,10 @@
         }
 
         &__path{
-
             fill: none;
             stroke: #faac32;
             stroke-miterlimit: 100;
             stroke-width: 2px;
-
 
             stroke-dasharray: 10000;
             stroke-dashoffset: 10000;
@@ -209,7 +181,6 @@
     }
 
     .softskills{   
-        background-color: $darker-blue;
         position: relative;
 
         &__line{
@@ -248,7 +219,6 @@
         &__container{
             display: grid;
             grid-template-columns: repeat(7, 1fr);
-            // grid-template-rows: repeat(3, 100%);
             column-gap: $space-p-mini;
 
             padding-bottom: 0;
@@ -275,8 +245,6 @@
     }
 
     .skills{
-        background-color: $darker-blue;
-
         position: relative;
 
         &__line{
@@ -315,7 +283,6 @@
         &__container{
             display: grid;
             grid-template-columns: repeat(9, 1fr);
-            // grid-template-rows: repeat(3, 100%);
             column-gap: $space-p-mini;
 
             padding-bottom: $space-h2;
@@ -371,30 +338,33 @@
         }
 
         &__path{
-
             fill: none;
             stroke: #faac32;
             stroke-miterlimit: 100;
             stroke-width: 2px;
 
-            &--first{
-                stroke-dasharray: 10000;
-                stroke-dashoffset: 10000;
-                display: block;
-                animation: dash 7s linear forwards;
-            }
+            stroke-dasharray: 10000;
+            stroke-dashoffset: 10000;
+            animation: dash 7s linear forwards;
 
-            &--second{
-                stroke-dasharray: 10000;
-                stroke-dashoffset: 10000;
-                animation: dash 7s linear forwards;
-            }
+            // &--first{
+            //     stroke-dasharray: 10000;
+            //     stroke-dashoffset: 10000;
+            //     display: block;
+            //     animation: dash 7s linear forwards;
+            // }
 
-            &--third{
-                stroke-dasharray: 10000;
-                stroke-dashoffset: 10000;
-                animation: dash 7s linear forwards;
-            } 
+            // &--second{
+            //     stroke-dasharray: 10000;
+            //     stroke-dashoffset: 10000;
+            //     animation: dash 7s linear forwards;
+            // }
+
+            // &--third{
+            //     stroke-dasharray: 10000;
+            //     stroke-dashoffset: 10000;
+            //     animation: dash 7s linear forwards;
+            // } 
         }
 
         @keyframes dash {
@@ -444,10 +414,6 @@
             height: 100vh;
             width: 100%;
 
-            // &:nth-last-child(n){
-            //     border-right: 0px solid $complementary-color;
-            // }
-
             border-right: 2px solid $complementary-color;
         }
 
@@ -464,7 +430,6 @@
 
         
         &__description{
-            // margin: $space-h1 $space-h2;
             margin: $space-h1 0;
             flex: 0 0 46%;
         }
@@ -511,7 +476,6 @@
     .credits{
         &__wrapper{
             max-width: 70%;
-            margin: 0 auto;
         }
     }
 
@@ -520,143 +484,31 @@
             width: 35%;
         }
     }
-
-    // @media only screen and (max-height: 900px){
-    //     .softskills{
-    //         &__container{
-    //             display: grid;
-    //             grid-template-columns: repeat(7, 1fr);
-    //             // grid-template-rows: repeat(3, 1fr);
-    //             // grid-template-rows: 100% 100% 100%;
-    //             grid-template-rows: repeat(3, 100%);
-    //             column-gap: $space-p-mini;
-    
-    //             // padding-bottom: $space-h3;
-    //         }
-        
-    //         &__grid-col-3{
-    //             grid-row: 2;
-    //             grid-column: 2/5;
-    //         }
-            
-    //         &__title{
-    //             grid-row: 1;
-    //             grid-column: 2/5;
-    //             font-size: $h1-ultra-size;
-    //         }
-        
-    //         &__list{
-    //             grid-row: 3;
-    //             grid-column: 2/5;
-
-    //             margin-bottom: $space-h2;
-    //         }
-    //     }
-
-    //     .skills{
-    //         &__container{
-    //             display: grid;
-    //             grid-template-columns: repeat(11, 1fr);
-    //             grid-template-rows: repeat(3, 100%);
-    //             column-gap: $space-p-mini;
-    
-    //             // padding-bottom: $space-h3;
-    //         }
-            
-    //         &__grid-col-3{
-    //             grid-row: 2;
-    //             grid-column: 3/9;
-    //         }
-            
-    //         &__title{
-    //             grid-row: 1;
-    //             grid-column: 3/9;
-    //         }
-        
-    //         &__list{
-    //             flex-wrap: nowrap;
-    //             grid-row: 3;
-    //             grid-column: 3/11;
-    //         }
-
-    //         &__line{
-    //             left: 9%;
-    //         }
-    //     }
-
-    //     .projects{
-    //         &__projet{
-    //             margin: $space-h3 auto 0;
-    //             gap: $space-p;
-    //         }
-    
-    //         &__wrapper{
-    //             width: 80%;
-    //         }
-    
-    //         &__description{
-    //             margin: $space-h1 $space-h3;
-    //             flex: 0 0 56%;
-    //         }
-
-    //         &__assets{
-    //             flex: 0 0 44%;
-    //         }
-    //     }
-    // }
 }
 
 @media only screen and (min-width: $breakpoint-desktop) and (max-height: 900px){
     .softskills{
-        &__container{
-            display: grid;
-            grid-template-columns: repeat(7, 1fr);
-            column-gap: $space-p-mini;
-
-            // padding-bottom: $space-h3;
-        }
-    
-        &__grid-col-3{
-            grid-row: 2;
-            grid-column: 2/5;
-        }
-        
-        &__title{
-            grid-row: 1;
-            grid-column: 2/5;
-            font-size: $h1-size;
-        }
     
         &__list{
-            grid-row: 3;
-            grid-column: 2/5;
-
             margin-bottom: $space-h2;
         }
     }
 
     .skills{
-        &__container{
-            display: grid;
-            grid-template-columns: repeat(11, 1fr);
-            column-gap: $space-p-mini;
 
-            // padding-bottom: $space-h3;
+        &__container{
+            grid-template-columns: repeat(11, 1fr);
         }
         
         &__grid-col-3{
-            grid-row: 2;
             grid-column: 3/9;
         }
         
         &__title{
-            grid-row: 1;
             grid-column: 3/9;
         }
     
         &__list{
-            flex-wrap: nowrap;
-            grid-row: 3;
             grid-column: 3/11;
         }
 
@@ -666,49 +518,44 @@
     }
 
     .projects{
+
         &__projet{
             margin: $space-h3 auto 0;
             gap: $space-p;
         }
 
-        &__wrapper{
-            width: 75%;
-        }
-
         &__description{
             margin: $space-h1 $space-h3;
-            flex: 0 0 46%;
-        }
-
-        &__assets{
-            flex: 0 0 54%;
         }
     }
 }
 
 @media only screen and (min-width: 1845px){
     .presentation{
+
         &__text{
             width: 90%;
-            margin: 0 auto;
         }
     }
 }
 
 @media only screen and (min-width: 1921px){
     .presentation{
+
         &__svg{ 
             width: 100%;
         }
     }
 
     .projects{
+
         &__projet{
             margin-top: $space-giga-h1;
         }
     }
 
     .social{
+        
         &__wrapper{
             width: 30%;
         }
