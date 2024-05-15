@@ -8,3 +8,8 @@
 - Présentation sur 3 lignes ?
 - Changer les boutons Linkedin et Github pour qu'ils ressemblent aux autres boutons ?
 - Effet hover inversé pour les boutons active ?
+
+- Ajouter un bouton back to top aux crédits;
+- Ajouter une progress bar aux crédits;
+
+- Faire la page de test de canvas.
