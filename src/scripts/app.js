@@ -131,7 +131,7 @@ mm.add("(min-width: 1440px)", () => {
         }
     });
 
-    gsap.from('.softskills__grid-col-3', {
+    gsap.from('.softskills__grid', {
         x: '-20%',
         duration: 0.7,
         opacity: 0,
@@ -211,7 +211,7 @@ mm.add("(min-width: 1440px)", () => {
         }
     });
 
-    gsap.from('.skills__grid-col-3', {
+    gsap.from('.skills__grid', {
         x: '-15%',
         duration: 0.7,
         opacity: 0,
