@@ -1,7 +1,7 @@
 - Rendre l'indicateur de slider totalement dynamique;
-- Fix 1440x900 display;
-- Changer la couleur des svg dans les boutons projects, ils sont blanc et le texte est gris clair;
 - Ajouter un mini zoom pour l'effet active sur les boutons qui n'en ont pas;
+- Réduire l'espace entre le titre de projet et le dessus;
+- Régler le problème de l'image de background de la section projects;
 
 - Ajouter un picto par projet ?
 - Présentation sur 3 lignes ?
