@@ -624,7 +624,7 @@
         &__title{
             grid-row: 1;
             grid-column: 2/5;
-            font-size: $h1-ultra-size;
+            font-size: $h1-size;
         }
     
         &__list{
@@ -672,16 +672,16 @@
         }
 
         &__wrapper{
-            width: 80%;
+            width: 75%;
         }
 
         &__description{
             margin: $space-h1 $space-h3;
-            flex: 0 0 56%;
+            flex: 0 0 46%;
         }
 
         &__assets{
-            flex: 0 0 44%;
+            flex: 0 0 54%;
         }
     }
 }
