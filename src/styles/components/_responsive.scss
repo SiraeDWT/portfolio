@@ -611,8 +611,6 @@
         &__container{
             display: grid;
             grid-template-columns: repeat(7, 1fr);
-
-            grid-template-rows: repeat(3, 100%);
             column-gap: $space-p-mini;
 
             // padding-bottom: $space-h3;
@@ -641,7 +639,6 @@
         &__container{
             display: grid;
             grid-template-columns: repeat(11, 1fr);
-            grid-template-rows: repeat(3, 100%);
             column-gap: $space-p-mini;
 
             // padding-bottom: $space-h3;
