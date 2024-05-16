@@ -11,4 +11,5 @@
 - Ajouter un bouton back to top aux crédits;
 - Ajouter une progress bar aux crédits;
 
+- Ajouter les animations GSAP en mobile/tablette;
 - Faire la page de test de canvas.
