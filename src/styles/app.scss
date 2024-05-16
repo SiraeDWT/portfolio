@@ -839,3 +839,36 @@ a{
 }
 
 @import 'components/responsive';
+
+
+.experiment{
+    background: $darker-blue;
+}
+
+.icanvas{
+    width: 100%;
+
+    &__wrapper{
+        width: 88%;
+        margin: 0 auto;
+    }
+
+    &__title{
+        color: $light-grey;
+        font-size: $h1-size;
+    }
+
+    &__container{
+        display: flex;
+        align-items: center;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: $space-h3;
+
+        margin: $space-h2 0;
+    }
+
+    &__canvas{
+        border: 2px solid $complementary-color;
+    }
+}
