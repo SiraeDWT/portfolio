@@ -389,7 +389,7 @@
 
         &__indicator-bar{
             width: 50px;
-            height: 10px;
+            height: 4px;
             background-color: $light-grey;
 
             &--active{
@@ -434,20 +434,20 @@
             font-size: $h1-giga-size;
         }
 
-        &__assets{
-            flex: 0 0 54%;
+        // &__assets{
+        //     flex: 0 0 54%;
 
-            a:has(> img){
+        //     a:has(> img){
                 
-                & img{
-                    transition: .2s ease-in-out;
-                }
+        //         & img{
+        //             transition: .2s ease-in-out;
+        //         }
                 
-                &:hover img{
-                    transform: scale(1.02);
-                }
-            }
-        }
+        //         &:hover img{
+        //             transform: scale(1.02);
+        //         }
+        //     }
+        // }
 
         &__img{
             display: block;
@@ -558,9 +558,9 @@
     }
 }
 
-@media (-webkit-min-device-pixel-ratio: 2),
-(min-resolution: 192dpi) {
-    .projects{
-        background: url(../assets/images/circuit-imprime-bg@2x.png);
-    }
-}
+// @media (-webkit-min-device-pixel-ratio: 2),
+// (min-resolution: 192dpi) {
+//     .projects{
+//         background: url(../assets/images/circuit-imprime-bg@2x.png);
+//     }
+// }

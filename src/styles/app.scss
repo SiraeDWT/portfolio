@@ -253,15 +253,16 @@ a{
 
 .technologies{
     display: flex;
-    gap: 10px;
+    gap: calc($space-p/2);
     margin: calc($space-p/2) 0 $space-h3;
 
     list-style: none;
     
     &__el{
         
-        background-color: $complementary-color;
-        padding: 5px 10px;
+        // background-color: $complementary-color;
+        color: $complementary-color;
+        // padding: 5px 10px;
         font-weight: 400;
 
         text-transform: uppercase;
@@ -269,11 +270,13 @@ a{
 }
 
 .projects{
-    background: url(../assets/images/circuit-imprime-bg.png);
+    // background: url(../assets/images/circuit-imprime-bg.png);
 
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
+    // background-position: center;
+    // background-repeat: no-repeat;
+    // background-size: cover;
+
+    background: $darker-blue;
     
     border-top: 2px solid $complementary-color;
 
@@ -340,46 +343,47 @@ a{
         margin-bottom: $space-p;
     }
 
-    &__link{
+    &__link {
         --cta-outline: -13px;
         --cta-outline-hover: -1px;
-
+        --cta-outline-active: -20px;
+    
         cursor: pointer;
         text-decoration: none;
-
+    
         padding: 13px 18px;
         display: inline-flex;
         justify-content: center;
         gap: 13px;
         align-items: center;
-
+    
         color: $light-grey;
         border: 1px solid $complementary-color;
         background-color: $darker-blue;
-
+    
         font-size: $p-size;
         font-weight: 400;
-
+    
         position: relative;
         z-index: 10;
-
-        & svg{
+    
+        & svg {
             fill: $light-grey;
         }
-
-        &:focus{
+    
+        &:focus {
             outline: 0;
         }
-
-        &:visited{
+    
+        &:visited {
             color: $light-grey;
         }
-
-        &:hover{
+    
+        &:hover {
             color: $light-grey;
         }
-
-        &:hover:after{
+    
+        &:hover:after {
             opacity: 1;
             outline: 0;
             top: var(--cta-outline-hover);
@@ -387,8 +391,8 @@ a{
             bottom: var(--cta-outline-hover);
             left: var(--cta-outline-hover);
         }
-
-        &:after{
+    
+        &:after {
             border: 2px solid $light-grey;
             content: "";
             filter: drop-shadow(0 0 3px $blue);
@@ -400,18 +404,34 @@ a{
             bottom: var(--cta-outline);
             left: var(--cta-outline);
         }
+    
+        &:active:after {
+            top: var(--cta-outline-active);
+            right: var(--cta-outline-active);
+            bottom: var(--cta-outline-active);
+            left: var(--cta-outline-active);
+        }
+    }
 
-        &:active{
-            transform: scale(1.1);
-        } 
+    &__img-area{
+        margin-top: $space-h3;
+        overflow: hidden;
+        width: 100%;
+        height: 100%;
+        border: 2px solid $complementary-color;
     }
 
     &__img{
         max-width: 100%;
         min-width: 100%;
-        border: 2px solid $complementary-color;
 
-        margin-top: $space-h3;
+        // margin-top: $space-h3;
+
+        transition: 0.3s ease;
+
+        &:hover{
+            transform: scale(1.1);
+        }
     }
 }
 
@@ -461,38 +481,109 @@ a{
         width: 88%;
     }
 
-    &__link{
+    // &__link{
+    //     --cta-outline: -13px;
+    //     --cta-outline-hover: -1px;
+
+    //     cursor: pointer;
+    //     text-decoration: none;
+
+    //     padding: 13px 18px;
+    //     display: inline-flex;
+    //     justify-content: center;
+    //     gap: 13px;
+    //     align-items: center;
+
+    //     color: $light-grey;
+    //     border: 1px solid $complementary-color;
+    //     background-color: $darker-blue;
+
+    //     font-size: $h3-size;
+    //     font-weight: 400;
+
+    //     position: relative;
+    //     z-index: 10;
+
+    //     &:focus{
+    //         outline: 0;
+    //     }
+
+    //     &:hover{
+    //         color: $light-grey;
+    //     }
+
+    //     &:hover:after{
+    //         opacity: 1;
+    //         outline: 0;
+    //         top: var(--cta-outline-hover);
+    //         right: var(--cta-outline-hover);
+    //         bottom: var(--cta-outline-hover);
+    //         left: var(--cta-outline-hover);
+    //     }
+
+    //     &:after{
+    //         border: 2px solid $light-grey;
+    //         content: "";
+    //         filter: drop-shadow(0 0 3px $blue);
+    //         opacity: 0;
+    //         position: absolute;
+    //         transition: .2s ease;
+    //         top: var(--cta-outline);
+    //         right: var(--cta-outline);
+    //         bottom: var(--cta-outline);
+    //         left: var(--cta-outline);
+    //     }
+
+    //     &:active{
+    //         transform: scale(1.1);
+    //     }
+
+    //     & svg{
+    //         fill: $light-grey;
+    //     }
+    // }
+
+    &__link {
         --cta-outline: -13px;
         --cta-outline-hover: -1px;
-
+        --cta-outline-active: -20px;
+    
         cursor: pointer;
         text-decoration: none;
-
+    
         padding: 13px 18px;
         display: inline-flex;
         justify-content: center;
         gap: 13px;
         align-items: center;
-
+    
         color: $light-grey;
         border: 1px solid $complementary-color;
         background-color: $darker-blue;
-
+    
         font-size: $h3-size;
         font-weight: 400;
-
+    
         position: relative;
         z-index: 10;
-
-        &:focus{
+    
+        & svg {
+            fill: $light-grey;
+        }
+    
+        &:focus {
             outline: 0;
         }
-
-        &:hover{
+    
+        &:visited {
             color: $light-grey;
         }
-
-        &:hover:after{
+    
+        &:hover {
+            color: $light-grey;
+        }
+    
+        &:hover:after {
             opacity: 1;
             outline: 0;
             top: var(--cta-outline-hover);
@@ -500,8 +591,8 @@ a{
             bottom: var(--cta-outline-hover);
             left: var(--cta-outline-hover);
         }
-
-        &:after{
+    
+        &:after {
             border: 2px solid $light-grey;
             content: "";
             filter: drop-shadow(0 0 3px $blue);
@@ -515,7 +606,14 @@ a{
         }
 
         &:active{
-            transform: scale(1.1);
+            color: $light-grey;
+        }
+    
+        &:active:after {
+            top: var(--cta-outline-active);
+            right: var(--cta-outline-active);
+            bottom: var(--cta-outline-active);
+            left: var(--cta-outline-active);
         }
 
         & svg{
