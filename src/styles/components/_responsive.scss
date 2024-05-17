@@ -69,12 +69,6 @@
         
     }
 
-    .social{
-
-        &__wrapper{
-            width: 80%;
-        }
-    }
 }
 
 @media only screen and (min-width: 725px){
@@ -126,12 +120,6 @@
         }
     }
 
-    .social{
-
-        &__wrapper{
-            width: 55%;
-        }
-    }
 }
 
 @media only screen and (min-width: $breakpoint-desktop){
@@ -475,11 +463,6 @@
         }
     }
 
-    .social{
-        &__wrapper{
-            width: 35%;
-        }
-    }
 }
 
 @media only screen and (min-width: $breakpoint-desktop) and (max-height: 900px){
@@ -550,12 +533,6 @@
         }
     }
 
-    .social{
-
-        &__wrapper{
-            width: 30%;
-        }
-    }
 }
 
 // @media (-webkit-min-device-pixel-ratio: 2),
