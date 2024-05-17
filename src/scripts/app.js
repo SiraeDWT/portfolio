@@ -1213,28 +1213,72 @@ mm.add("(min-width: 1440px)", () => {
 
 
     // ----- Slider projects -----
-    let sections = gsap.utils.toArray(".projects__el");
+    // let sections = gsap.utils.toArray(".projects__el");
         
-    gsap.to(sections,{
-    xPercent: -100 * (sections.length - 1),
-    ease: "none",
-    scrollTrigger: {
-        trigger: ".projects__slider",
-        pin: ".projects",
-        pinSpacing: true,
-        scrub: 1,
-        end: "+=3000",
-    }
+    // gsap.to(sections,{
+    // xPercent: -100 * (sections.length - 1),
+    // ease: "none",
+    // scrollTrigger: {
+    //     trigger: ".projects__slider",
+    //     pin: ".projects",
+    //     pinSpacing: true,
+    //     scrub: 1,
+    //     end: "+=3000",
+    // }
+    // });
+
+    // gsap.to('.contact',{
+    // scrollTrigger:{
+    //     trigger: '.contact',
+    //     pinnedContainer: ".projects",
+    //     start:'top 50%',
+    //     toggleActions: 'play none reset none',
+    // }
+    // });
+
+    let sections = gsap.utils.toArray(".projects__el");
+    let projectsNumber = document.querySelector(".projects__number .projects__number--size");
+    let indicatorBars = gsap.utils.toArray(".projects__indicator-bar");
+
+    gsap.to(sections, {
+        xPercent: -100 * (sections.length - 1),
+        ease: "none",
+        scrollTrigger: {
+            trigger: ".projects__slider",
+            pin: ".projects",
+            pinSpacing: true,
+            scrub: 1,
+            end: "+=3000",
+            onUpdate: self => {
+            let index = Math.round(self.progress * (sections.length - 1));
+            updateProjectNumber(index + 1);
+            updateIndicatorBar(index);
+            }
+        }
     });
 
-    gsap.to('.contact',{
-    scrollTrigger:{
-        trigger: '.contact',
-        pinnedContainer: ".projects",
-        start:'top 50%',
-        toggleActions: 'play none reset none',
-    }
+    gsap.to('.contact', {
+        scrollTrigger: {
+            trigger: '.contact',
+            pinnedContainer: ".projects",
+            start: 'top 50%',
+            toggleActions: 'play none reset none',
+        }
     });
+
+    function updateProjectNumber(number) {
+        projectsNumber.textContent = `0${number}`;
+    }
+
+    function updateIndicatorBar(index) {
+        indicatorBars.forEach((bar, i) => {
+            if (i === index) {
+            bar.classList.add("projects__indicator-bar--active");
+            } else {
+            bar.classList.remove("projects__indicator-bar--active");
+            }
+        });
+    }
 });
 
 
