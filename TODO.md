@@ -20,3 +20,5 @@
   
 
 - Mini espace en-dessous de l'image dans le img-area dans projects !!!
+
+- Attention aux longueurs de lignes en 2K;
