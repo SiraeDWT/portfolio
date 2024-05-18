@@ -103,16 +103,15 @@ function initializeCanvas(id, canvasHeight) {
 
 
 const canvasPresentation = document.getElementById("canvas");
+const canvasContact = document.getElementById("contact-canvas");
+
 if(canvasPresentation){
     const presentationHeight = 430;
-
     initializeCanvas(canvasPresentation, presentationHeight);
 }
 
-const canvasContact = document.getElementById("contact-canvas");
 if(canvasContact){
     const contactHeight = 0;
-
     initializeCanvas(canvasContact, contactHeight);
 }
 
@@ -946,6 +945,7 @@ if(canvasSpeed9){
     pulse();
     gameMove();
 }
+
 
 
 
