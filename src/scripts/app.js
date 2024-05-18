@@ -21,10 +21,10 @@ window.addEventListener('scroll', function() {
 });
 
 
-// ----- CANVAS -----
-function initializeCanvas(id, context, canvasHeight) {
+// ----- CANVAS Portfolio -----
+function initializeCanvas(id, canvasHeight) {
     let can = id;
-    let ctx = context;
+    let ctx = id.getContext("2d");
 
     function resizeCanvas() {
         can.width = window.innerWidth;
@@ -104,18 +104,16 @@ function initializeCanvas(id, context, canvasHeight) {
 
 const canvasPresentation = document.getElementById("canvas");
 if(canvasPresentation){
-    const ctxPresentation = canvasPresentation.getContext("2d");
     const presentationHeight = 430;
 
-    initializeCanvas(canvasPresentation, ctxPresentation, presentationHeight);
+    initializeCanvas(canvasPresentation, presentationHeight);
 }
 
 const canvasContact = document.getElementById("contact-canvas");
 if(canvasContact){
-    const ctxContact = canvasContact.getContext("2d");
     const contactHeight = 0;
 
-    initializeCanvas(canvasContact, ctxContact, contactHeight);
+    initializeCanvas(canvasContact, contactHeight);
 }
 
 
@@ -129,7 +127,7 @@ if(canvasContact){
 
 
 
-
+// ----- Iterations Canvas -----
 const canvasSpeed = document.getElementById("speed-canvas");
 if(canvasSpeed){
     let can = canvasSpeed;
@@ -954,20 +952,121 @@ if(canvasSpeed9){
 
 
 
-
-
-
-
-
-
-
-
-
-
+// ----- Animation GSAP -----
 let mm = gsap.matchMedia();
 
+
+mm.add("(max-width: 1439px)", () => {
+    // Softskills section
+    gsap.from('.softskills__title', {
+        x: '-15%',
+        duration: 0.5,
+        opacity: 0,
+        scrollTrigger: {
+            trigger: '.softskills',
+            start: 'top 40%',
+            end: 'bottom 30%',
+        }
+    });
+
+    gsap.from('.softskills__grid', {
+        x: '-10%',
+        duration: 0.5,
+        opacity: 0,
+        scrollTrigger: {
+            trigger: '.softskills__title',
+            start: 'top 40%',
+            end: 'bottom 30%',
+        }
+    });
+
+    gsap.from('.softskills__el', {
+        x: '-10%',
+        duration: 0.5,
+        opacity: 0,
+        stagger: 0.1,
+        scrollTrigger: {
+            trigger: '.softskills__text',
+            start: 'top 40%',
+            end: 'bottom 30%',
+        }
+    });
+
+    // Skills section
+    gsap.from('.skills__title', {
+        x: '-15%',
+        duration: 0.5,
+        opacity: 0,
+        scrollTrigger: {
+            trigger: '.skills',
+            start: 'top 40%',
+            end: 'bottom 30%',
+        }
+    });
+
+    gsap.from('.skills__grid', {
+        x: '-10%',
+        duration: 0.5,
+        opacity: 0,
+        scrollTrigger: {
+            trigger: '.skills__title',
+            start: 'top 40%',
+            end: 'bottom 30%',
+        }
+    });
+
+    gsap.from('.skills__el', {
+        x: '-10%',
+        duration: 0.5,
+        opacity: 0,
+        stagger: 0.15,
+        scrollTrigger: {
+            trigger: '.skills__text',
+            start: 'top 40%',
+            end: 'bottom 30%',
+        }
+    });
+
+    gsap.from(".projects__description > *", {
+        x: "-15%",
+        opacity: 0,
+        duration: 0.5,
+        stagger: 0.1,
+        scrollTrigger: {
+            trigger: ".projects",
+            start: 'top 40%',
+            end: 'bottom 30%',
+        },   
+    });
+
+    gsap.from(".projects__assets a", {
+        x: "15%",
+        opacity: 0,
+        duration: 0.5,
+        stagger: 0.1,
+        scrollTrigger: {
+            trigger: ".projects",
+            start: 'top 40%',
+            end: 'bottom 30%',
+        },   
+    });
+
+    // Technologies list
+    gsap.from(".technologies > *", {
+        x: "15%",
+        opacity: 0,
+        duration: 0.5,
+        stagger: 0.1,
+        scrollTrigger: {
+            trigger: ".projects",
+            start: 'top 40%',
+            end: 'bottom 30%',
+        },   
+    });
+});
+
+
 mm.add("(min-width: 1440px)", () => {
-    // ----- Animations GSAP -----
     // Softskills section
     gsap.from('.softskills__title', {
         x: '-25%',
@@ -1280,32 +1379,3 @@ mm.add("(min-width: 1440px)", () => {
         });
     }
 });
-
-
-
-
-
-
-
-
-// ----- Test for slider count -----
-// let tl = gsap.timeline({
-//     scrollTrigger: {
-//       trigger: '.projects__el',
-//       start: 'top top',
-//       endTrigger: '.test',
-//       end: 'bottom 80%',
-//       markers: true,
-//     }
-// });
-
-
-// const allContent = gsap.utils.toArray('.projects__el')
-// allContent.forEach((eachPoint, i) => {
-//   if (i) {
-//     tl.to('.test', {
-//       y: -32 * i
-//     }, i * 1 - 0.5)
-//   }
-// });
-// tl.to({}, {duration: 0.5});
