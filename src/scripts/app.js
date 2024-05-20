@@ -118,8 +118,7 @@ if(canvasContact){
 
 
 
-
-
+// ----- CANVAS Iterations -----
 function resizeCanvas(can, clear){
     can.width = 320;
     can.height = 320;
@@ -130,6 +129,42 @@ function clear(ctx, width, height){
     ctx.fillStyle = "rgba(6, 13, 25, 0.15)";
     ctx.fillRect(0, 0, width, height);
 }
+
+function gameMove(ctx, can, clear, p){
+    requestAnimationFrame(() => gameMove(ctx, can, clear, p));
+    clear(ctx, can.width, can.height);
+    for (let i = 0; i < p.length; i++) {
+        p[i].upd();
+        if (p[i].x < 0 || p[i].x > can.width || p[i].y < 0 || p[i].y > can.height) {
+            p.splice(i, 1);
+        }
+    }
+}
+
+function gameMoveCursor(ctx, can, clear, p){
+    requestAnimationFrame(() => gameMove(ctx, can, clear, p));
+    clear(ctx, can.width, can.height);
+    for (let i = 0; i < p.length; i++) {
+        p[i].upd();
+        if (p[i].x < 0 || p[i].x > can.width || p[i].y < 0 || p[i].y > can.height) {
+            p.splice(i, 1);
+        }
+    }
+}
+
+function gameMoveSpeed(ctx, can, clear, p){
+    requestAnimationFrame(() => gameMove(ctx, can, clear, p));
+    clear(ctx, can.width, can.height);
+    for (let i = 0; i < p.length; i++) {
+        p[i].upd();
+        if (p[i].x < 0 || p[i].x > can.width || p[i].y < 0 || p[i].y > can.height) {
+            p.splice(i, 1);
+        }
+    }
+}
+
+
+
 
 
 function canvasFasterBounceIteration(id, rapidity){
@@ -155,11 +190,11 @@ function canvasFasterBounceIteration(id, rapidity){
             this.x += this.speed.x;
             this.y += this.speed.y;
 
-            if (this.x < 0 || this.x > can.width) {
+            if (this.x < 0 || this.x > can.width){
                 this.speed.x *= -1;
                 this.speed.x += (this.speed.x > 0) ? 1 : -1;
             }
-            if (this.y < 0 || this.y > can.height) {
+            if (this.y < 0 || this.y > can.height){
                 this.speed.y *= -1;
                 this.speed.y += (this.speed.y > 0) ? 1 : -1;
             }
@@ -173,7 +208,7 @@ function canvasFasterBounceIteration(id, rapidity){
             let options = [angle+Math.PI/4, angle-Math.PI/4];
             let choice = Math.floor(Math.random()*options.length);
 
-            if(Math.random() < 0.05) {
+            if(Math.random() < 0.05){
                 this.speed.x = Math.cos(options[choice])*magnitude;
                 this.speed.y = Math.sin(options[choice])*magnitude;
             }
@@ -183,7 +218,7 @@ function canvasFasterBounceIteration(id, rapidity){
     let speed = rapidity;
 
     function pulse(){
-        if (!particleBounce) {
+        if (!particleBounce){
             let posX = can.width/2;
             let posY = can.height/2;
             let angle = Math.random() * 2 * Math.PI;
@@ -191,22 +226,23 @@ function canvasFasterBounceIteration(id, rapidity){
         }
     }
 
-    function gameMove(){
-        requestAnimationFrame(gameMove);
+    function gameMoveFasterBounce(){
+        requestAnimationFrame(gameMoveFasterBounce);
         clear(ctx, can.width, can.height);
-        if (particleBounce) {
+        if (particleBounce){
             particleBounce.update();
         }
     }
 
     resizeCanvas(can, clear);
 
-    window.addEventListener('resize', function() {
+    window.addEventListener('resize', function(){
         resizeCanvas(can, clear);
     });
 
     pulse();
-    gameMove();
+    // gameMove();
+    gameMoveFasterBounce();
 }
 
 
@@ -241,7 +277,7 @@ function canvasSpeedIteration(id, rapidity, interval){
             let op = [this.ang + Math.PI / 4, this.ang - Math.PI / 4];
             let ch = Math.floor(Math.random() * op.length);
 
-            if (Math.random() < 0.05) {
+            if (Math.random() < 0.05){
                 this.speed.x = Math.cos(op[ch]) * this.mag;
                 this.speed.y = Math.sin(op[ch]) * this.mag;
             }
@@ -254,7 +290,7 @@ function canvasSpeedIteration(id, rapidity, interval){
     function pulse(){
         setTimeout(pulse, period);
         let h = Math.random() * (210 - 150) + 150;
-        for (let i = 0; i < 56; i++) {
+        for (let i = 0; i < 56; i++){
             p.push(new particle(can.width / 2, can.height / 2, {
                 x: Math.cos(i / 8 * 2 * Math.PI) * speed,
                 y: Math.sin(i / 8 * 2 * Math.PI) * speed
@@ -262,16 +298,16 @@ function canvasSpeedIteration(id, rapidity, interval){
         }
     }
 
-    function gameMove(){
-        requestAnimationFrame(gameMove);
-        clear(ctx, can.width, can.height);
-        for (let i = 0; i < p.length; i++) {
-            p[i].upd();
-            if (p[i].x < 0 || p[i].x > can.width || p[i].y < 0 || p[i].y > can.height) {
-                p.splice(i, 1);
-            }
-        }
-    }
+    // function gameMove(){
+    //     requestAnimationFrame(gameMove);
+    //     clear(ctx, can.width, can.height);
+    //     for (let i = 0; i < p.length; i++) {
+    //         p[i].upd();
+    //         if (p[i].x < 0 || p[i].x > can.width || p[i].y < 0 || p[i].y > can.height) {
+    //             p.splice(i, 1);
+    //         }
+    //     }
+    // }
 
     resizeCanvas(can, clear);
 
@@ -280,7 +316,8 @@ function canvasSpeedIteration(id, rapidity, interval){
     });
 
     pulse();
-    gameMove();
+    // gameMove();
+    gameMoveSpeed(ctx, can, clear, p);
 }
 
 
@@ -292,7 +329,7 @@ function canvasEdgeBounceIteration(id, rapidity, interval) {
 
     let p = [];
 
-    function particle(x, y, speed, c) {
+    function particle(x, y, speed, c){
         this.x = x;
         this.y = y;
         this.speed = speed;
@@ -306,11 +343,11 @@ function canvasEdgeBounceIteration(id, rapidity, interval) {
             this.x += this.speed.x;
             this.y += this.speed.y;
 
-            if (this.x < 0 || this.x > can.width) {
+            if (this.x < 0 || this.x > can.width){
                 this.speed.x *= -1;
                 this.x = Math.min(Math.max(this.x, 0), can.width);
             }
-            if (this.y < 0 || this.y > can.height) {
+            if (this.y < 0 || this.y > can.height){
                 this.speed.y *= -1;
                 this.y = Math.min(Math.max(this.y, 0), can.height);
             }
@@ -324,7 +361,7 @@ function canvasEdgeBounceIteration(id, rapidity, interval) {
             let op = [this.ang + Math.PI / 4, this.ang - Math.PI / 4];
             let ch = Math.floor(Math.random() * op.length);
 
-            if (Math.random() < 0.05) {
+            if (Math.random() < 0.05){
                 this.speed.x = Math.cos(op[ch]) * this.mag;
                 this.speed.y = Math.sin(op[ch]) * this.mag;
             }
@@ -334,10 +371,10 @@ function canvasEdgeBounceIteration(id, rapidity, interval) {
     let speed = rapidity;
     let period = interval;
 
-    function pulse() {
+    function pulse(){
         setTimeout(pulse, period);
         let h = Math.random() * (210 - 150) + 150;
-        for (let i = 0; i < 56; i++) {
+        for (let i = 0; i < 56; i++){
             p.push(new particle(can.width / 2, can.height / 2, {
                 x: Math.cos(i / 8 * 2 * Math.PI) * speed,
                 y: Math.sin(i / 8 * 2 * Math.PI) * speed
@@ -345,25 +382,26 @@ function canvasEdgeBounceIteration(id, rapidity, interval) {
         }
     }
 
-    function gameMove() {
-        requestAnimationFrame(gameMove);
-        clear(ctx, can.width, can.height);
-        for (let i = 0; i < p.length; i++) {
-            p[i].upd();
-            if (p[i].x < 0 || p[i].x > can.width || p[i].y < 0 || p[i].y > can.height) {
-                p.splice(i, 1);
-            }
-        }
-    }
+    // function gameMove(){
+    //     requestAnimationFrame(gameMove);
+    //     clear(ctx, can.width, can.height);
+    //     for (let i = 0; i < p.length; i++) {
+    //         p[i].upd();
+    //         if (p[i].x < 0 || p[i].x > can.width || p[i].y < 0 || p[i].y > can.height) {
+    //             p.splice(i, 1);
+    //         }
+    //     }
+    // }
 
     resizeCanvas(can, clear);
 
-    window.addEventListener('resize', function() {
+    window.addEventListener('resize', function(){
         resizeCanvas(can, clear);
     });
 
     pulse();
-    gameMove();
+    // gameMove();
+    gameMoveSpeed(ctx, can, clear, p);
 }
 
 
@@ -375,7 +413,7 @@ function canvasSynchroCursorIteration(id, rapidity){
 
     let p = [];
 
-    function particle(x, y, speed, c) {
+    function particle(x, y, speed, c){
         this.x = x;
         this.y = y;
         this.speed = speed;
@@ -398,7 +436,7 @@ function canvasSynchroCursorIteration(id, rapidity){
             let op = [this.ang + Math.PI / 4, this.ang - Math.PI / 4];
             let ch = Math.floor(Math.random() * op.length);
 
-            if (Math.random() < 0.05) {
+            if (Math.random() < 0.05){
                 this.speed.x = Math.cos(op[ch]) * this.mag;
                 this.speed.y = Math.sin(op[ch]) * this.mag;
             }
@@ -410,7 +448,7 @@ function canvasSynchroCursorIteration(id, rapidity){
 
     function pulse(x, y) {
         let h = Math.random() * (210 - 150) + 150;
-        for (let i = 0; i < 56; i++) {
+        for (let i = 0; i < 56; i++){
             let angle = Math.atan2(y - can.height / 2, x - can.width / 2);
             let distance = Math.sqrt((x - can.width / 2) ** 2 + (y - can.height / 2) ** 2);
             let newX = Math.cos(angle + i / 8 * 2 * Math.PI) * distance + can.width / 2;
@@ -419,28 +457,29 @@ function canvasSynchroCursorIteration(id, rapidity){
         }
     }
 
-    function gameMove() {
-        requestAnimationFrame(gameMove);
-        clear(ctx, can.width, can.height);
-        for (let i = 0; i < p.length; i++) {
-            p[i].upd();
-            if (p[i].x < 0 || p[i].x > can.width || p[i].y < 0 || p[i].y > can.height) {
-                p.splice(i, 1);
-            }
-        }
-    }
+    // function gameMove() {
+    //     requestAnimationFrame(gameMove);
+    //     clear(ctx, can.width, can.height);
+    //     for (let i = 0; i < p.length; i++) {
+    //         p[i].upd();
+    //         if (p[i].x < 0 || p[i].x > can.width || p[i].y < 0 || p[i].y > can.height) {
+    //             p.splice(i, 1);
+    //         }
+    //     }
+    // }
 
     resizeCanvas(can, clear);
 
-    window.addEventListener('resize', function() {
+    window.addEventListener('resize', function(){
         resizeCanvas(can, clear);
     });
 
-    can.addEventListener('mousemove', function (e) {
+    can.addEventListener('pointermove', function (e){
         pulse(e.clientX - can.getBoundingClientRect().left, e.clientY - can.getBoundingClientRect().top);
     });
 
-    gameMove();
+    // gameMove();
+    gameMoveCursor(ctx, can, clear, p);
 }
 
 
@@ -452,11 +491,11 @@ function canvasCornerPulseIteration(id, rapidity, interval){
 
     let p = [];
 
-    function particle(x, y, speed, c) {
+    function particle(x, y, speed, c){
         this.x = x;
         this.y = y;
         this.speed = speed;
-        this.upd = function () {
+        this.upd = function (){
             ctx.strokeStyle = c;
             ctx.lineWidth = 2;
             ctx.lineCap = "square";
@@ -475,7 +514,7 @@ function canvasCornerPulseIteration(id, rapidity, interval){
             let op = [this.ang + Math.PI / 4, this.ang - Math.PI / 4];
             let ch = Math.floor(Math.random() * op.length);
     
-            if (Math.random() < 0.05) {
+            if (Math.random() < 0.05){
                 this.speed.x = Math.cos(op[ch]) * this.mag;
                 this.speed.y = Math.sin(op[ch]) * this.mag;
             }
@@ -490,22 +529,22 @@ function canvasCornerPulseIteration(id, rapidity, interval){
         let speedX = Math.cos(Math.PI / 4) * speed;
         let speedY = Math.sin(Math.PI / 4) * speed;
         
-        for(let i = 0; i < 4; i++) {
+        for(let i = 0; i < 4; i++){
             let startX, startY;
     
-            if (i === 0 || i === 3) {
+            if (i === 0 || i === 3){
                 startX = 0;
             } else {
                 startX = can.width;
             }
     
-            if (i === 0 || i === 1) {
+            if (i === 0 || i === 1){
                 startY = 0;
             } else {
                 startY = can.height;
             }
     
-            for(let j = 0; j < 14; j++) {
+            for(let j = 0; j < 14; j++){
                 p.push(new particle(startX, startY, {x: speedX, y: speedY}, "#ffdd00"));
             }
     
@@ -515,25 +554,28 @@ function canvasCornerPulseIteration(id, rapidity, interval){
         }
     }
 
-    function gameMove(){
-        requestAnimationFrame(gameMove);
-        clear(ctx, can.width, can.height);
-        for(let i = 0; i < p.length; i++) {
-            p[i].upd();
-            if(p[i].x < 0 || p[i].x > can.width || p[i].y < 0 || p[i].y > can.height) {
-                p.splice(i,1);
-            }
-        }
-    }
+    // function gameMove(){
+    //     requestAnimationFrame(gameMove);
+    //     clear(ctx, can.width, can.height);
+    //     for(let i = 0; i < p.length; i++) {
+    //         p[i].upd();
+    //         if(p[i].x < 0 || p[i].x > can.width || p[i].y < 0 || p[i].y > can.height) {
+    //             p.splice(i,1);
+    //         }
+    //     }
+    // }
+
+    
 
     resizeCanvas(can, clear);
 
-    window.addEventListener('resize', function() {
+    window.addEventListener('resize', function(){
         resizeCanvas(can, clear);
     });
 
     pulse();
-    gameMove();
+    // gameMove();
+    gameMove(ctx, can, clear, p);
 }
 
 
@@ -545,13 +587,13 @@ function canvasBounceColorIteration(id, rapidity){
 
     let p = [];
 
-    function particle(x, y, speed, c) {
+    function particle(x, y, speed, c){
         this.x = x;
         this.y = y;
         this.speed = speed;
         this.color = c;
     
-        this.upd = function () {
+        this.upd = function (){
             ctx.strokeStyle = this.color;
             ctx.lineWidth = 2;
             ctx.lineCap = "square";
@@ -561,15 +603,15 @@ function canvasBounceColorIteration(id, rapidity){
             this.x += this.speed.x;
             this.y += this.speed.y;
     
-            if (this.x <= 0 || this.x >= can.width || this.y <= 0 || this.y >= can.height) {
+            if (this.x <= 0 || this.x >= can.width || this.y <= 0 || this.y >= can.height){
                 this.color = getRandomColor();
             }
     
-            if (this.x < 0 || this.x > can.width) {
+            if (this.x < 0 || this.x > can.width){
                 this.speed.x *= -1;
                 this.x = Math.min(Math.max(this.x, 0), can.width);
             }
-            if (this.y < 0 || this.y > can.height) {
+            if (this.y < 0 || this.y > can.height){
                 this.speed.y *= -1;
                 this.y = Math.min(Math.max(this.y, 0), can.height);
             }
@@ -590,7 +632,7 @@ function canvasBounceColorIteration(id, rapidity){
         };
     }
 
-    function getRandomColor() {
+    function getRandomColor(){
         return '#' + Math.floor(Math.random() * 16777215).toString(16);
     }
 
@@ -600,32 +642,32 @@ function canvasBounceColorIteration(id, rapidity){
     let firstPulse = true;
 
     function pulse(){
-        if(firstPulse) {
+        if(firstPulse){
             firstPulse = false;
         } else {
             return;
         }
         
         let h = Math.random()*(210-150) + 150;
-        for(let i = 0; i < 56; i++) {
+        for(let i = 0; i < 56; i++){
             p.push(new particle(can.width/2, can.height/2, {x:Math.cos(i/8*2*Math.PI)*speed, y:Math.sin(i/8*2*Math.PI)*speed}, "#ffdd00"));
         }
     }
 
-    function gameMove(){
-        requestAnimationFrame(gameMove);
+    function gameMoveColor(){
+        requestAnimationFrame(gameMoveColor);
         clear(ctx, can.width, can.height);
-        for(let i = 0; i < p.length; i++) {
+        for(let i = 0; i < p.length; i++){
             p[i].upd();
     
-            for(let j = i + 1; j < p.length; j++) {
-                if(Math.abs(p[i].x - p[j].x) < 5 && Math.abs(p[i].y - p[j].y) < 5) {
+            for(let j = i + 1; j < p.length; j++){
+                if(Math.abs(p[i].x - p[j].x) < 5 && Math.abs(p[i].y - p[j].y) < 5){
                     p[i].color = "#ff0000";
                     p[j].color = "#ff0000";
                 }
             }
     
-            if(p[i].x < 0 || p[i].x > can.width || p[i].y < 0 || p[i].y > can.height) {
+            if(p[i].x < 0 || p[i].x > can.width || p[i].y < 0 || p[i].y > can.height){
                 p.splice(i,1);
             }
         }
@@ -633,12 +675,13 @@ function canvasBounceColorIteration(id, rapidity){
 
     resizeCanvas(can, clear);
 
-    window.addEventListener('resize', function() {
+    window.addEventListener('resize', function(){
         resizeCanvas(can, clear);
     });
 
     pulse();
-    gameMove();
+    // gameMove();
+    gameMoveColor();
 }
 
 
@@ -650,11 +693,11 @@ function canvasCursorFollowIteration(id, rapidity){
 
     let p = [];
 
-    function particle(x, y, speed, c) {
+    function particle(x, y, speed, c){
         this.x = x;
         this.y = y;
         this.speed = speed;
-        this.upd = function () {
+        this.upd = function (){
             ctx.strokeStyle = c;
             ctx.lineWidth = 2;
             ctx.lineCap = "square";
@@ -673,7 +716,7 @@ function canvasCursorFollowIteration(id, rapidity){
             let op = [this.ang + Math.PI / 4, this.ang - Math.PI / 4];
             let ch = Math.floor(Math.random() * op.length);
 
-            if (Math.random() < 0.05) {
+            if (Math.random() < 0.05){
                 this.speed.x = Math.cos(op[ch]) * this.mag;
                 this.speed.y = Math.sin(op[ch]) * this.mag;
             }
@@ -685,7 +728,7 @@ function canvasCursorFollowIteration(id, rapidity){
 
     function pulse(x, y) {
         let h = Math.random() * (210 - 150) + 150;
-        for (let i = 0; i < 56; i++) {
+        for (let i = 0; i < 56; i++){
             let angle = Math.atan2(y - can.height / 2, x - can.width / 2);
             let distance = Math.sqrt((x - can.width / 2) ** 2 + (y - can.height / 2) ** 2);
             let newX = Math.cos(angle + i / 8 * 2 * Math.PI) * distance + x;
@@ -694,28 +737,29 @@ function canvasCursorFollowIteration(id, rapidity){
         }
     }
 
-    function gameMove() {
-        requestAnimationFrame(gameMove);
-        clear(ctx, can.width, can.height);
-        for (let i = 0; i < p.length; i++) {
-            p[i].upd();
-            if (p[i].x < 0 || p[i].x > can.width || p[i].y < 0 || p[i].y > can.height) {
-                p.splice(i, 1);
-            }
-        }
-    }
+    // function gameMove() {
+    //     requestAnimationFrame(gameMove);
+    //     clear(ctx, can.width, can.height);
+    //     for (let i = 0; i < p.length; i++) {
+    //         p[i].upd();
+    //         if (p[i].x < 0 || p[i].x > can.width || p[i].y < 0 || p[i].y > can.height) {
+    //             p.splice(i, 1);
+    //         }
+    //     }
+    // }
 
     resizeCanvas(can, clear);
 
-    window.addEventListener('resize', function() {
+    window.addEventListener('resize', function(){
         resizeCanvas(can, clear);
     });
 
-    can.addEventListener('mousemove', function (e) {
+    can.addEventListener('mousemove', function (e){
         pulse(e.clientX - can.getBoundingClientRect().left, e.clientY - can.getBoundingClientRect().top);
     });
 
-    gameMove();
+    // gameMove();
+    gameMoveCursor(ctx, can, clear, p);
 }
 
 
@@ -750,7 +794,7 @@ function canvasLineIteration(id, rapidity, interval){
             let op = [this.ang+Math.PI/4,this.ang-Math.PI/4];
             let ch = Math.floor(Math.random()*op.length);
 
-            if(Math.random() < 0.05) {
+            if(Math.random() < 0.05){
                 this.speed.x = Math.cos(op[ch])*this.mag;
                 this.speed.y = Math.sin(op[ch])*this.mag;
             }
@@ -760,19 +804,19 @@ function canvasLineIteration(id, rapidity, interval){
     let speed = rapidity;
     let period = interval;
 
-    function pulse() {
+    function pulse(){
         setTimeout(pulse, period);
         let h = Math.random() * (210 - 150) + 150;
         p = [];
         p.push(new particle(can.width / 2, can.height / 2, { x: Math.random() * speed * 2 - speed, y: Math.random() * speed * 2 - speed }, "#ffdd00"));
     }
 
-    function gameMove(){
-        requestAnimationFrame(gameMove);
+    function gameMoveLine(){
+        requestAnimationFrame(gameMoveLine);
         clear(ctx, can.width, can.height);
-        for(let i = 0; i < p.length; i++) {
+        for(let i = 0; i < p.length; i++){
             p[i].upd();
-            if(p[i].x < 0 || p[i].x > can.width || p[i].y < 0 || p[i].y > can.height) {
+            if(p[i].x < 0 || p[i].x > can.width || p[i].y < 0 || p[i].y > can.height){
                 p.splice(i,1);
             }
         }
@@ -780,12 +824,13 @@ function canvasLineIteration(id, rapidity, interval){
 
     resizeCanvas(can, clear);
 
-    window.addEventListener('resize', function() {
+    window.addEventListener('resize', function(){
         resizeCanvas(can, clear);
     });
 
     pulse();
-    gameMove();
+    // gameMove();
+    gameMoveLine();
 }
 
 
@@ -820,7 +865,7 @@ function canvasCircuitIteration(id, rapidity, interval){
             let op = [this.ang+Math.PI/4,this.ang-Math.PI/4];
             let ch = Math.floor(Math.random()*op.length);
 
-            if(Math.random() < 0.05) {
+            if(Math.random() < 0.05){
                 this.speed.x = Math.cos(op[ch])*this.mag;
                 this.speed.y = Math.sin(op[ch])*this.mag;
             }
@@ -833,31 +878,35 @@ function canvasCircuitIteration(id, rapidity, interval){
     function pulse(){
         setTimeout(pulse,period);
         let h = Math.random()*(210-150) + 150;
-        for(let i = 0; i < 56; i++) {
+        for(let i = 0; i < 56; i++){
             p.push(new particle(can.width/2, can.height/2, {x:Math.cos(i/8*2*Math.PI)*speed, y:Math.sin(i/8*2*Math.PI)*speed}, "#ffdd00"));
         }
     }
 
-    function gameMove(){
-        requestAnimationFrame(gameMove);
-        clear(ctx, can.width, can.height);
-        for(let i = 0; i < p.length; i++) {
-            p[i].upd();
-            if(p[i].x < 0 || p[i].x > can.width || p[i].y < 0 || p[i].y > can.height) {
-                p.splice(i,1);
-            }
-        }
-    }
+    // function gameMove(){
+    //     requestAnimationFrame(gameMove);
+    //     clear(ctx, can.width, can.height);
+    //     for(let i = 0; i < p.length; i++) {
+    //         p[i].upd();
+    //         if(p[i].x < 0 || p[i].x > can.width || p[i].y < 0 || p[i].y > can.height) {
+    //             p.splice(i,1);
+    //         }
+    //     }
+    // }
 
     resizeCanvas(can, clear);
 
-    window.addEventListener('resize', function() {
+    window.addEventListener('resize', function(){
         resizeCanvas(can, clear);
     });
 
     pulse();
-    gameMove();
+    // gameMove();
+    gameMove(ctx, can, clear, p);
 }
+
+
+
 
 
 const canvasFasterBounce = document.getElementById("faster-bounce-canvas");
@@ -904,6 +953,9 @@ const canvasCircuit = document.getElementById("circuit-canvas");
 if(canvasCircuit){
     canvasCircuitIteration(canvasCircuit, 5, 3000);   
 }
+
+
+
 
 
 // ----- Animation GSAP -----
