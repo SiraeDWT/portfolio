@@ -916,419 +916,425 @@ if(canvasCircuit){
 
 
 
+
+
+
+
 // ----- Animation GSAP -----
+const index = document.getElementById('top');
 let mm = gsap.matchMedia();
 
-
-mm.add("(max-width: 1439px)", () => {
-    // Softskills section
-    gsap.from('.softskills__title', {
-        x: '-15%',
-        duration: 0.5,
-        opacity: 0,
-        scrollTrigger: {
-            trigger: '.softskills',
-            start: 'top 40%',
-            end: 'bottom 30%',
-        }
-    });
-
-    gsap.from('.softskills__grid', {
-        x: '-10%',
-        duration: 0.5,
-        opacity: 0,
-        scrollTrigger: {
-            trigger: '.softskills__title',
-            start: 'top 40%',
-            end: 'bottom 30%',
-        }
-    });
-
-    gsap.from('.softskills__el', {
-        x: '-10%',
-        duration: 0.5,
-        opacity: 0,
-        stagger: 0.1,
-        scrollTrigger: {
-            trigger: '.softskills__text',
-            start: 'top 40%',
-            end: 'bottom 30%',
-        }
-    });
-
-    // Skills section
-    gsap.from('.skills__title', {
-        x: '-15%',
-        duration: 0.5,
-        opacity: 0,
-        scrollTrigger: {
-            trigger: '.skills',
-            start: 'top 40%',
-            end: 'bottom 30%',
-        }
-    });
-
-    gsap.from('.skills__grid', {
-        x: '-10%',
-        duration: 0.5,
-        opacity: 0,
-        scrollTrigger: {
-            trigger: '.skills__title',
-            start: 'top 40%',
-            end: 'bottom 30%',
-        }
-    });
-
-    gsap.from('.skills__el', {
-        x: '-10%',
-        duration: 0.5,
-        opacity: 0,
-        stagger: 0.15,
-        scrollTrigger: {
-            trigger: '.skills__text',
-            start: 'top 40%',
-            end: 'bottom 30%',
-        }
-    });
-
-    gsap.from(".projects__description > *", {
-        x: "-15%",
-        opacity: 0,
-        duration: 0.5,
-        stagger: 0.1,
-        scrollTrigger: {
-            trigger: ".projects",
-            start: 'top 40%',
-            end: 'bottom 30%',
-        },   
-    });
-
-    gsap.from(".projects__assets a", {
-        x: "15%",
-        opacity: 0,
-        duration: 0.5,
-        stagger: 0.1,
-        scrollTrigger: {
-            trigger: ".projects",
-            start: 'top 40%',
-            end: 'bottom 30%',
-        },   
-    });
-
-    // Technologies list
-    gsap.from(".technologies > *", {
-        x: "15%",
-        opacity: 0,
-        duration: 0.5,
-        stagger: 0.1,
-        scrollTrigger: {
-            trigger: ".projects",
-            start: 'top 40%',
-            end: 'bottom 30%',
-        },   
-    });
-});
-
-
-mm.add("(min-width: 1440px)", () => {
-    // Softskills section
-    gsap.from('.softskills__title', {
-        x: '-25%',
-        duration: 0.7,
-        opacity: 0,
-        scrollTrigger: {
-            trigger: '.softskills',
-            start: 'top 40%',
-            end: 'bottom 30%',
-            // markers: true,
-        }
-    });
-
-    gsap.from('.softskills__grid', {
-        x: '-20%',
-        duration: 0.7,
-        opacity: 0,
-        scrollTrigger: {
-            trigger: '.softskills__title',
-            start: 'top 40%',
-            end: 'bottom 30%',
-            // markers: true,
-        }
-    });
-
-    gsap.from('.softskills__el', {
-        x: '-15%',
-        duration: 0.7,
-        opacity: 0,
-        stagger: 0.1,
-        scrollTrigger: {
-            trigger: '.softskills__text',
-            start: 'top 40%',
-            end: 'bottom 30%',
-            // markers: true,
-        }
-    });
-
-    gsap.from(".softskills__line", {
-        display: "none",
-        
-        scrollTrigger: {
-            trigger: ".softskills",
-            start: 'top 40%',
-            end: 'bottom 30%',
-        },   
-    });
-
-
-    gsap.from(".softskills__dot", {
-        x: "100px",
-        opacity: 0,
-        duration: 0.3,
-        stagger: 0.1,
-        
-        scrollTrigger: {
-            trigger: ".softskills",
-            start: 'top 40%',
-            end: 'bottom 30%',
-            // start: "top 75%",
-            // end: "40% 75%",
-            // scrub: 1,
-        },   
-    });
-
-    gsap.from(".softskills__square", {
-        y: "-10px",
-        opacity: 0,
-        duration: 0.3,
-        stagger: 0.1,
-        
-        scrollTrigger: {
-            trigger: ".softskills",
-            start: 'top 40%',
-            end: 'bottom 30%',
-        },   
-    });
-
-
-    // Skills section
-    gsap.from('.skills__title', {
-        x: '-25%',
-        duration: 0.7,
-        opacity: 0,
-        scrollTrigger: {
-            trigger: '.skills',
-            start: 'top 40%',
-            end: 'bottom 30%',
-            // markers: true,
-        }
-    });
-
-    gsap.from('.skills__grid', {
-        x: '-15%',
-        duration: 0.7,
-        opacity: 0,
-        scrollTrigger: {
-            trigger: '.skills__title',
-            start: 'top 40%',
-            end: 'bottom 30%',
-            // markers: true,
-        }
-    });
-
-    gsap.from('.skills__el', {
-        x: '-20%',
-        duration: 0.7,
-        opacity: 0,
-        stagger: 0.25,
-        scrollTrigger: {
-            trigger: '.skills__text',
-            start: 'top 40%',
-            end: 'bottom 30%',
-            // markers: true,
-        }
-    });
-
-    gsap.from(".skills__line", {
-        display: "none",
-        
-        scrollTrigger: {
-            trigger: ".skills",
-            start: 'top 40%',
-            end: 'bottom 30%',
-        },   
-    });
-
-    gsap.from(".skills__dot", {
-        y: "50px",
-        opacity: 0,
-        duration: 0.3,
-        stagger: 0.1,
-        
-        scrollTrigger: {
-            trigger: '.skills__text',
-            start: 'top 40%',
-            end: 'bottom 30%',
-        },   
-    });
-
-    gsap.from(".skills__square", {
-        y: "-10px",
-        opacity: 0,
-        duration: 0.3,
-        stagger: 0.1,
-        
-        scrollTrigger: {
-            trigger: ".skills",
-            start: 'top 40%',
-            end: 'bottom 30%',
-        },   
-    });
-
-
-    // Projects section
-    gsap.from(".projects__path--first", {
-        display: "none",
-        
-        scrollTrigger: {
-            trigger: ".projects",
-            start: 'top 40%',
-            end: 'bottom 30%',
-        },   
-    });
-
-    gsap.from(".projects__path--second", {
-        display: "none",
-        duration: 10,
-        stagger: 0.2,
-        
-        scrollTrigger: {
-            trigger: ".projects",
-            start: '+=100% 40%',
-            end: '+=100% 30%',
-        },   
-    });
-
-    gsap.from(".projects__path--third", {
-        display: "none",
-        duration: 10,
-        stagger: 0.2,
-        
-        scrollTrigger: {
-            trigger: ".projects",
-            start: '+=250% 40%',
-            end: '+=250% 30%',
-        },   
-    });
-
-
-    gsap.from(".projects__description > *", {
-        x: "-25%",
-        opacity: 0,
-        duration: 0.8,
-        stagger: 0.2,
-        
-        scrollTrigger: {
-            trigger: ".projects",
-            start: 'top 40%',
-            end: 'bottom 30%',
-        },   
-    });
-
-    gsap.from(".projects__assets a", {
-        x: "25%",
-        opacity: 0,
-        duration: 0.8,
-        stagger: 0.2,
-        
-        scrollTrigger: {
-            trigger: ".projects",
-            start: 'top 40%',
-            end: 'bottom 30%',
-        },   
-    });
-
-
-    // Technologies list
-    gsap.from(".technologies > *", {
-        x: "25%",
-        opacity: 0,
-        duration: 0.8,
-        stagger: 0.2,
-        
-        scrollTrigger: {
-            trigger: ".projects",
-            start: 'top 40%',
-            end: 'bottom 30%',
-        },   
-    });
-
-
-
-    // ----- Slider projects -----
-    // let sections = gsap.utils.toArray(".projects__el");
-        
-    // gsap.to(sections,{
-    // xPercent: -100 * (sections.length - 1),
-    // ease: "none",
-    // scrollTrigger: {
-    //     trigger: ".projects__slider",
-    //     pin: ".projects",
-    //     pinSpacing: true,
-    //     scrub: 1,
-    //     end: "+=3000",
-    // }
-    // });
-
-    // gsap.to('.contact',{
-    // scrollTrigger:{
-    //     trigger: '.contact',
-    //     pinnedContainer: ".projects",
-    //     start:'top 50%',
-    //     toggleActions: 'play none reset none',
-    // }
-    // });
-
-    let sections = gsap.utils.toArray(".projects__el");
-    let projectsNumber = document.querySelector(".projects__number .projects__number--size");
-    let indicatorBars = gsap.utils.toArray(".projects__indicator-bar");
-
-    gsap.to(sections, {
-        xPercent: -100 * (sections.length - 1),
-        ease: "none",
-        scrollTrigger: {
-            trigger: ".projects__slider",
-            pin: ".projects",
-            pinSpacing: true,
-            scrub: 1,
-            end: "+=3000",
-            onUpdate: self => {
-            let index = Math.round(self.progress * (sections.length - 1));
-            updateProjectNumber(index + 1);
-            updateIndicatorBar(index);
-            }
-        }
-    });
-
-    gsap.to('.contact', {
-        scrollTrigger: {
-            trigger: '.contact',
-            pinnedContainer: ".projects",
-            start: 'top 50%',
-            toggleActions: 'play none reset none',
-        }
-    });
-
-    function updateProjectNumber(number) {
-        projectsNumber.textContent = `0${number}`;
-    }
-
-    function updateIndicatorBar(index) {
-        indicatorBars.forEach((bar, i) => {
-            if (i === index) {
-            bar.classList.add("projects__indicator-bar--active");
-            } else {
-            bar.classList.remove("projects__indicator-bar--active");
+if(index){
+    mm.add("(max-width: 1439px)", () => {
+        // Softskills section
+        gsap.from('.softskills__title', {
+            x: '-15%',
+            duration: 0.5,
+            opacity: 0,
+            scrollTrigger: {
+                trigger: '.softskills',
+                start: 'top 40%',
+                end: 'bottom 30%',
             }
         });
-    }
-});
+
+        gsap.from('.softskills__grid', {
+            x: '-10%',
+            duration: 0.5,
+            opacity: 0,
+            scrollTrigger: {
+                trigger: '.softskills__title',
+                start: 'top 40%',
+                end: 'bottom 30%',
+            }
+        });
+
+        gsap.from('.softskills__el', {
+            x: '-10%',
+            duration: 0.5,
+            opacity: 0,
+            stagger: 0.1,
+            scrollTrigger: {
+                trigger: '.softskills__text',
+                start: 'top 40%',
+                end: 'bottom 30%',
+            }
+        });
+
+        // Skills section
+        gsap.from('.skills__title', {
+            x: '-15%',
+            duration: 0.5,
+            opacity: 0,
+            scrollTrigger: {
+                trigger: '.skills',
+                start: 'top 40%',
+                end: 'bottom 30%',
+            }
+        });
+
+        gsap.from('.skills__grid', {
+            x: '-10%',
+            duration: 0.5,
+            opacity: 0,
+            scrollTrigger: {
+                trigger: '.skills__title',
+                start: 'top 40%',
+                end: 'bottom 30%',
+            }
+        });
+
+        gsap.from('.skills__el', {
+            x: '-10%',
+            duration: 0.5,
+            opacity: 0,
+            stagger: 0.15,
+            scrollTrigger: {
+                trigger: '.skills__text',
+                start: 'top 40%',
+                end: 'bottom 30%',
+            }
+        });
+
+        gsap.from(".projects__description > *", {
+            x: "-15%",
+            opacity: 0,
+            duration: 0.5,
+            stagger: 0.1,
+            scrollTrigger: {
+                trigger: ".projects",
+                start: 'top 40%',
+                end: 'bottom 30%',
+            },   
+        });
+
+        gsap.from(".projects__assets a", {
+            x: "15%",
+            opacity: 0,
+            duration: 0.5,
+            stagger: 0.1,
+            scrollTrigger: {
+                trigger: ".projects",
+                start: 'top 40%',
+                end: 'bottom 30%',
+            },   
+        });
+
+        // Technologies list
+        gsap.from(".technologies > *", {
+            x: "15%",
+            opacity: 0,
+            duration: 0.5,
+            stagger: 0.1,
+            scrollTrigger: {
+                trigger: ".projects",
+                start: 'top 40%',
+                end: 'bottom 30%',
+            },   
+        });
+    });
+
+
+    mm.add("(min-width: 1440px)", () => {
+        // Softskills section
+        gsap.from('.softskills__title', {
+            x: '-25%',
+            duration: 0.7,
+            opacity: 0,
+            scrollTrigger: {
+                trigger: '.softskills',
+                start: 'top 40%',
+                end: 'bottom 30%',
+                // markers: true,
+            }
+        });
+
+        gsap.from('.softskills__grid', {
+            x: '-20%',
+            duration: 0.7,
+            opacity: 0,
+            scrollTrigger: {
+                trigger: '.softskills__title',
+                start: 'top 40%',
+                end: 'bottom 30%',
+                // markers: true,
+            }
+        });
+
+        gsap.from('.softskills__el', {
+            x: '-15%',
+            duration: 0.7,
+            opacity: 0,
+            stagger: 0.1,
+            scrollTrigger: {
+                trigger: '.softskills__text',
+                start: 'top 40%',
+                end: 'bottom 30%',
+                // markers: true,
+            }
+        });
+
+        gsap.from(".softskills__line", {
+            display: "none",
+            
+            scrollTrigger: {
+                trigger: ".softskills",
+                start: 'top 40%',
+                end: 'bottom 30%',
+            },   
+        });
+
+
+        gsap.from(".softskills__dot", {
+            x: "100px",
+            opacity: 0,
+            duration: 0.3,
+            stagger: 0.1,
+            
+            scrollTrigger: {
+                trigger: ".softskills",
+                start: 'top 40%',
+                end: 'bottom 30%',
+                // start: "top 75%",
+                // end: "40% 75%",
+                // scrub: 1,
+            },   
+        });
+
+        gsap.from(".softskills__square", {
+            y: "-10px",
+            opacity: 0,
+            duration: 0.3,
+            stagger: 0.1,
+            
+            scrollTrigger: {
+                trigger: ".softskills",
+                start: 'top 40%',
+                end: 'bottom 30%',
+            },   
+        });
+
+
+        // Skills section
+        gsap.from('.skills__title', {
+            x: '-25%',
+            duration: 0.7,
+            opacity: 0,
+            scrollTrigger: {
+                trigger: '.skills',
+                start: 'top 40%',
+                end: 'bottom 30%',
+                // markers: true,
+            }
+        });
+
+        gsap.from('.skills__grid', {
+            x: '-15%',
+            duration: 0.7,
+            opacity: 0,
+            scrollTrigger: {
+                trigger: '.skills__title',
+                start: 'top 40%',
+                end: 'bottom 30%',
+                // markers: true,
+            }
+        });
+
+        gsap.from('.skills__el', {
+            x: '-20%',
+            duration: 0.7,
+            opacity: 0,
+            stagger: 0.25,
+            scrollTrigger: {
+                trigger: '.skills__text',
+                start: 'top 40%',
+                end: 'bottom 30%',
+                // markers: true,
+            }
+        });
+
+        gsap.from(".skills__line", {
+            display: "none",
+            
+            scrollTrigger: {
+                trigger: ".skills",
+                start: 'top 40%',
+                end: 'bottom 30%',
+            },   
+        });
+
+        gsap.from(".skills__dot", {
+            y: "50px",
+            opacity: 0,
+            duration: 0.3,
+            stagger: 0.1,
+            
+            scrollTrigger: {
+                trigger: '.skills__text',
+                start: 'top 40%',
+                end: 'bottom 30%',
+            },   
+        });
+
+        gsap.from(".skills__square", {
+            y: "-10px",
+            opacity: 0,
+            duration: 0.3,
+            stagger: 0.1,
+            
+            scrollTrigger: {
+                trigger: ".skills",
+                start: 'top 40%',
+                end: 'bottom 30%',
+            },   
+        });
+
+
+        // Projects section
+        gsap.from(".projects__path--first", {
+            display: "none",
+            
+            scrollTrigger: {
+                trigger: ".projects",
+                start: 'top 40%',
+                end: 'bottom 30%',
+            },   
+        });
+
+        gsap.from(".projects__path--second", {
+            display: "none",
+            duration: 10,
+            stagger: 0.2,
+            
+            scrollTrigger: {
+                trigger: ".projects",
+                start: '+=100% 40%',
+                end: '+=100% 30%',
+            },   
+        });
+
+        gsap.from(".projects__path--third", {
+            display: "none",
+            duration: 10,
+            stagger: 0.2,
+            
+            scrollTrigger: {
+                trigger: ".projects",
+                start: '+=250% 40%',
+                end: '+=250% 30%',
+            },   
+        });
+
+
+        gsap.from(".projects__description > *", {
+            x: "-25%",
+            opacity: 0,
+            duration: 0.8,
+            stagger: 0.2,
+            
+            scrollTrigger: {
+                trigger: ".projects",
+                start: 'top 40%',
+                end: 'bottom 30%',
+            },   
+        });
+
+        gsap.from(".projects__assets a", {
+            x: "25%",
+            opacity: 0,
+            duration: 0.8,
+            stagger: 0.2,
+            
+            scrollTrigger: {
+                trigger: ".projects",
+                start: 'top 40%',
+                end: 'bottom 30%',
+            },   
+        });
+
+
+        // Technologies list
+        gsap.from(".technologies > *", {
+            x: "25%",
+            opacity: 0,
+            duration: 0.8,
+            stagger: 0.2,
+            
+            scrollTrigger: {
+                trigger: ".projects",
+                start: 'top 40%',
+                end: 'bottom 30%',
+            },   
+        });
+
+
+
+        // ----- Slider projects -----
+        // let sections = gsap.utils.toArray(".projects__el");
+            
+        // gsap.to(sections,{
+        // xPercent: -100 * (sections.length - 1),
+        // ease: "none",
+        // scrollTrigger: {
+        //     trigger: ".projects__slider",
+        //     pin: ".projects",
+        //     pinSpacing: true,
+        //     scrub: 1,
+        //     end: "+=3000",
+        // }
+        // });
+
+        // gsap.to('.contact',{
+        // scrollTrigger:{
+        //     trigger: '.contact',
+        //     pinnedContainer: ".projects",
+        //     start:'top 50%',
+        //     toggleActions: 'play none reset none',
+        // }
+        // });
+
+        let sections = gsap.utils.toArray(".projects__el");
+        let projectsNumber = document.querySelector(".projects__number .projects__number--size");
+        let indicatorBars = gsap.utils.toArray(".projects__indicator-bar");
+
+        gsap.to(sections, {
+            xPercent: -100 * (sections.length - 1),
+            ease: "none",
+            scrollTrigger: {
+                trigger: ".projects__slider",
+                pin: ".projects",
+                pinSpacing: true,
+                scrub: 1,
+                end: "+=3000",
+                onUpdate: self => {
+                let index = Math.round(self.progress * (sections.length - 1));
+                updateProjectNumber(index + 1);
+                updateIndicatorBar(index);
+                }
+            }
+        });
+
+        gsap.to('.contact', {
+            scrollTrigger: {
+                trigger: '.contact',
+                pinnedContainer: ".projects",
+                start: 'top 50%',
+                toggleActions: 'play none reset none',
+            }
+        });
+
+        function updateProjectNumber(number) {
+            projectsNumber.textContent = `0${number}`;
+        }
+
+        function updateIndicatorBar(index) {
+            indicatorBars.forEach((bar, i) => {
+                if (i === index) {
+                bar.classList.add("projects__indicator-bar--active");
+                } else {
+                bar.classList.remove("projects__indicator-bar--active");
+                }
+            });
+        }
+    });
+}
