@@ -9,16 +9,25 @@
 <!-- - Effet hover inversé pour les boutons active ? -->
 
 - Ajouter un bouton back to top aux crédits;
+- Ajouter un bouton back to top à la page canvas;
 - Ajouter une progress bar aux crédits;
 
 <!-- - Ajouter les animations GSAP en mobile/tablette; -->
 - Faire la page de test de canvas;
 
 <!-- - Faire un effet hover plus sympa sur les images représentant mes projets; -->
-- Optimiser les fonctions pour les canvas;
+<!-- - Optimiser les fonctions pour les canvas; -->
 - Un niveau hiérarchique en plus dans les projets ?
   
 
 - Mini espace en-dessous de l'image dans le img-area dans projects !!!
 
-- Attention aux longueurs de lignes en 2K;
+<!-- - Attention aux longueurs de lignes en 2K; -->
+
+
+
+
+
+
+- Pas grave d'avoir des répétitions d'animations GSAP dans les matchMedia inférieur ET supérieur à 1440px ??
+- Optimiser encore plus les fonctions pour les canvas.
