@@ -1105,20 +1105,6 @@ mm.add("(min-width: 1440px)", () => {
         }
     });
 
-    // gsap.from(".softskills__line", {
-    //     height: "0%",
-    //     duration: 0.8,
-        
-    //     scrollTrigger: {
-    //         trigger: ".softskills",
-    //         start: 'top 40%',
-    //         end: 'bottom 30%',
-    //         // start: "top 75%",
-    //         // end: "40% 75%",
-    //         // scrub: 1,
-    //     },   
-    // });
-
     gsap.from(".softskills__line", {
         display: "none",
         
@@ -1143,6 +1129,19 @@ mm.add("(min-width: 1440px)", () => {
             // start: "top 75%",
             // end: "40% 75%",
             // scrub: 1,
+        },   
+    });
+
+    gsap.from(".softskills__square", {
+        y: "-10px",
+        opacity: 0,
+        duration: 0.3,
+        stagger: 0.1,
+        
+        scrollTrigger: {
+            trigger: ".softskills",
+            start: 'top 40%',
+            end: 'bottom 30%',
         },   
     });
 
@@ -1185,20 +1184,6 @@ mm.add("(min-width: 1440px)", () => {
         }
     });
 
-    // gsap.from(".skills__line", {
-    //     height: "0%",
-    //     duration: 0.8,
-        
-    //     scrollTrigger: {
-    //         trigger: ".skills",
-    //         start: 'top 40%',
-    //         end: 'bottom 30%',
-    //         // start: "top 75%",
-    //         // end: "40% 75%",
-    //         // scrub: 1,
-    //     },   
-    // });
-
     gsap.from(".skills__line", {
         display: "none",
         
@@ -1217,6 +1202,19 @@ mm.add("(min-width: 1440px)", () => {
         
         scrollTrigger: {
             trigger: '.skills__text',
+            start: 'top 40%',
+            end: 'bottom 30%',
+        },   
+    });
+
+    gsap.from(".skills__square", {
+        y: "-10px",
+        opacity: 0,
+        duration: 0.3,
+        stagger: 0.1,
+        
+        scrollTrigger: {
+            trigger: ".skills",
             start: 'top 40%',
             end: 'bottom 30%',
         },   
@@ -1269,9 +1267,6 @@ mm.add("(min-width: 1440px)", () => {
             trigger: ".projects",
             start: 'top 40%',
             end: 'bottom 30%',
-            // start: "top 75%",
-            // end: "40% 75%",
-            // scrub: 1,
         },   
     });
 
@@ -1285,9 +1280,6 @@ mm.add("(min-width: 1440px)", () => {
             trigger: ".projects",
             start: 'top 40%',
             end: 'bottom 30%',
-            // start: "top 75%",
-            // end: "40% 75%",
-            // scrub: 1,
         },   
     });
 
@@ -1303,9 +1295,6 @@ mm.add("(min-width: 1440px)", () => {
             trigger: ".projects",
             start: 'top 40%',
             end: 'bottom 30%',
-            // start: "top 75%",
-            // end: "40% 75%",
-            // scrub: 1,
         },   
     });
 
