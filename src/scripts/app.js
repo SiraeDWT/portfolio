@@ -367,7 +367,7 @@ function canvasEdgeBounceIteration(id, rapidity, interval) {
 }
 
 
-function canvasSynchroCursorIteration(id, rapidity, interval){
+function canvasSynchroCursorIteration(id, rapidity){
     let can = id;
     let ctx = can.getContext("2d");
 
@@ -406,7 +406,7 @@ function canvasSynchroCursorIteration(id, rapidity, interval){
     }
 
     let speed = rapidity;
-    let period = interval;
+    // let period = interval;
 
     function pulse(x, y) {
         let h = Math.random() * (210 - 150) + 150;
@@ -537,7 +537,7 @@ function canvasCornerPulseIteration(id, rapidity, interval){
 }
 
 
-function canvasBounceColorIteration(id, rapidity, interval){
+function canvasBounceColorIteration(id, rapidity){
     let can = id;
     let ctx = can.getContext("2d");
 
@@ -561,9 +561,7 @@ function canvasBounceColorIteration(id, rapidity, interval){
             this.x += this.speed.x;
             this.y += this.speed.y;
     
-            // Vérifier si la particule rebondit sur le bord
             if (this.x <= 0 || this.x >= can.width || this.y <= 0 || this.y >= can.height) {
-                // Changer la couleur de la particule
                 this.color = getRandomColor();
             }
     
@@ -597,7 +595,7 @@ function canvasBounceColorIteration(id, rapidity, interval){
     }
 
     let speed = rapidity;
-    let period = interval;
+    // let period = interval;
 
     let firstPulse = true;
 
@@ -644,7 +642,7 @@ function canvasBounceColorIteration(id, rapidity, interval){
 }
 
 
-function canvasCursorFollowIteration(id, rapidity, interval){
+function canvasCursorFollowIteration(id, rapidity){
     let can = id;
     let ctx = can.getContext("2d");
 
@@ -683,7 +681,7 @@ function canvasCursorFollowIteration(id, rapidity, interval){
     }
 
     let speed = rapidity;
-    let period = interval;
+    // let period = interval;
 
     function pulse(x, y) {
         let h = Math.random() * (210 - 150) + 150;
@@ -879,7 +877,7 @@ if(canvasEdgeBounce){
 
 const canvasSynchroCursor = document.getElementById("synchro-cursor-canvas");
 if (canvasSynchroCursor) {
-    canvasSynchroCursorIteration(canvasSynchroCursor, 15, 1);
+    canvasSynchroCursorIteration(canvasSynchroCursor, 15);
 }
 
 const canvasCornerPulse = document.getElementById("corner-pulse-canvas");
@@ -889,12 +887,12 @@ if(canvasCornerPulse){
 
 const canvasBounceColor = document.getElementById("bounce-color-canvas");
 if(canvasBounceColor){
-    canvasBounceColorIteration(canvasBounceColor, 1, 10000);  
+    canvasBounceColorIteration(canvasBounceColor, 1);  
 }
 
 const canvasCursorFollow = document.getElementById("cursor-follow-canvas");
 if (canvasCursorFollow) {
-    canvasCursorFollowIteration(canvasCursorFollow, 1, 100);
+    canvasCursorFollowIteration(canvasCursorFollow, 1);
 }
 
 const canvasLine = document.getElementById("line-canvas");
@@ -906,18 +904,6 @@ const canvasCircuit = document.getElementById("circuit-canvas");
 if(canvasCircuit){
     canvasCircuitIteration(canvasCircuit, 5, 3000);   
 }
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 // ----- Animation GSAP -----
