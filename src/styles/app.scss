@@ -206,6 +206,13 @@ a{
         width: 100%;
         margin-bottom: $space-p;
         
+        &:last-child{
+            margin-bottom: 0;
+        }
+    }
+
+    &__grid{
+        margin-bottom: 50px;
     }
 
     &__list{
@@ -221,7 +228,6 @@ a{
         padding: calc($space-p);
         border: 2px solid $complementary-color;
         background-color: $darker-blue;
-        // clip-path: polygon(10% 0%, 100% 0%, 100% 100%, 0% 100%, 0% 20%); // Link the two sides
     }
 
     &__secondary-title{
