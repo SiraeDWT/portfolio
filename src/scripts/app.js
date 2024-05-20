@@ -6,7 +6,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 
 // ----- Button to the top -----
-window.addEventListener('scroll', function() {
+window.addEventListener('scroll', function(){
     const button = document.querySelector('.top');
 
     if(button){
@@ -22,7 +22,7 @@ window.addEventListener('scroll', function() {
 
 
 // ----- CANVAS Portfolio -----
-function initializeCanvas(id, canvasHeight) {
+function initializeCanvas(id, canvasHeight){
     let can = id;
     let ctx = id.getContext("2d");
 
@@ -120,39 +120,33 @@ if(canvasContact){
 
 
 
+function resizeCanvas(can, clear){
+    can.width = 320;
+    can.height = 320;
+    clear(can.getContext("2d"), can.width, can.height);
+}
+
+function clear(ctx, width, height){
+    ctx.fillStyle = "rgba(6, 13, 25, 0.15)";
+    ctx.fillRect(0, 0, width, height);
+}
 
 
-
-
-
-
-// ----- Iterations Canvas -----
-const canvasSpeed = document.getElementById("speed-canvas");
-if(canvasSpeed){
-    let can = canvasSpeed;
-    let ctx = canvasSpeed.getContext("2d");
-
-    function resizeCanvas() {
-        can.width = 320;
-        can.height = 320;
-        clear();
-    }
+function canvasFasterBounceIteration(id, rapidity){
+    let can = id;
+    let ctx = can.getContext("2d");
 
     can.style.background = "#060D19";
 
-    let p = [];
-
-    function clear(){
-        ctx.fillStyle="rgba(6, 13, 25, 0.15)";
-        ctx.fillRect(0,0,can.width,can.height);
-    }
+    let particleBounce = null;
 
     function particle(x,y,speed,c){
         this.x = x;
         this.y = y;
         this.speed = speed;
-        this.upd = function(){
-            ctx.strokeStyle = c;
+        this.color = c;
+        this.update = function(){
+            ctx.strokeStyle = this.color;
             ctx.lineWidth = 2;
             ctx.lineCap = "square";
             ctx.beginPath();
@@ -161,71 +155,142 @@ if(canvasSpeed){
             this.x += this.speed.x;
             this.y += this.speed.y;
 
+            if (this.x < 0 || this.x > can.width) {
+                this.speed.x *= -1;
+                this.speed.x += (this.speed.x > 0) ? 1 : -1;
+            }
+            if (this.y < 0 || this.y > can.height) {
+                this.speed.y *= -1;
+                this.speed.y += (this.speed.y > 0) ? 1 : -1;
+            }
+
             ctx.lineTo(this.x,this.y);
             ctx.stroke();
 
-            this.ang = Math.atan2(this.speed.y,this.speed.x);
-            this.mag = Math.sqrt(this.speed.x**2 + this.speed.y**2);
+            let angle = Math.atan2(this.speed.y,this.speed.x);
+            let magnitude = Math.sqrt(this.speed.x**2 + this.speed.y**2);
 
-            let op = [this.ang+Math.PI/4,this.ang-Math.PI/4];
-            let ch = Math.floor(Math.random()*op.length);
+            let options = [angle+Math.PI/4, angle-Math.PI/4];
+            let choice = Math.floor(Math.random()*options.length);
 
             if(Math.random() < 0.05) {
-                this.speed.x = Math.cos(op[ch])*this.mag;
-                this.speed.y = Math.sin(op[ch])*this.mag;
+                this.speed.x = Math.cos(options[choice])*magnitude;
+                this.speed.y = Math.sin(options[choice])*magnitude;
             }
         }
     }
 
-    let speed = 30;
-    let period = 1;
+    let speed = rapidity;
 
     function pulse(){
-        setTimeout(pulse,period);
-        let h = Math.random()*(210-150) + 150;
-        for(let i = 0; i < 56; i++) {
-            p.push(new particle(can.width/2, can.height/2, {x:Math.cos(i/8*2*Math.PI)*speed, y:Math.sin(i/8*2*Math.PI)*speed}, "#ffdd00"));
+        if (!particleBounce) {
+            let posX = can.width/2;
+            let posY = can.height/2;
+            let angle = Math.random() * 2 * Math.PI;
+            particleBounce = new particle(posX, posY, {x: Math.cos(angle) * speed, y: Math.sin(angle) * speed}, "#ffdd00");
         }
     }
 
     function gameMove(){
         requestAnimationFrame(gameMove);
-        clear();
-        for(let i = 0; i < p.length; i++) {
-            p[i].upd();
-            if(p[i].x < 0 || p[i].x > can.width || p[i].y < 0 || p[i].y > can.height) {
-                p.splice(i,1);
-            }
+        clear(ctx, can.width, can.height);
+        if (particleBounce) {
+            particleBounce.update();
         }
     }
 
-    resizeCanvas();
+    resizeCanvas(can, clear);
 
-    window.addEventListener('resize', resizeCanvas);
+    window.addEventListener('resize', function() {
+        resizeCanvas(can, clear);
+    });
 
     pulse();
     gameMove();
 }
 
-const canvasSpeed2 = document.getElementById("speed-canvas2");
-if(canvasSpeed2){
-    let can = canvasSpeed2;
-    let ctx = canvasSpeed2.getContext("2d");
 
-    function resizeCanvas() {
-        can.width = 320;
-        can.height = 320;
-        clear();
-    }
+function canvasSpeedIteration(id, rapidity, interval){
+    let can = id;
+    let ctx = can.getContext("2d");
 
     can.style.background = "#060D19";
 
     let p = [];
 
-    function clear(){
-        ctx.fillStyle="rgba(6, 13, 25, 0.05)";
-        ctx.fillRect(0,0,can.width,can.height);
+    function particle(x, y, speed, c){
+        this.x = x;
+        this.y = y;
+        this.speed = speed;
+        this.upd = function() {
+            ctx.strokeStyle = c;
+            ctx.lineWidth = 2;
+            ctx.lineCap = "square";
+            ctx.beginPath();
+            ctx.moveTo(this.x, this.y);
+
+            this.x += this.speed.x;
+            this.y += this.speed.y;
+
+            ctx.lineTo(this.x, this.y);
+            ctx.stroke();
+
+            this.ang = Math.atan2(this.speed.y, this.speed.x);
+            this.mag = Math.sqrt(this.speed.x ** 2 + this.speed.y ** 2);
+
+            let op = [this.ang + Math.PI / 4, this.ang - Math.PI / 4];
+            let ch = Math.floor(Math.random() * op.length);
+
+            if (Math.random() < 0.05) {
+                this.speed.x = Math.cos(op[ch]) * this.mag;
+                this.speed.y = Math.sin(op[ch]) * this.mag;
+            }
+        }
     }
+
+    let speed = rapidity;
+    let period = interval;
+
+    function pulse(){
+        setTimeout(pulse, period);
+        let h = Math.random() * (210 - 150) + 150;
+        for (let i = 0; i < 56; i++) {
+            p.push(new particle(can.width / 2, can.height / 2, {
+                x: Math.cos(i / 8 * 2 * Math.PI) * speed,
+                y: Math.sin(i / 8 * 2 * Math.PI) * speed
+            }, "#ffdd00"));
+        }
+    }
+
+    function gameMove(){
+        requestAnimationFrame(gameMove);
+        clear(ctx, can.width, can.height);
+        for (let i = 0; i < p.length; i++) {
+            p[i].upd();
+            if (p[i].x < 0 || p[i].x > can.width || p[i].y < 0 || p[i].y > can.height) {
+                p.splice(i, 1);
+            }
+        }
+    }
+
+    resizeCanvas(can, clear);
+
+    window.addEventListener('resize', function(){
+        resizeCanvas(can, clear);
+    });
+
+    pulse();
+    gameMove();
+}
+
+
+function canvasEdgeBounceIteration(id, rapidity, interval) {
+    let can = id;
+    let ctx = can.getContext("2d");
+
+    can.style.background = "#060D19";
+
+    let p = [];
 
     function particle(x, y, speed, c) {
         this.x = x;
@@ -237,86 +302,78 @@ if(canvasSpeed2){
             ctx.lineCap = "square";
             ctx.beginPath();
             ctx.moveTo(this.x, this.y);
-    
+
             this.x += this.speed.x;
             this.y += this.speed.y;
-    
-            // Rebondissement sur les bords du canvas
+
             if (this.x < 0 || this.x > can.width) {
                 this.speed.x *= -1;
-                this.x = Math.min(Math.max(this.x, 0), can.width); // Assure que la particule reste dans les limites du canvas
+                this.x = Math.min(Math.max(this.x, 0), can.width);
             }
             if (this.y < 0 || this.y > can.height) {
                 this.speed.y *= -1;
-                this.y = Math.min(Math.max(this.y, 0), can.height); // Assure que la particule reste dans les limites du canvas
+                this.y = Math.min(Math.max(this.y, 0), can.height);
             }
-    
+
             ctx.lineTo(this.x, this.y);
             ctx.stroke();
-    
+
             this.ang = Math.atan2(this.speed.y, this.speed.x);
             this.mag = Math.sqrt(this.speed.x ** 2 + this.speed.y ** 2);
-    
+
             let op = [this.ang + Math.PI / 4, this.ang - Math.PI / 4];
             let ch = Math.floor(Math.random() * op.length);
-    
+
             if (Math.random() < 0.05) {
                 this.speed.x = Math.cos(op[ch]) * this.mag;
                 this.speed.y = Math.sin(op[ch]) * this.mag;
             }
         };
     }
-    
 
-    let speed = 1;
-    let period = 3000;
+    let speed = rapidity;
+    let period = interval;
 
-    function pulse(){
-        setTimeout(pulse,period);
-        let h = Math.random()*(210-150) + 150;
-        for(let i = 0; i < 56; i++) {
-            p.push(new particle(can.width/2, can.height/2, {x:Math.cos(i/8*2*Math.PI)*speed, y:Math.sin(i/8*2*Math.PI)*speed}, "#ffdd00"));
+    function pulse() {
+        setTimeout(pulse, period);
+        let h = Math.random() * (210 - 150) + 150;
+        for (let i = 0; i < 56; i++) {
+            p.push(new particle(can.width / 2, can.height / 2, {
+                x: Math.cos(i / 8 * 2 * Math.PI) * speed,
+                y: Math.sin(i / 8 * 2 * Math.PI) * speed
+            }, "#ffdd00"));
         }
     }
 
-    function gameMove(){
+    function gameMove() {
         requestAnimationFrame(gameMove);
-        clear();
-        for(let i = 0; i < p.length; i++) {
+        clear(ctx, can.width, can.height);
+        for (let i = 0; i < p.length; i++) {
             p[i].upd();
-            if(p[i].x < 0 || p[i].x > can.width || p[i].y < 0 || p[i].y > can.height) {
-                p.splice(i,1);
+            if (p[i].x < 0 || p[i].x > can.width || p[i].y < 0 || p[i].y > can.height) {
+                p.splice(i, 1);
             }
         }
     }
 
-    resizeCanvas();
+    resizeCanvas(can, clear);
 
-    window.addEventListener('resize', resizeCanvas);
+    window.addEventListener('resize', function() {
+        resizeCanvas(can, clear);
+    });
 
     pulse();
     gameMove();
 }
 
-const canvasSpeed3 = document.getElementById("speed-canvas3");
-if (canvasSpeed3) {
-    let can = canvasSpeed3;
-    let ctx = canvasSpeed3.getContext("2d");
 
-    function resizeCanvas() {
-        can.width = 320;
-        can.height = 320;
-        clear();
-    }
+function canvasSynchroCursorIteration(id, rapidity, interval){
+    let can = id;
+    let ctx = can.getContext("2d");
 
     can.style.background = "#060D19";
 
     let p = [];
-
-    function clear() {
-        ctx.fillStyle = "rgba(6, 13, 25, 0.15)";
-        ctx.fillRect(0, 0, can.width, can.height);
-    }
 
     function particle(x, y, speed, c) {
         this.x = x;
@@ -348,8 +405,8 @@ if (canvasSpeed3) {
         }
     }
 
-    let speed = 15;
-    let period = 1;
+    let speed = rapidity;
+    let period = interval;
 
     function pulse(x, y) {
         let h = Math.random() * (210 - 150) + 150;
@@ -364,7 +421,7 @@ if (canvasSpeed3) {
 
     function gameMove() {
         requestAnimationFrame(gameMove);
-        clear();
+        clear(ctx, can.width, can.height);
         for (let i = 0; i < p.length; i++) {
             p[i].upd();
             if (p[i].x < 0 || p[i].x > can.width || p[i].y < 0 || p[i].y > can.height) {
@@ -373,9 +430,11 @@ if (canvasSpeed3) {
         }
     }
 
-    resizeCanvas();
+    resizeCanvas(can, clear);
 
-    window.addEventListener('resize', resizeCanvas);
+    window.addEventListener('resize', function() {
+        resizeCanvas(can, clear);
+    });
 
     can.addEventListener('mousemove', function (e) {
         pulse(e.clientX - can.getBoundingClientRect().left, e.clientY - can.getBoundingClientRect().top);
@@ -384,25 +443,14 @@ if (canvasSpeed3) {
     gameMove();
 }
 
-const canvasSpeed4 = document.getElementById("speed-canvas4");
-if(canvasSpeed4){
-    let can = canvasSpeed4;
-    let ctx = canvasSpeed4.getContext("2d");
 
-    function resizeCanvas() {
-        can.width = 320;
-        can.height = 320;
-        clear();
-    }
+function canvasCornerPulseIteration(id, rapidity, interval){
+    let can = id;
+    let ctx = can.getContext("2d");
 
     can.style.background = "#060D19";
 
     let p = [];
-
-    function clear(){
-        ctx.fillStyle="rgba(6, 13, 25, 0.05)";
-        ctx.fillRect(0,0,can.width,can.height);
-    }
 
     function particle(x, y, speed, c) {
         this.x = x;
@@ -417,15 +465,6 @@ if(canvasSpeed4){
     
             this.x += this.speed.x;
             this.y += this.speed.y;
-    
-            // if (this.x < 0 || this.x > can.width) {
-            //     this.speed.x *= -1;
-            //     this.x = Math.min(Math.max(this.x, 0), can.width);
-            // }
-            // if (this.y < 0 || this.y > can.height) {
-            //     this.speed.y *= -1;
-            //     this.y = Math.min(Math.max(this.y, 0), can.height);
-            // }
     
             ctx.lineTo(this.x, this.y);
             ctx.stroke();
@@ -442,10 +481,9 @@ if(canvasSpeed4){
             }
         };
     }
-    
 
-    let speed = 1;
-    let period = 3000;
+    let speed = rapidity;
+    let period = interval;
 
     function pulse(){
         setTimeout(pulse, period);
@@ -479,7 +517,7 @@ if(canvasSpeed4){
 
     function gameMove(){
         requestAnimationFrame(gameMove);
-        clear();
+        clear(ctx, can.width, can.height);
         for(let i = 0; i < p.length; i++) {
             p[i].upd();
             if(p[i].x < 0 || p[i].x > can.width || p[i].y < 0 || p[i].y > can.height) {
@@ -488,33 +526,24 @@ if(canvasSpeed4){
         }
     }
 
-    resizeCanvas();
+    resizeCanvas(can, clear);
 
-    window.addEventListener('resize', resizeCanvas);
+    window.addEventListener('resize', function() {
+        resizeCanvas(can, clear);
+    });
 
     pulse();
     gameMove();
 }
 
-const canvasSpeed5 = document.getElementById("speed-canvas5");
-if(canvasSpeed5){
-    let can = canvasSpeed5;
-    let ctx = canvasSpeed5.getContext("2d");
 
-    function resizeCanvas() {
-        can.width = 320;
-        can.height = 320;
-        clear();
-    }
+function canvasBounceColorIteration(id, rapidity, interval){
+    let can = id;
+    let ctx = can.getContext("2d");
 
     can.style.background = "#060D19";
 
     let p = [];
-
-    function clear(){
-        ctx.fillStyle="rgba(6, 13, 25, 0.05)";
-        ctx.fillRect(0,0,can.width,can.height);
-    }
 
     function particle(x, y, speed, c) {
         this.x = x;
@@ -562,14 +591,13 @@ if(canvasSpeed5){
             }
         };
     }
-    
+
     function getRandomColor() {
         return '#' + Math.floor(Math.random() * 16777215).toString(16);
     }
-    
 
-    let speed = 1;
-    let period = 10000;
+    let speed = rapidity;
+    let period = interval;
 
     let firstPulse = true;
 
@@ -577,7 +605,7 @@ if(canvasSpeed5){
         if(firstPulse) {
             firstPulse = false;
         } else {
-            return; // Sortir de la fonction si le premier pulse a déjà été exécuté
+            return;
         }
         
         let h = Math.random()*(210-150) + 150;
@@ -588,11 +616,10 @@ if(canvasSpeed5){
 
     function gameMove(){
         requestAnimationFrame(gameMove);
-        clear();
+        clear(ctx, can.width, can.height);
         for(let i = 0; i < p.length; i++) {
             p[i].upd();
     
-            // Vérification de collision
             for(let j = i + 1; j < p.length; j++) {
                 if(Math.abs(p[i].x - p[j].x) < 5 && Math.abs(p[i].y - p[j].y) < 5) {
                     p[i].color = "#ff0000";
@@ -606,33 +633,24 @@ if(canvasSpeed5){
         }
     }
 
-    resizeCanvas();
+    resizeCanvas(can, clear);
 
-    window.addEventListener('resize', resizeCanvas);
+    window.addEventListener('resize', function() {
+        resizeCanvas(can, clear);
+    });
 
     pulse();
     gameMove();
 }
 
-const canvasSpeed6 = document.getElementById("speed-canvas6");
-if (canvasSpeed6) {
-    let can = canvasSpeed6;
-    let ctx = canvasSpeed6.getContext("2d");
 
-    function resizeCanvas() {
-        can.width = 320;
-        can.height = 320;
-        clear();
-    }
+function canvasCursorFollowIteration(id, rapidity, interval){
+    let can = id;
+    let ctx = can.getContext("2d");
 
     can.style.background = "#060D19";
 
     let p = [];
-
-    function clear() {
-        ctx.fillStyle = "rgba(6, 13, 25, 0.15)";
-        ctx.fillRect(0, 0, can.width, can.height);
-    }
 
     function particle(x, y, speed, c) {
         this.x = x;
@@ -664,8 +682,8 @@ if (canvasSpeed6) {
         }
     }
 
-    let speed = 1;
-    let period = 100;
+    let speed = rapidity;
+    let period = interval;
 
     function pulse(x, y) {
         let h = Math.random() * (210 - 150) + 150;
@@ -680,7 +698,7 @@ if (canvasSpeed6) {
 
     function gameMove() {
         requestAnimationFrame(gameMove);
-        clear();
+        clear(ctx, can.width, can.height);
         for (let i = 0; i < p.length; i++) {
             p[i].upd();
             if (p[i].x < 0 || p[i].x > can.width || p[i].y < 0 || p[i].y > can.height) {
@@ -689,9 +707,11 @@ if (canvasSpeed6) {
         }
     }
 
-    resizeCanvas();
+    resizeCanvas(can, clear);
 
-    window.addEventListener('resize', resizeCanvas);
+    window.addEventListener('resize', function() {
+        resizeCanvas(can, clear);
+    });
 
     can.addEventListener('mousemove', function (e) {
         pulse(e.clientX - can.getBoundingClientRect().left, e.clientY - can.getBoundingClientRect().top);
@@ -700,25 +720,14 @@ if (canvasSpeed6) {
     gameMove();
 }
 
-const canvasSpeed7 = document.getElementById("speed-canvas7");
-if(canvasSpeed7){
-    let can = canvasSpeed7;
-    let ctx = canvasSpeed7.getContext("2d");
 
-    function resizeCanvas() {
-        can.width = 320;
-        can.height = 320;
-        clear();
-    }
+function canvasLineIteration(id, rapidity, interval){
+    let can = id;
+    let ctx = can.getContext("2d");
 
     can.style.background = "#060D19";
 
     let p = [];
-
-    function clear(){
-        ctx.fillStyle="rgba(6, 13, 25, 0.15)";
-        ctx.fillRect(0,0,can.width,can.height);
-    }
 
     function particle(x,y,speed,c){
         this.x = x;
@@ -750,8 +759,8 @@ if(canvasSpeed7){
         }
     }
 
-    let speed = 100;
-    let period = 1;
+    let speed = rapidity;
+    let period = interval;
 
     function pulse() {
         setTimeout(pulse, period);
@@ -762,7 +771,7 @@ if(canvasSpeed7){
 
     function gameMove(){
         requestAnimationFrame(gameMove);
-        clear();
+        clear(ctx, can.width, can.height);
         for(let i = 0; i < p.length; i++) {
             p[i].upd();
             if(p[i].x < 0 || p[i].x > can.width || p[i].y < 0 || p[i].y > can.height) {
@@ -771,33 +780,24 @@ if(canvasSpeed7){
         }
     }
 
-    resizeCanvas();
+    resizeCanvas(can, clear);
 
-    window.addEventListener('resize', resizeCanvas);
+    window.addEventListener('resize', function() {
+        resizeCanvas(can, clear);
+    });
 
     pulse();
     gameMove();
 }
 
-const canvasSpeed8 = document.getElementById("speed-canvas8");
-if(canvasSpeed8){
-    let can = canvasSpeed8;
-    let ctx = canvasSpeed8.getContext("2d");
 
-    function resizeCanvas() {
-        can.width = 320;
-        can.height = 320;
-        clear();
-    }
+function canvasCircuitIteration(id, rapidity, interval){
+    let can = id;
+    let ctx = can.getContext("2d");
 
     can.style.background = "#060D19";
 
     let p = [];
-
-    function clear(){
-        ctx.fillStyle="rgba(6, 13, 25, 0.15)";
-        ctx.fillRect(0,0,can.width,can.height);
-    }
 
     function particle(x,y,speed,c){
         this.x = x;
@@ -829,8 +829,8 @@ if(canvasSpeed8){
         }
     }
 
-    let speed = 5;
-    let period = 3000;
+    let speed = rapidity;
+    let period = interval;
 
     function pulse(){
         setTimeout(pulse,period);
@@ -842,7 +842,7 @@ if(canvasSpeed8){
 
     function gameMove(){
         requestAnimationFrame(gameMove);
-        clear();
+        clear(ctx, can.width, can.height);
         for(let i = 0; i < p.length; i++) {
             p[i].upd();
             if(p[i].x < 0 || p[i].x > can.width || p[i].y < 0 || p[i].y > can.height) {
@@ -851,100 +851,64 @@ if(canvasSpeed8){
         }
     }
 
-    resizeCanvas();
+    resizeCanvas(can, clear);
 
-    window.addEventListener('resize', resizeCanvas);
-
-    pulse();
-    gameMove();
-}
-
-const canvasSpeed9 = document.getElementById("speed-canvas9");
-if(canvasSpeed9){
-    let can = canvasSpeed9;
-    let ctx = canvasSpeed9.getContext("2d");
-
-    function resizeCanvas() {
-        can.width = 320;
-        can.height = 320;
-        clear();
-    }
-
-    can.style.background = "#060D19";
-
-    let particle = null;
-
-    function clear(){
-        ctx.fillStyle="rgba(6, 13, 25, 0.15)";
-        ctx.fillRect(0,0,can.width,can.height);
-    }
-
-    function Particle(x,y,speed,c){
-        this.x = x;
-        this.y = y;
-        this.speed = speed;
-        this.color = c;
-        this.update = function(){
-            ctx.strokeStyle = this.color;
-            ctx.lineWidth = 2;
-            ctx.lineCap = "square";
-            ctx.beginPath();
-            ctx.moveTo(this.x,this.y);
-
-            this.x += this.speed.x;
-            this.y += this.speed.y;
-
-            if (this.x < 0 || this.x > can.width) {
-                this.speed.x *= -1;
-                this.speed.x += (this.speed.x > 0) ? 1 : -1;
-            }
-            if (this.y < 0 || this.y > can.height) {
-                this.speed.y *= -1;
-                this.speed.y += (this.speed.y > 0) ? 1 : -1;
-            }
-
-            ctx.lineTo(this.x,this.y);
-            ctx.stroke();
-
-            let angle = Math.atan2(this.speed.y,this.speed.x);
-            let magnitude = Math.sqrt(this.speed.x**2 + this.speed.y**2);
-
-            let options = [angle+Math.PI/4, angle-Math.PI/4];
-            let choice = Math.floor(Math.random()*options.length);
-
-            if(Math.random() < 0.05) {
-                this.speed.x = Math.cos(options[choice])*magnitude;
-                this.speed.y = Math.sin(options[choice])*magnitude;
-            }
-        }
-    }
-
-    let speed = 5;
-
-    function pulse(){
-        if (!particle) {
-            let posX = can.width/2;
-            let posY = can.height/2;
-            let angle = Math.random() * 2 * Math.PI;
-            particle = new Particle(posX, posY, {x: Math.cos(angle) * speed, y: Math.sin(angle) * speed}, "#ffdd00");
-        }
-    }
-
-    function gameMove(){
-        requestAnimationFrame(gameMove);
-        clear();
-        if (particle) {
-            particle.update();
-        }
-    }
-
-    resizeCanvas();
-
-    window.addEventListener('resize', resizeCanvas);
+    window.addEventListener('resize', function() {
+        resizeCanvas(can, clear);
+    });
 
     pulse();
     gameMove();
 }
+
+
+const canvasFasterBounce = document.getElementById("faster-bounce-canvas");
+if(canvasFasterBounce){
+    canvasFasterBounceIteration(canvasFasterBounce, 5);   
+}
+
+const canvasSpeed = document.getElementById("speed-canvas");
+if(canvasSpeed){
+    canvasSpeedIteration(canvasSpeed, 30, 1);
+}
+
+const canvasEdgeBounce = document.getElementById("edge-bounce-canvas");
+if(canvasEdgeBounce){
+    canvasEdgeBounceIteration(canvasEdgeBounce, 5, 3000);
+}
+
+const canvasSynchroCursor = document.getElementById("synchro-cursor-canvas");
+if (canvasSynchroCursor) {
+    canvasSynchroCursorIteration(canvasSynchroCursor, 15, 1);
+}
+
+const canvasCornerPulse = document.getElementById("corner-pulse-canvas");
+if(canvasCornerPulse){
+    canvasCornerPulseIteration(canvasCornerPulse, 1, 3000);
+}
+
+const canvasBounceColor = document.getElementById("bounce-color-canvas");
+if(canvasBounceColor){
+    canvasBounceColorIteration(canvasBounceColor, 1, 10000);  
+}
+
+const canvasCursorFollow = document.getElementById("cursor-follow-canvas");
+if (canvasCursorFollow) {
+    canvasCursorFollowIteration(canvasCursorFollow, 1, 100);
+}
+
+const canvasLine = document.getElementById("line-canvas");
+if(canvasLine){
+    canvasLineIteration(canvasLine, 100, 1);  
+}
+
+const canvasCircuit = document.getElementById("circuit-canvas");
+if(canvasCircuit){
+    canvasCircuitIteration(canvasCircuit, 5, 3000);   
+}
+
+
+
 
 
 
