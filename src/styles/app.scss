@@ -211,6 +211,10 @@ a{
         }
     }
 
+    &__secondary-text{
+        font-size: $p-size;
+    }
+
     &__grid{
         margin-bottom: 50px;
     }
