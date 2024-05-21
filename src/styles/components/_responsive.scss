@@ -69,6 +69,21 @@
         
     }
 
+    .icanvas{
+
+        &__wrapper{
+            width: 80%;
+        }
+    }
+
+}
+
+@media only screen and (min-width: 650px){
+    .icanvas{
+        &__title{
+            line-height: $line-height;
+        }
+    }
 }
 
 @media only screen and (min-width: 725px){
@@ -113,6 +128,13 @@
         }
     }
 
+    .icanvas{
+
+        &__wrapper{
+            width: 65%;
+        }
+    }
+
     .credits{
 
         &__wrapper{
@@ -125,7 +147,6 @@
 @media only screen and (min-width: $breakpoint-desktop){
     .wrapper{
         width: 100%;
-        // margin: auto;
     }
 
     .presentation{
@@ -459,6 +480,21 @@
         }
     }
 
+    .icanvas{
+
+        &__wrapper{
+            width: 75%;
+        }
+    
+        &__title{
+            margin: $space-h3 0 $space-p;
+        }
+    
+        &__text{
+            width: 55%;
+        }
+    }
+
     .credits{
         &__wrapper{
             max-width: 70%;
@@ -550,10 +586,3 @@
     }
 
 }
-
-// @media (-webkit-min-device-pixel-ratio: 2),
-// (min-resolution: 192dpi) {
-//     .projects{
-//         background: url(../assets/images/circuit-imprime-bg@2x.png);
-//     }
-// }

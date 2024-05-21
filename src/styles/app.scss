@@ -755,6 +755,62 @@ a{
     
 }
 
+.experiment{
+    background: $darker-blue;
+}
+
+.icanvas{
+    width: 100%;
+
+    &__wrapper{
+        width: 88%; //75% Desktop
+        margin: 0 auto;
+    }
+
+    &__title{
+        color: $light-grey;
+        font-size: $h1-ultra-size;
+        margin: $space-h3 0; // margin: $space-h3 0 $space-p; Desktop
+
+        line-height: 110%; // 150% Desktop
+    }
+
+    &__secondary-title{
+        color: $light-grey;
+        font-size: $h1-size;
+        margin-bottom: $space-p;
+    }
+
+    &__text{
+        font-size: $p-size;
+        color: $light-grey;
+        margin-bottom: $space-p;
+
+        width: 100%; // 55% Desktop
+
+        &:last-child{
+            margin-bottom: $space-h3;
+        }
+    }
+
+    &__list{
+        display: flex;
+        align-items: center;
+        flex-direction: row;
+        // justify-content: center;
+        flex-wrap: wrap;
+        gap: $space-h3;
+
+        margin-bottom: $space-h2;
+
+        list-style: none;
+    }
+
+    &__canvas{
+        border: 2px solid $complementary-color;
+    }
+}
+
 .credits{
     background-color: $darker-blue;
     color: $complementary-color;
@@ -768,47 +824,115 @@ a{
         padding-bottom: $space-h3;
     }
 
+    // &__btn{
+    //     margin-top: $space-h3;
+    //     --cta-outline: -13px;
+    //     --cta-outline-hover: -1px;
+
+    //     cursor: pointer;
+    //     text-decoration: none;
+
+    //     padding: 13px 18px;
+    //     display: inline-flex;
+    //     justify-content: center;
+    //     gap: 13px;
+    //     align-items: center;
+
+    //     color: $light-grey;
+    //     border: 1px solid $complementary-color;
+    //     background-color: $darker-blue;
+
+    //     font-size: $p-size;
+    //     font-weight: 400;
+
+    //     position: relative;
+    //     z-index: 10;
+
+    //     & svg{
+    //         fill: $light-grey;
+    //     }
+
+    //     &:focus{
+    //         outline: 0;
+    //     }
+
+    //     &:visited{
+    //         color: $light-grey;
+    //     }
+
+    //     &:hover{
+    //         color: $light-grey;
+    //     }
+
+    //     &:hover:after{
+    //         opacity: 1;
+    //         outline: 0;
+    //         top: var(--cta-outline-hover);
+    //         right: var(--cta-outline-hover);
+    //         bottom: var(--cta-outline-hover);
+    //         left: var(--cta-outline-hover);
+    //     }
+
+    //     &:after{
+    //         border: 2px solid $light-grey;
+    //         content: "";
+    //         filter: drop-shadow(0 0 3px $blue);
+    //         opacity: 0;
+    //         position: absolute;
+    //         transition: .2s ease;
+    //         top: var(--cta-outline);
+    //         right: var(--cta-outline);
+    //         bottom: var(--cta-outline);
+    //         left: var(--cta-outline);
+    //     }
+
+    //     &:active{
+    //         transform: scale(1.1);
+    //     } 
+    // }
+
     &__btn{
         margin-top: $space-h3;
         --cta-outline: -13px;
         --cta-outline-hover: -1px;
-
+        --cta-outline-active: -20px;
+    
         cursor: pointer;
         text-decoration: none;
-
+    
         padding: 13px 18px;
         display: inline-flex;
         justify-content: center;
         gap: 13px;
         align-items: center;
-
+    
         color: $light-grey;
         border: 1px solid $complementary-color;
         background-color: $darker-blue;
-
+    
         font-size: $p-size;
         font-weight: 400;
-
+    
         position: relative;
         z-index: 10;
-
-        & svg{
+    
+        & svg {
             fill: $light-grey;
         }
-
-        &:focus{
+    
+        &:focus {
             outline: 0;
         }
-
-        &:visited{
+    
+        &:visited {
             color: $light-grey;
         }
-
-        &:hover{
+    
+        &:hover {
             color: $light-grey;
         }
-
-        &:hover:after{
+    
+        &:hover:after {
             opacity: 1;
             outline: 0;
             top: var(--cta-outline-hover);
@@ -816,8 +940,8 @@ a{
             bottom: var(--cta-outline-hover);
             left: var(--cta-outline-hover);
         }
-
-        &:after{
+    
+        &:after {
             border: 2px solid $light-grey;
             content: "";
             filter: drop-shadow(0 0 3px $blue);
@@ -829,10 +953,13 @@ a{
             bottom: var(--cta-outline);
             left: var(--cta-outline);
         }
-
-        &:active{
-            transform: scale(1.1);
-        } 
+    
+        &:active:after {
+            top: var(--cta-outline-active);
+            right: var(--cta-outline-active);
+            bottom: var(--cta-outline-active);
+            left: var(--cta-outline-active);
+        }
     }
 
     &__title--h1{
@@ -869,36 +996,3 @@ a{
 }
 
 @import 'components/responsive';
-
-
-.experiment{
-    background: $darker-blue;
-}
-
-.icanvas{
-    width: 100%;
-
-    &__wrapper{
-        width: 88%;
-        margin: 0 auto;
-    }
-
-    &__title{
-        color: $light-grey;
-        font-size: $h1-size;
-    }
-
-    &__container{
-        display: flex;
-        align-items: center;
-        flex-direction: row;
-        flex-wrap: wrap;
-        gap: $space-h3;
-
-        margin: $space-h2 0;
-    }
-
-    &__canvas{
-        border: 2px solid $complementary-color;
-    }
-}
