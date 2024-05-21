@@ -26,7 +26,7 @@ function initializeCanvas(id, canvasHeight){
     let can = id;
     let ctx = id.getContext("2d");
 
-    function resizeCanvas() {
+    function resizeCanvas(){
         can.width = window.innerWidth;
         can.height = window.innerHeight;
         clear();
@@ -64,7 +64,7 @@ function initializeCanvas(id, canvasHeight){
             let op = [this.ang+Math.PI/4,this.ang-Math.PI/4];
             let ch = Math.floor(Math.random()*op.length);
 
-            if(Math.random() < 0.05) {
+            if(Math.random() < 0.05){
                 this.speed.x = Math.cos(op[ch])*this.mag;
                 this.speed.y = Math.sin(op[ch])*this.mag;
             }
@@ -77,7 +77,7 @@ function initializeCanvas(id, canvasHeight){
     function pulse(){
         setTimeout(pulse,period);
         let h = Math.random()*(210-150) + 150;
-        for(let i = 0; i < 56; i++) {
+        for(let i = 0; i < 56; i++){
             p.push(new particle(can.width/2, canvasHeight, {x:Math.cos(i/8*2*Math.PI)*speed, y:Math.sin(i/8*2*Math.PI)*speed}, "#ffdd00"));
         }
     }
@@ -85,9 +85,9 @@ function initializeCanvas(id, canvasHeight){
     function gameMove(){
         requestAnimationFrame(gameMove);
         clear();
-        for(let i = 0; i < p.length; i++) {
+        for(let i = 0; i < p.length; i++){
             p[i].upd();
-            if(p[i].x < 0 || p[i].x > can.width || p[i].y < 0 || p[i].y > can.height) {
+            if(p[i].x < 0 || p[i].x > can.width || p[i].y < 0 || p[i].y > can.height){
                 p.splice(i,1);
             }
         }
@@ -120,8 +120,8 @@ if(canvasContact){
 
 // ----- CANVAS Iterations -----
 function resizeCanvas(can, clear){
-    can.width = 320;
-    can.height = 320;
+    can.width = 300;
+    can.height = 300;
     clear(can.getContext("2d"), can.width, can.height);
 }
 
@@ -130,8 +130,8 @@ function clear(ctx, width, height){
     ctx.fillRect(0, 0, width, height);
 }
 
-function gameMove(ctx, can, clear, p){
-    requestAnimationFrame(() => gameMove(ctx, can, clear, p));
+function gameMoveCircuit(ctx, can, clear, p){
+    requestAnimationFrame(() => gameMoveCircuit(ctx, can, clear, p));
     clear(ctx, can.width, can.height);
     for (let i = 0; i < p.length; i++) {
         p[i].upd();
@@ -142,7 +142,7 @@ function gameMove(ctx, can, clear, p){
 }
 
 function gameMoveCursor(ctx, can, clear, p){
-    requestAnimationFrame(() => gameMove(ctx, can, clear, p));
+    requestAnimationFrame(() => gameMoveCursor(ctx, can, clear, p));
     clear(ctx, can.width, can.height);
     for (let i = 0; i < p.length; i++) {
         p[i].upd();
@@ -153,7 +153,7 @@ function gameMoveCursor(ctx, can, clear, p){
 }
 
 function gameMoveSpeed(ctx, can, clear, p){
-    requestAnimationFrame(() => gameMove(ctx, can, clear, p));
+    requestAnimationFrame(() => gameMoveSpeed(ctx, can, clear, p));
     clear(ctx, can.width, can.height);
     for (let i = 0; i < p.length; i++) {
         p[i].upd();
@@ -575,7 +575,7 @@ function canvasCornerPulseIteration(id, rapidity, interval){
 
     pulse();
     // gameMove();
-    gameMove(ctx, can, clear, p);
+    gameMoveCircuit(ctx, can, clear, p);
 }
 
 
@@ -902,7 +902,7 @@ function canvasCircuitIteration(id, rapidity, interval){
 
     pulse();
     // gameMove();
-    gameMove(ctx, can, clear, p);
+    gameMoveCircuit(ctx, can, clear, p);
 }
 
 
