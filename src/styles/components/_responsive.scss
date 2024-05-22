@@ -185,7 +185,7 @@
         }
     }
 
-    .softskills{   
+    .softskills{
         position: relative;
 
         &__line{
@@ -551,6 +551,15 @@
     }
 }
 
+@media only screen and (min-width: $breakpoint-desktop) and (max-height: 750px){
+    .projects{
+
+        &__description{
+            margin: $space-h3;
+        }
+    }
+}
+
 @media only screen and (min-width: 1845px){
     .presentation{
 
@@ -586,6 +595,13 @@
 
         &__projet{
             margin-top: $space-giga-h1;
+        }
+    }
+
+    .contact{
+
+        &__text{
+            width: 23%;
         }
     }
 
