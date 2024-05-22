@@ -379,6 +379,10 @@ a{
 
     &__el{
         border-bottom: 2px solid $complementary-color;
+
+        &:last-child{
+            border-bottom: 0;
+        }
     }
 
     &__svg{
