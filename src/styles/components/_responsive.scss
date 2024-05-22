@@ -16,6 +16,11 @@
         &__letter{
             letter-spacing: -10px;
         }
+
+        &__btn{
+            position: absolute;
+            top: 2%; right: 2%;
+        }
     }
     
     .softskills{
@@ -154,6 +159,11 @@
         &__text{
             max-width: 65%;
             margin: 0 auto;
+        }
+
+        &__btn{
+            position: absolute;
+            top: 4%; right: 3%;
         }
 
         &__svg{

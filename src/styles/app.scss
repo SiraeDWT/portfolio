@@ -157,6 +157,11 @@ a{
         z-index: -1;
     }
 
+    &__btn{
+        position: absolute;
+        top: 2%; right: 5%;
+    }
+
     &__svg{
         display: none;
     }
@@ -166,16 +171,16 @@ a{
         transform: translate(-50%, -50%);
         top: 50%; left: 50%;
         text-align: center;
-        width: 88%; // Pour ne pas avoir le texte sur 4 lignes en mobile
+        width: 88%;
     }
 
     &__title{
         color: $light-grey;
         font-size: $h1-ultra-size;
-        font-weight: 500; // 700 de base
+        font-weight: 500;
         margin-bottom: $space-h3;
 
-        line-height: 110%; // For mobile title
+        line-height: 110%;
     }
 
     &__letter{
