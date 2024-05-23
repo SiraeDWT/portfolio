@@ -8,8 +8,8 @@
 <!-- - Changer les boutons Linkedin et Github pour qu'ils ressemblent aux autres boutons ? -->
 <!-- - Effet hover inversé pour les boutons active ? -->
 
-- Ajouter un bouton back to top aux crédits;
-- Ajouter un bouton back to top à la page canvas;
+<!-- - Ajouter un bouton back to top aux crédits; -->
+<!-- - Ajouter un bouton back to top à la page canvas; -->
 - Ajouter une progress bar aux crédits;
 
 <!-- - Ajouter les animations GSAP en mobile/tablette; -->
@@ -20,14 +20,15 @@
 <!-- - Un niveau hiérarchique en plus dans les projets ? -->
   
 
-- Mini espace en-dessous de l'image dans le img-area dans projects !!!
+<!-- - Mini espace en-dessous de l'image dans le img-area dans projects !!! -->
 
 <!-- - Attention aux longueurs de lignes en 2K; -->
 
 
 
 
-
+- Revérifier pour optimiser le BEM avec le DRY;
+- Ajouter une fonctionnalité de Play/Pause sur les itérations de canvas;
 
 - Pas grave d'avoir des répétitions d'animations GSAP dans les matchMedia inférieur ET supérieur à 1440px ??
 - Optimiser encore plus les fonctions pour les canvas.
