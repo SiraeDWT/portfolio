@@ -441,8 +441,6 @@ a{
         max-width: 100%;
         min-width: 100%;
 
-        // margin-top: $space-h3;
-
         vertical-align: middle;
 
         transition: 0.3s ease;
@@ -631,16 +629,16 @@ a{
     width: 100%;
 
     &__wrapper{
-        width: 88%; //75% Desktop
+        width: 88%;
         margin: 0 auto;
     }
 
     &__title{
         color: $light-grey;
         font-size: $h1-ultra-size;
-        margin: $space-h3 0; // margin: $space-h3 0 $space-p; Desktop
+        margin: $space-h3 0;
 
-        line-height: 110%; // 150% Desktop
+        line-height: 110%;
     }
 
     &__secondary-title{
@@ -654,7 +652,7 @@ a{
         color: $light-grey;
         margin-bottom: $space-p;
 
-        width: 100%; // 55% Desktop
+        width: 100%;
 
         &:last-child{
             margin-bottom: $space-h3;
@@ -665,7 +663,6 @@ a{
         display: flex;
         align-items: center;
         flex-direction: row;
-        // justify-content: center;
         flex-wrap: wrap;
         gap: $space-h3;
 
@@ -696,18 +693,18 @@ a{
         margin-top: $space-h3;
     }
 
-    &__title--h1{
+    &__title{
         margin: $space-h3 0;
         font-size: $h1-ultra-size;
     }
 
-    &__title--h2{
+    &__secondary-title{
         margin-bottom: $space-h3;
         font-size: $h2-size;
         color: $light-grey;
     }
 
-    &__title--h3{
+    &__tertiary-title{
         margin-bottom: calc($space-p/2);
         font-size: $h3-size;
     }

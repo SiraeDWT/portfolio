@@ -375,25 +375,6 @@
             stroke-dasharray: 10000;
             stroke-dashoffset: 10000;
             animation: dash 7s linear forwards;
-
-            // &--first{
-            //     stroke-dasharray: 10000;
-            //     stroke-dashoffset: 10000;
-            //     display: block;
-            //     animation: dash 7s linear forwards;
-            // }
-
-            // &--second{
-            //     stroke-dasharray: 10000;
-            //     stroke-dashoffset: 10000;
-            //     animation: dash 7s linear forwards;
-            // }
-
-            // &--third{
-            //     stroke-dasharray: 10000;
-            //     stroke-dashoffset: 10000;
-            //     animation: dash 7s linear forwards;
-            // } 
         }
 
         @keyframes dash {
@@ -468,20 +449,9 @@
             font-size: $h1-giga-size;
         }
 
-        // &__assets{
-        //     flex: 0 0 54%;
-
-        //     a:has(> img){
-                
-        //         & img{
-        //             transition: .2s ease-in-out;
-        //         }
-                
-        //         &:hover img{
-        //             transform: scale(1.02);
-        //         }
-        //     }
-        // }
+        &__assets{
+            flex: 0 0 54%;
+        }
 
         &__img{
             display: block;
