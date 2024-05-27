@@ -119,20 +119,20 @@ if(canvasContact){
 
 
 // ----- CANVAS Iterations -----
-function resizeCanvas(can, clear){
+function resizeCanvasIterations(can, clearIterations){
     can.width = 300;
     can.height = 300;
-    clear(can.getContext("2d"), can.width, can.height);
+    clearIterations(can.getContext("2d"), can.width, can.height);
 }
 
-function clear(ctx, width, height){
+function clearIterations(ctx, width, height){
     ctx.fillStyle = "rgba(6, 13, 25, 0.15)";
     ctx.fillRect(0, 0, width, height);
 }
 
-function gameMoveCircuit(ctx, can, clear, p){
-    requestAnimationFrame(() => gameMoveCircuit(ctx, can, clear, p));
-    clear(ctx, can.width, can.height);
+function gameMoveCircuit(ctx, can, clearIterations, p){
+    requestAnimationFrame(() => gameMoveCircuit(ctx, can, clearIterations, p));
+    clearIterations(ctx, can.width, can.height);
     for (let i = 0; i < p.length; i++) {
         p[i].upd();
         if (p[i].x < 0 || p[i].x > can.width || p[i].y < 0 || p[i].y > can.height) {
@@ -141,9 +141,9 @@ function gameMoveCircuit(ctx, can, clear, p){
     }
 }
 
-function gameMoveCursor(ctx, can, clear, p){
-    requestAnimationFrame(() => gameMoveCursor(ctx, can, clear, p));
-    clear(ctx, can.width, can.height);
+function gameMoveCursor(ctx, can, clearIterations, p){
+    requestAnimationFrame(() => gameMoveCursor(ctx, can, clearIterations, p));
+    clearIterations(ctx, can.width, can.height);
     for (let i = 0; i < p.length; i++) {
         p[i].upd();
         if (p[i].x < 0 || p[i].x > can.width || p[i].y < 0 || p[i].y > can.height) {
@@ -152,9 +152,9 @@ function gameMoveCursor(ctx, can, clear, p){
     }
 }
 
-function gameMoveSpeed(ctx, can, clear, p){
-    requestAnimationFrame(() => gameMoveSpeed(ctx, can, clear, p));
-    clear(ctx, can.width, can.height);
+function gameMoveSpeed(ctx, can, clearIterations, p){
+    requestAnimationFrame(() => gameMoveSpeed(ctx, can, clearIterations, p));
+    clearIterations(ctx, can.width, can.height);
     for (let i = 0; i < p.length; i++) {
         p[i].upd();
         if (p[i].x < 0 || p[i].x > can.width || p[i].y < 0 || p[i].y > can.height) {
@@ -228,16 +228,16 @@ function canvasFasterBounceIteration(id, rapidity){
 
     function gameMoveFasterBounce(){
         requestAnimationFrame(gameMoveFasterBounce);
-        clear(ctx, can.width, can.height);
+        clearIterations(ctx, can.width, can.height);
         if (particleBounce){
             particleBounce.update();
         }
     }
 
-    resizeCanvas(can, clear);
+    resizeCanvasIterations(can, clearIterations);
 
     window.addEventListener('resize', function(){
-        resizeCanvas(can, clear);
+        resizeCanvasIterations(can, clearIterations);
     });
 
     pulse();
@@ -309,15 +309,15 @@ function canvasSpeedIteration(id, rapidity, interval){
     //     }
     // }
 
-    resizeCanvas(can, clear);
+    resizeCanvasIterations(can, clearIterations);
 
     window.addEventListener('resize', function(){
-        resizeCanvas(can, clear);
+        resizeCanvasIterations(can, clearIterations);
     });
 
     pulse();
     // gameMove();
-    gameMoveSpeed(ctx, can, clear, p);
+    gameMoveSpeed(ctx, can, clearIterations, p);
 }
 
 
@@ -393,15 +393,15 @@ function canvasEdgeBounceIteration(id, rapidity, interval) {
     //     }
     // }
 
-    resizeCanvas(can, clear);
+    resizeCanvasIterations(can, clearIterations);
 
     window.addEventListener('resize', function(){
-        resizeCanvas(can, clear);
+        resizeCanvasIterations(can, clearIterations);
     });
 
     pulse();
     // gameMove();
-    gameMoveSpeed(ctx, can, clear, p);
+    gameMoveSpeed(ctx, can, clearIterations, p);
 }
 
 
@@ -468,10 +468,10 @@ function canvasSynchroCursorIteration(id, rapidity){
     //     }
     // }
 
-    resizeCanvas(can, clear);
+    resizeCanvasIterations(can, clearIterations);
 
     window.addEventListener('resize', function(){
-        resizeCanvas(can, clear);
+        resizeCanvasIterations(can, clearIterations);
     });
 
     can.addEventListener('pointermove', function (e){
@@ -479,7 +479,7 @@ function canvasSynchroCursorIteration(id, rapidity){
     });
 
     // gameMove();
-    gameMoveCursor(ctx, can, clear, p);
+    gameMoveCursor(ctx, can, clearIterations, p);
 }
 
 
@@ -567,15 +567,15 @@ function canvasCornerPulseIteration(id, rapidity, interval){
 
     
 
-    resizeCanvas(can, clear);
+    resizeCanvasIterations(can, clearIterations);
 
     window.addEventListener('resize', function(){
-        resizeCanvas(can, clear);
+        resizeCanvasIterations(can, clearIterations);
     });
 
     pulse();
     // gameMove();
-    gameMoveCircuit(ctx, can, clear, p);
+    gameMoveCircuit(ctx, can, clearIterations, p);
 }
 
 
@@ -656,7 +656,7 @@ function canvasBounceColorIteration(id, rapidity){
 
     function gameMoveColor(){
         requestAnimationFrame(gameMoveColor);
-        clear(ctx, can.width, can.height);
+        clearIterations(ctx, can.width, can.height);
         for(let i = 0; i < p.length; i++){
             p[i].upd();
     
@@ -673,10 +673,10 @@ function canvasBounceColorIteration(id, rapidity){
         }
     }
 
-    resizeCanvas(can, clear);
+    resizeCanvasIterations(can, clearIterations);
 
     window.addEventListener('resize', function(){
-        resizeCanvas(can, clear);
+        resizeCanvasIterations(can, clearIterations);
     });
 
     pulse();
@@ -748,10 +748,10 @@ function canvasCursorFollowIteration(id, rapidity){
     //     }
     // }
 
-    resizeCanvas(can, clear);
+    resizeCanvasIterations(can, clearIterations);
 
     window.addEventListener('resize', function(){
-        resizeCanvas(can, clear);
+        resizeCanvasIterations(can, clearIterations);
     });
 
     can.addEventListener('mousemove', function (e){
@@ -759,7 +759,7 @@ function canvasCursorFollowIteration(id, rapidity){
     });
 
     // gameMove();
-    gameMoveCursor(ctx, can, clear, p);
+    gameMoveCursor(ctx, can, clearIterations, p);
 }
 
 
@@ -813,7 +813,7 @@ function canvasLineIteration(id, rapidity, interval){
 
     function gameMoveLine(){
         requestAnimationFrame(gameMoveLine);
-        clear(ctx, can.width, can.height);
+        clearIterations(ctx, can.width, can.height);
         for(let i = 0; i < p.length; i++){
             p[i].upd();
             if(p[i].x < 0 || p[i].x > can.width || p[i].y < 0 || p[i].y > can.height){
@@ -822,10 +822,10 @@ function canvasLineIteration(id, rapidity, interval){
         }
     }
 
-    resizeCanvas(can, clear);
+    resizeCanvasIterations(can, clearIterations);
 
     window.addEventListener('resize', function(){
-        resizeCanvas(can, clear);
+        resizeCanvasIterations(can, clearIterations);
     });
 
     pulse();
@@ -894,15 +894,15 @@ function canvasCircuitIteration(id, rapidity, interval){
     //     }
     // }
 
-    resizeCanvas(can, clear);
+    resizeCanvasIterations(can, clearIterations);
 
     window.addEventListener('resize', function(){
-        resizeCanvas(can, clear);
+        resizeCanvasIterations(can, clearIterations);
     });
 
     pulse();
     // gameMove();
-    gameMoveCircuit(ctx, can, clear, p);
+    gameMoveCircuit(ctx, can, clearIterations, p);
 }
 
 
