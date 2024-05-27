@@ -830,7 +830,7 @@ if(canvasEdgeBounce){
 }
 
 const canvasSynchroCursor = document.getElementById("synchro-cursor-canvas");
-if (canvasSynchroCursor) {
+if (canvasSynchroCursor){
     canvasSynchroCursorIteration(canvasSynchroCursor, 15);
 }
 
@@ -845,7 +845,7 @@ if(canvasBounceColor){
 }
 
 const canvasCursorFollow = document.getElementById("cursor-follow-canvas");
-if (canvasCursorFollow) {
+if (canvasCursorFollow){
     canvasCursorFollowIteration(canvasCursorFollow, 1);
 }
 
@@ -939,6 +939,7 @@ if(index){
             }
         });
 
+        // Projects section
         gsap.from(".projects__description > *", {
             x: "-15%",
             opacity: 0,
@@ -988,7 +989,6 @@ if(index){
                 trigger: '.softskills',
                 start: 'top 40%',
                 end: 'bottom 30%',
-                // markers: true,
             }
         });
 
@@ -1000,7 +1000,6 @@ if(index){
                 trigger: '.softskills__title',
                 start: 'top 40%',
                 end: 'bottom 30%',
-                // markers: true,
             }
         });
 
@@ -1013,7 +1012,6 @@ if(index){
                 trigger: '.softskills__text',
                 start: 'top 40%',
                 end: 'bottom 30%',
-                // markers: true,
             }
         });
 
@@ -1038,9 +1036,6 @@ if(index){
                 trigger: ".softskills",
                 start: 'top 40%',
                 end: 'bottom 30%',
-                // start: "top 75%",
-                // end: "40% 75%",
-                // scrub: 1,
             },   
         });
 
@@ -1067,7 +1062,6 @@ if(index){
                 trigger: '.skills',
                 start: 'top 40%',
                 end: 'bottom 30%',
-                // markers: true,
             }
         });
 
@@ -1079,7 +1073,6 @@ if(index){
                 trigger: '.skills__title',
                 start: 'top 40%',
                 end: 'bottom 30%',
-                // markers: true,
             }
         });
 
@@ -1092,7 +1085,6 @@ if(index){
                 trigger: '.skills__text',
                 start: 'top 40%',
                 end: 'bottom 30%',
-                // markers: true,
             }
         });
 
@@ -1210,31 +1202,6 @@ if(index){
             },   
         });
 
-
-
-        // ----- Slider projects -----
-        // let sections = gsap.utils.toArray(".projects__el");
-            
-        // gsap.to(sections,{
-        // xPercent: -100 * (sections.length - 1),
-        // ease: "none",
-        // scrollTrigger: {
-        //     trigger: ".projects__slider",
-        //     pin: ".projects",
-        //     pinSpacing: true,
-        //     scrub: 1,
-        //     end: "+=3000",
-        // }
-        // });
-
-        // gsap.to('.contact',{
-        // scrollTrigger:{
-        //     trigger: '.contact',
-        //     pinnedContainer: ".projects",
-        //     start:'top 50%',
-        //     toggleActions: 'play none reset none',
-        // }
-        // });
 
         let sections = gsap.utils.toArray(".projects__el");
         let projectsNumber = document.querySelector(".projects__number .projects__number--size");
