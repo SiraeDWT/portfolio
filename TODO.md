@@ -1,1 +1,0 @@
-- Ajouter une fonctionnalité de Play/Pause sur les itérations de canvas;
