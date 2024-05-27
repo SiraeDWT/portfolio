@@ -1,3 +1,12 @@
+@media only screen and (min-width: 400px){
+    .presentation{
+
+        &__title{
+            font-size: $h1-ultra-size;
+        }
+    }
+}
+
 @media only screen and (min-width: $breakpoint-mobile){
     .wrapper{
         width: 80%;
