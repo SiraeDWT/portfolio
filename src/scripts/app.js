@@ -130,30 +130,8 @@ function clearIterations(ctx, width, height){
     ctx.fillRect(0, 0, width, height);
 }
 
-function gameMoveCircuit(ctx, can, clearIterations, p){
-    requestAnimationFrame(() => gameMoveCircuit(ctx, can, clearIterations, p));
-    clearIterations(ctx, can.width, can.height);
-    for (let i = 0; i < p.length; i++) {
-        p[i].upd();
-        if (p[i].x < 0 || p[i].x > can.width || p[i].y < 0 || p[i].y > can.height) {
-            p.splice(i, 1);
-        }
-    }
-}
-
-function gameMoveCursor(ctx, can, clearIterations, p){
-    requestAnimationFrame(() => gameMoveCursor(ctx, can, clearIterations, p));
-    clearIterations(ctx, can.width, can.height);
-    for (let i = 0; i < p.length; i++) {
-        p[i].upd();
-        if (p[i].x < 0 || p[i].x > can.width || p[i].y < 0 || p[i].y > can.height) {
-            p.splice(i, 1);
-        }
-    }
-}
-
-function gameMoveSpeed(ctx, can, clearIterations, p){
-    requestAnimationFrame(() => gameMoveSpeed(ctx, can, clearIterations, p));
+function gameMoveIterations(ctx, can, clearIterations, p){
+    requestAnimationFrame(() => gameMoveIterations(ctx, can, clearIterations, p));
     clearIterations(ctx, can.width, can.height);
     for (let i = 0; i < p.length; i++) {
         p[i].upd();
@@ -165,7 +143,8 @@ function gameMoveSpeed(ctx, can, clearIterations, p){
 
 
 
-
+// Keep particle() and pulse() functions like that in anothers functions. These are different functions in each case.
+// No need to rename particle() and pulse() functions, they are internal to other functions.
 
 function canvasFasterBounceIteration(id, rapidity){
     let can = id;
@@ -241,7 +220,6 @@ function canvasFasterBounceIteration(id, rapidity){
     });
 
     pulse();
-    // gameMove();
     gameMoveFasterBounce();
 }
 
@@ -298,17 +276,6 @@ function canvasSpeedIteration(id, rapidity, interval){
         }
     }
 
-    // function gameMove(){
-    //     requestAnimationFrame(gameMove);
-    //     clear(ctx, can.width, can.height);
-    //     for (let i = 0; i < p.length; i++) {
-    //         p[i].upd();
-    //         if (p[i].x < 0 || p[i].x > can.width || p[i].y < 0 || p[i].y > can.height) {
-    //             p.splice(i, 1);
-    //         }
-    //     }
-    // }
-
     resizeCanvasIterations(can, clearIterations);
 
     window.addEventListener('resize', function(){
@@ -316,8 +283,8 @@ function canvasSpeedIteration(id, rapidity, interval){
     });
 
     pulse();
-    // gameMove();
-    gameMoveSpeed(ctx, can, clearIterations, p);
+    // gameMoveSpeed(ctx, can, clearIterations, p);
+    gameMoveIterations(ctx, can, clearIterations, p);
 }
 
 
@@ -382,17 +349,6 @@ function canvasEdgeBounceIteration(id, rapidity, interval) {
         }
     }
 
-    // function gameMove(){
-    //     requestAnimationFrame(gameMove);
-    //     clear(ctx, can.width, can.height);
-    //     for (let i = 0; i < p.length; i++) {
-    //         p[i].upd();
-    //         if (p[i].x < 0 || p[i].x > can.width || p[i].y < 0 || p[i].y > can.height) {
-    //             p.splice(i, 1);
-    //         }
-    //     }
-    // }
-
     resizeCanvasIterations(can, clearIterations);
 
     window.addEventListener('resize', function(){
@@ -400,8 +356,8 @@ function canvasEdgeBounceIteration(id, rapidity, interval) {
     });
 
     pulse();
-    // gameMove();
-    gameMoveSpeed(ctx, can, clearIterations, p);
+    // gameMoveSpeed(ctx, can, clearIterations, p);
+    gameMoveIterations(ctx, can, clearIterations, p);
 }
 
 
@@ -444,7 +400,6 @@ function canvasSynchroCursorIteration(id, rapidity){
     }
 
     let speed = rapidity;
-    // let period = interval;
 
     function pulse(x, y) {
         let h = Math.random() * (210 - 150) + 150;
@@ -457,17 +412,6 @@ function canvasSynchroCursorIteration(id, rapidity){
         }
     }
 
-    // function gameMove() {
-    //     requestAnimationFrame(gameMove);
-    //     clear(ctx, can.width, can.height);
-    //     for (let i = 0; i < p.length; i++) {
-    //         p[i].upd();
-    //         if (p[i].x < 0 || p[i].x > can.width || p[i].y < 0 || p[i].y > can.height) {
-    //             p.splice(i, 1);
-    //         }
-    //     }
-    // }
-
     resizeCanvasIterations(can, clearIterations);
 
     window.addEventListener('resize', function(){
@@ -478,8 +422,8 @@ function canvasSynchroCursorIteration(id, rapidity){
         pulse(e.clientX - can.getBoundingClientRect().left, e.clientY - can.getBoundingClientRect().top);
     });
 
-    // gameMove();
-    gameMoveCursor(ctx, can, clearIterations, p);
+    // gameMoveCursor(ctx, can, clearIterations, p);
+    gameMoveIterations(ctx, can, clearIterations, p);
 }
 
 
@@ -554,19 +498,6 @@ function canvasCornerPulseIteration(id, rapidity, interval){
         }
     }
 
-    // function gameMove(){
-    //     requestAnimationFrame(gameMove);
-    //     clear(ctx, can.width, can.height);
-    //     for(let i = 0; i < p.length; i++) {
-    //         p[i].upd();
-    //         if(p[i].x < 0 || p[i].x > can.width || p[i].y < 0 || p[i].y > can.height) {
-    //             p.splice(i,1);
-    //         }
-    //     }
-    // }
-
-    
-
     resizeCanvasIterations(can, clearIterations);
 
     window.addEventListener('resize', function(){
@@ -574,8 +505,8 @@ function canvasCornerPulseIteration(id, rapidity, interval){
     });
 
     pulse();
-    // gameMove();
-    gameMoveCircuit(ctx, can, clearIterations, p);
+    // gameMoveCircuit(ctx, can, clearIterations, p);
+    gameMoveIterations(ctx, can, clearIterations, p);
 }
 
 
@@ -637,7 +568,6 @@ function canvasBounceColorIteration(id, rapidity){
     }
 
     let speed = rapidity;
-    // let period = interval;
 
     let firstPulse = true;
 
@@ -680,7 +610,6 @@ function canvasBounceColorIteration(id, rapidity){
     });
 
     pulse();
-    // gameMove();
     gameMoveColor();
 }
 
@@ -724,7 +653,6 @@ function canvasCursorFollowIteration(id, rapidity){
     }
 
     let speed = rapidity;
-    // let period = interval;
 
     function pulse(x, y) {
         let h = Math.random() * (210 - 150) + 150;
@@ -737,17 +665,6 @@ function canvasCursorFollowIteration(id, rapidity){
         }
     }
 
-    // function gameMove() {
-    //     requestAnimationFrame(gameMove);
-    //     clear(ctx, can.width, can.height);
-    //     for (let i = 0; i < p.length; i++) {
-    //         p[i].upd();
-    //         if (p[i].x < 0 || p[i].x > can.width || p[i].y < 0 || p[i].y > can.height) {
-    //             p.splice(i, 1);
-    //         }
-    //     }
-    // }
-
     resizeCanvasIterations(can, clearIterations);
 
     window.addEventListener('resize', function(){
@@ -758,8 +675,8 @@ function canvasCursorFollowIteration(id, rapidity){
         pulse(e.clientX - can.getBoundingClientRect().left, e.clientY - can.getBoundingClientRect().top);
     });
 
-    // gameMove();
-    gameMoveCursor(ctx, can, clearIterations, p);
+    // gameMoveCursor(ctx, can, clearIterations, p);
+    gameMoveIterations(ctx, can, clearIterations, p);
 }
 
 
@@ -829,7 +746,6 @@ function canvasLineIteration(id, rapidity, interval){
     });
 
     pulse();
-    // gameMove();
     gameMoveLine();
 }
 
@@ -883,17 +799,6 @@ function canvasCircuitIteration(id, rapidity, interval){
         }
     }
 
-    // function gameMove(){
-    //     requestAnimationFrame(gameMove);
-    //     clear(ctx, can.width, can.height);
-    //     for(let i = 0; i < p.length; i++) {
-    //         p[i].upd();
-    //         if(p[i].x < 0 || p[i].x > can.width || p[i].y < 0 || p[i].y > can.height) {
-    //             p.splice(i,1);
-    //         }
-    //     }
-    // }
-
     resizeCanvasIterations(can, clearIterations);
 
     window.addEventListener('resize', function(){
@@ -901,8 +806,8 @@ function canvasCircuitIteration(id, rapidity, interval){
     });
 
     pulse();
-    // gameMove();
-    gameMoveCircuit(ctx, can, clearIterations, p);
+    // gameMoveCircuit(ctx, can, clearIterations, p);
+    gameMoveIterations(ctx, can, clearIterations, p);
 }
 
 
